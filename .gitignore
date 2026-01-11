@@ -205,3 +205,45 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ============================================
+# PROJECT-SPECIFIC: Climate Forecasting (MLA)
+# ============================================
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook execution metadata
+*/.ipynb_checkpoints/*
+.virtual_documents/
+
+# Large model files (optional - track if small enough)
+# Models/*.h5
+# Models/*.pkl
+
+# Temporary results
+Results/*.tmp
+Results/.DS_Store
+
+# Draft predictions
+Predictions/*_draft.csv
+Predictions/*_temp.csv
+
+# System files
+Thumbs.db
+*.bak
+*.orig
+*.rej
+
+# TensorFlow
+*.ckpt
+*.pb
+*.pbtxt
+events.out.tfevents.*
+
+# Logs
+*.log
