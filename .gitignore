@@ -247,3 +247,7 @@ events.out.tfevents.*
 
 # Logs
 *.log
+
+docs/
+.cursor
+.antigravity

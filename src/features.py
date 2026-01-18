@@ -5,8 +5,9 @@ Functions for creating drought indices and other derived features.
 
 import pandas as pd
 import numpy as np
+import pymannkendall as mk
 from scipy import stats
-from typing import Tuple
+from typing import Tuple, Dict, Any
 import logging
 
 logger = logging.getLogger(__name__)
@@ -280,3 +281,68 @@ def create_rolling_features(
     logger.info(f"Created {len(columns) * len(windows) * len(functions)} rolling features")
     
     return df
+
+
+def calculate_mk_trend(
+    series: pd.Series,
+    alpha: float = 0.05
+) -> Dict[str, Any]:
+    """
+    Calculate Mann-Kendall Trend Test.
+    
+    Parameters:
+        series: Time series data
+        alpha: Significance level
+        
+    Returns:
+        Dict with trend results (trend, p, z, tau, s, var_s, slope, intercept)
+    """
+    # Use Hamed-Rao modification for autocorrelation if valid
+    # Fallback to original if short series
+    if len(series) < 10:
+        res = mk.original_test(series, alpha=alpha)
+        method = 'original'
+    else:
+        try:
+            res = mk.hamed_rao_modification_test(series, alpha=alpha)
+            method = 'hamed_rao'
+        except Exception as e:
+            logger.warning(f"Hamed-Rao test failed: {e}. using original.")
+            res = mk.original_test(series, alpha=alpha)
+            method = 'original'
+            
+    return {
+        'trend': res.trend,
+        'h': bool(res.h),
+        'p': float(res.p),
+        'z': float(res.z),
+        'Tau': float(res.Tau),
+        's': float(res.s),
+        'var_s': float(res.var_s),
+        'slope': float(res.slope),
+        'intercept': float(res.intercept),
+        'method': method
+    }
+
+
+def calculate_sens_slope(
+    series: pd.Series,
+    alpha: float = 0.05
+) -> Dict[str, float]:
+    """
+    Calculate Sen's Slope.
+    
+    Parameters:
+        series: Time series data
+        alpha: Significance level
+        
+    Returns:
+        Dict with slope and intercept
+    """
+    res = mk.sens_slope(series, alpha=alpha)
+    
+    return {
+        'slope': float(res.slope),
+        'intercept': float(res.intercept)
+    }
+
