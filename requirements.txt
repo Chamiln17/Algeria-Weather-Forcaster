@@ -1,0 +1,45 @@
+# Core Data Science
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Statistical Analysis
+statsmodels>=0.14.0
+pymannkendall>=1.4.3
+pmdarima>=2.0.3
+
+# Machine Learning
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Deep Learning
+tensorflow>=2.13.0
+keras>=2.13.0
+
+# Jupyter
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.25.0
+
+# Utilities
+pyyaml>=6.0
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+
+# Data Processing
+openpyxl>=3.1.0  # For Excel files if needed
+xlrd>=2.0.1      # For older Excel formats
+
+# Optional: For RL integration (uncomment when needed)
+# gymnasium>=0.29.0
+# stable-baselines3>=2.1.0
+# torch>=2.0.0
+
+# Optional: For RAG system (uncomment when needed)
+# openai>=1.0.0
+# langchain>=0.1.0
+# chromadb>=0.4.0

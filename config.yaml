@@ -1,0 +1,111 @@
+# Project Configuration
+project:
+  name: "Algiers Climate Forecasting"
+  version: "1.0.0"
+  author: "Master's Project Team"
+  start_date: "2026-01-01"
+
+# Data paths
+paths:
+  raw_data: "Dataset/Algiers_Weather_Data.csv"
+  processed_data: "Preprocessed_dataset/algiers_monthly_processed_v2.csv"
+  models: "Models/"
+  predictions: "Predictions/"
+  results: "Results/"
+
+# Data processing
+preprocessing:
+  # Missing value strategy
+  max_ffill_days: 5  # Maximum forward fill for temp, ET0, radiation
+  precip_na_fill: 0.0  # Fill missing precipitation with 0
+  
+  # Aggregation rules
+  et0_aggregation: "sum"  # CRITICAL: sum not mean (mm/month)
+  temp_aggregation: "mean"
+  precip_aggregation: "sum"
+  radiation_aggregation: "sum"
+  wind_aggregation: "max"
+  
+  # Feature engineering
+  rolling_window: 12  # months for rolling stats
+  anomaly_baseline_start: "2002-01-01"
+  anomaly_baseline_end: "2023-12-31"
+
+# Trend analysis
+trend_analysis:
+  significance_level: 0.05
+  mk_variants:
+    - "original"
+    - "hamed_rao"  # Autocorrelation corrected
+    - "trend_free_prewhitening"
+  sen_slope_units: "per_year"  # Convert monthly slope to yearly
+
+# Drought indices
+drought:
+  spi_window: 12  # months
+  spei_window: 12  # months
+  moderate_threshold: -1.0
+  severe_threshold: -1.5
+  extreme_threshold: -2.0
+
+# Forecasting
+forecasting:
+  target_date: "2040-12-01"
+  target_variable: "temperature_2m_mean"
+  
+  # SARIMA
+  sarima:
+    seasonal: true
+    seasonal_period: 12
+    max_p: 5
+    max_q: 5
+    max_P: 2
+    max_Q: 2
+    stepwise: true
+  
+  # Linear Regression
+  linear:
+    standardize_features: true
+    seasonal_dummies: true
+  
+  # LSTM
+  lstm:
+    look_back: 12
+    layers:
+      - units: 64
+        dropout: 0.2
+        return_sequences: true
+      - units: 32
+        dropout: 0.2
+        return_sequences: false
+    dense_units: 16
+    optimizer: "adam"
+    loss: "mse"
+    epochs: 150
+    batch_size: 16
+    early_stopping_patience: 15
+    reduce_lr_patience: 5
+    random_seed: 42
+
+# Model evaluation
+evaluation:
+  metrics:
+    - "mae"
+    - "rmse"
+    - "r2"
+    - "mape"
+  cv_folds: 5
+  test_size: 0.2
+
+# Visualization
+plotting:
+  figure_dpi: 300
+  figure_format: "png"
+  style: "seaborn-v0_8-darkgrid"
+  color_palette: "Set2"
+
+# Random seeds for reproducibility
+random_seeds:
+  numpy: 42
+  tensorflow: 42
+  sklearn: 42
