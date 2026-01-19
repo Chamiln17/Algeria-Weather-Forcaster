@@ -339,7 +339,7 @@ def calculate_sens_slope(
     Returns:
         Dict with slope and intercept
     """
-    res = mk.sens_slope(series, alpha=alpha)
+    res = mk.sens_slope(series)
     
     return {
         'slope': float(res.slope),

@@ -1,0 +1,950 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-19T14:29:11.267894",
+    "description": "Climate change analysis statistics for Algeria",
+    "data_sources": [
+      "trends.json",
+      "forecast CSVs"
+    ]
+  },
+  "trends": {},
+  "forecasts": {
+    "linear_forecast_2040_final": {
+      "model": "linear_forecast_2040_final",
+      "forecast_period": "2023-09-01 to 2040-12-01",
+      "variables": [
+        "date",
+        "temperature_forecast"
+      ],
+      "summary_statistics": {
+        "temperature_forecast": {
+          "count": 208.0,
+          "mean": 19.03556428057996,
+          "std": 5.595268651080043,
+          "min": 11.301714645108364,
+          "25%": 13.669059470018187,
+          "50%": 18.130594019970623,
+          "75%": 24.287705165333485,
+          "max": 28.08628180147999
+        }
+      },
+      "last_5_years": [
+        {
+          "date": "2036-01-01",
+          "temperature_forecast": 12.05168693320819
+        },
+        {
+          "date": "2036-02-01",
+          "temperature_forecast": 12.493690133011736
+        },
+        {
+          "date": "2036-03-01",
+          "temperature_forecast": 14.410044704469192
+        },
+        {
+          "date": "2036-04-01",
+          "temperature_forecast": 16.823998761165186
+        },
+        {
+          "date": "2036-05-01",
+          "temperature_forecast": 19.937170804175945
+        },
+        {
+          "date": "2036-06-01",
+          "temperature_forecast": 24.21945330661973
+        },
+        {
+          "date": "2036-07-01",
+          "temperature_forecast": 27.65022065754837
+        },
+        {
+          "date": "2036-08-01",
+          "temperature_forecast": 27.83629103878005
+        },
+        {
+          "date": "2036-09-01",
+          "temperature_forecast": 24.929944576199645
+        },
+        {
+          "date": "2036-10-01",
+          "temperature_forecast": 21.434660398012245
+        },
+        {
+          "date": "2036-11-01",
+          "temperature_forecast": 16.405658861913935
+        },
+        {
+          "date": "2036-12-01",
+          "temperature_forecast": 13.422064391867853
+        },
+        {
+          "date": "2037-01-01",
+          "temperature_forecast": 12.114184623883176
+        },
+        {
+          "date": "2037-02-01",
+          "temperature_forecast": 12.556187823686722
+        },
+        {
+          "date": "2037-03-01",
+          "temperature_forecast": 14.472542395144178
+        },
+        {
+          "date": "2037-04-01",
+          "temperature_forecast": 16.88649645184017
+        },
+        {
+          "date": "2037-05-01",
+          "temperature_forecast": 19.999668494850926
+        },
+        {
+          "date": "2037-06-01",
+          "temperature_forecast": 24.281950997294715
+        },
+        {
+          "date": "2037-07-01",
+          "temperature_forecast": 27.71271834822336
+        },
+        {
+          "date": "2037-08-01",
+          "temperature_forecast": 27.898788729455035
+        },
+        {
+          "date": "2037-09-01",
+          "temperature_forecast": 24.992442266874637
+        },
+        {
+          "date": "2037-10-01",
+          "temperature_forecast": 21.49715808868723
+        },
+        {
+          "date": "2037-11-01",
+          "temperature_forecast": 16.46815655258892
+        },
+        {
+          "date": "2037-12-01",
+          "temperature_forecast": 13.484562082542835
+        },
+        {
+          "date": "2038-01-01",
+          "temperature_forecast": 12.17668231455816
+        },
+        {
+          "date": "2038-02-01",
+          "temperature_forecast": 12.618685514361708
+        },
+        {
+          "date": "2038-03-01",
+          "temperature_forecast": 14.535040085819164
+        },
+        {
+          "date": "2038-04-01",
+          "temperature_forecast": 16.948994142515158
+        },
+        {
+          "date": "2038-05-01",
+          "temperature_forecast": 20.06216618552591
+        },
+        {
+          "date": "2038-06-01",
+          "temperature_forecast": 24.344448687969702
+        },
+        {
+          "date": "2038-07-01",
+          "temperature_forecast": 27.775216038898343
+        },
+        {
+          "date": "2038-08-01",
+          "temperature_forecast": 27.961286420130023
+        },
+        {
+          "date": "2038-09-01",
+          "temperature_forecast": 25.054939957549617
+        },
+        {
+          "date": "2038-10-01",
+          "temperature_forecast": 21.559655779362217
+        },
+        {
+          "date": "2038-11-01",
+          "temperature_forecast": 16.530654243263903
+        },
+        {
+          "date": "2038-12-01",
+          "temperature_forecast": 13.547059773217825
+        },
+        {
+          "date": "2039-01-01",
+          "temperature_forecast": 12.239180005233148
+        },
+        {
+          "date": "2039-02-01",
+          "temperature_forecast": 12.681183205036692
+        },
+        {
+          "date": "2039-03-01",
+          "temperature_forecast": 14.59753777649415
+        },
+        {
+          "date": "2039-04-01",
+          "temperature_forecast": 17.011491833190142
+        },
+        {
+          "date": "2039-05-01",
+          "temperature_forecast": 20.1246638762009
+        },
+        {
+          "date": "2039-06-01",
+          "temperature_forecast": 24.406946378644687
+        },
+        {
+          "date": "2039-07-01",
+          "temperature_forecast": 27.83771372957333
+        },
+        {
+          "date": "2039-08-01",
+          "temperature_forecast": 28.023784110805007
+        },
+        {
+          "date": "2039-09-01",
+          "temperature_forecast": 25.1174376482246
+        },
+        {
+          "date": "2039-10-01",
+          "temperature_forecast": 21.6221534700372
+        },
+        {
+          "date": "2039-11-01",
+          "temperature_forecast": 16.59315193393889
+        },
+        {
+          "date": "2039-12-01",
+          "temperature_forecast": 13.609557463892807
+        },
+        {
+          "date": "2040-01-01",
+          "temperature_forecast": 12.301677695908133
+        },
+        {
+          "date": "2040-02-01",
+          "temperature_forecast": 12.74368089571168
+        },
+        {
+          "date": "2040-03-01",
+          "temperature_forecast": 14.660035467169134
+        },
+        {
+          "date": "2040-04-01",
+          "temperature_forecast": 17.073989523865126
+        },
+        {
+          "date": "2040-05-01",
+          "temperature_forecast": 20.187161566875883
+        },
+        {
+          "date": "2040-06-01",
+          "temperature_forecast": 24.46944406931967
+        },
+        {
+          "date": "2040-07-01",
+          "temperature_forecast": 27.900211420248315
+        },
+        {
+          "date": "2040-08-01",
+          "temperature_forecast": 28.08628180147999
+        },
+        {
+          "date": "2040-09-01",
+          "temperature_forecast": 25.17993533889959
+        },
+        {
+          "date": "2040-10-01",
+          "temperature_forecast": 21.684651160712185
+        },
+        {
+          "date": "2040-11-01",
+          "temperature_forecast": 16.655649624613876
+        },
+        {
+          "date": "2040-12-01",
+          "temperature_forecast": 13.672055154567794
+        }
+      ]
+    },
+    "lstm_forecast_2040_final": {
+      "model": "lstm_forecast_2040_final",
+      "forecast_period": "2023-09-01 to 2040-12-01",
+      "variables": [
+        "date",
+        "temperature_forecast"
+      ],
+      "summary_statistics": {
+        "temperature_forecast": {
+          "count": 208.0,
+          "mean": 17.64799898076923,
+          "std": 5.713333114253277,
+          "min": 10.490295,
+          "25%": 12.024167,
+          "50%": 16.5568835,
+          "75%": 23.047414,
+          "max": 26.555788
+        }
+      },
+      "last_5_years": [
+        {
+          "date": "2036-01-01",
+          "temperature_forecast": 10.5026
+        },
+        {
+          "date": "2036-02-01",
+          "temperature_forecast": 11.081813
+        },
+        {
+          "date": "2036-03-01",
+          "temperature_forecast": 12.222946
+        },
+        {
+          "date": "2036-04-01",
+          "temperature_forecast": 14.310108
+        },
+        {
+          "date": "2036-05-01",
+          "temperature_forecast": 18.61785
+        },
+        {
+          "date": "2036-06-01",
+          "temperature_forecast": 22.703749
+        },
+        {
+          "date": "2036-07-01",
+          "temperature_forecast": 25.66088
+        },
+        {
+          "date": "2036-08-01",
+          "temperature_forecast": 26.280668
+        },
+        {
+          "date": "2036-09-01",
+          "temperature_forecast": 24.029406
+        },
+        {
+          "date": "2036-10-01",
+          "temperature_forecast": 19.657356
+        },
+        {
+          "date": "2036-11-01",
+          "temperature_forecast": 15.082229
+        },
+        {
+          "date": "2036-12-01",
+          "temperature_forecast": 11.478546
+        },
+        {
+          "date": "2037-01-01",
+          "temperature_forecast": 10.503129
+        },
+        {
+          "date": "2037-02-01",
+          "temperature_forecast": 11.083031
+        },
+        {
+          "date": "2037-03-01",
+          "temperature_forecast": 12.224921
+        },
+        {
+          "date": "2037-04-01",
+          "temperature_forecast": 14.315333
+        },
+        {
+          "date": "2037-05-01",
+          "temperature_forecast": 18.624533
+        },
+        {
+          "date": "2037-06-01",
+          "temperature_forecast": 22.709606
+        },
+        {
+          "date": "2037-07-01",
+          "temperature_forecast": 25.664045
+        },
+        {
+          "date": "2037-08-01",
+          "temperature_forecast": 26.279493
+        },
+        {
+          "date": "2037-09-01",
+          "temperature_forecast": 24.024134
+        },
+        {
+          "date": "2037-10-01",
+          "temperature_forecast": 19.649996
+        },
+        {
+          "date": "2037-11-01",
+          "temperature_forecast": 15.075548
+        },
+        {
+          "date": "2037-12-01",
+          "temperature_forecast": 11.474015
+        },
+        {
+          "date": "2038-01-01",
+          "temperature_forecast": 10.5036545
+        },
+        {
+          "date": "2038-02-01",
+          "temperature_forecast": 11.084241
+        },
+        {
+          "date": "2038-03-01",
+          "temperature_forecast": 12.226884
+        },
+        {
+          "date": "2038-04-01",
+          "temperature_forecast": 14.320523
+        },
+        {
+          "date": "2038-05-01",
+          "temperature_forecast": 18.63118
+        },
+        {
+          "date": "2038-06-01",
+          "temperature_forecast": 22.715445
+        },
+        {
+          "date": "2038-07-01",
+          "temperature_forecast": 25.667217
+        },
+        {
+          "date": "2038-08-01",
+          "temperature_forecast": 26.278341
+        },
+        {
+          "date": "2038-09-01",
+          "temperature_forecast": 24.018894
+        },
+        {
+          "date": "2038-10-01",
+          "temperature_forecast": 19.642664
+        },
+        {
+          "date": "2038-11-01",
+          "temperature_forecast": 15.068892
+        },
+        {
+          "date": "2038-12-01",
+          "temperature_forecast": 11.469494
+        },
+        {
+          "date": "2039-01-01",
+          "temperature_forecast": 10.504175
+        },
+        {
+          "date": "2039-02-01",
+          "temperature_forecast": 11.085445
+        },
+        {
+          "date": "2039-03-01",
+          "temperature_forecast": 12.228841
+        },
+        {
+          "date": "2039-04-01",
+          "temperature_forecast": 14.32568
+        },
+        {
+          "date": "2039-05-01",
+          "temperature_forecast": 18.637796
+        },
+        {
+          "date": "2039-06-01",
+          "temperature_forecast": 22.721264
+        },
+        {
+          "date": "2039-07-01",
+          "temperature_forecast": 25.670383
+        },
+        {
+          "date": "2039-08-01",
+          "temperature_forecast": 26.277197
+        },
+        {
+          "date": "2039-09-01",
+          "temperature_forecast": 24.013676
+        },
+        {
+          "date": "2039-10-01",
+          "temperature_forecast": 19.635365
+        },
+        {
+          "date": "2039-11-01",
+          "temperature_forecast": 15.062257
+        },
+        {
+          "date": "2039-12-01",
+          "temperature_forecast": 11.464985
+        },
+        {
+          "date": "2040-01-01",
+          "temperature_forecast": 10.504695
+        },
+        {
+          "date": "2040-02-01",
+          "temperature_forecast": 11.086645
+        },
+        {
+          "date": "2040-03-01",
+          "temperature_forecast": 12.230788
+        },
+        {
+          "date": "2040-04-01",
+          "temperature_forecast": 14.330814
+        },
+        {
+          "date": "2040-05-01",
+          "temperature_forecast": 18.644382
+        },
+        {
+          "date": "2040-06-01",
+          "temperature_forecast": 22.727058
+        },
+        {
+          "date": "2040-07-01",
+          "temperature_forecast": 25.673534
+        },
+        {
+          "date": "2040-08-01",
+          "temperature_forecast": 26.276066
+        },
+        {
+          "date": "2040-09-01",
+          "temperature_forecast": 24.008482
+        },
+        {
+          "date": "2040-10-01",
+          "temperature_forecast": 19.628092
+        },
+        {
+          "date": "2040-11-01",
+          "temperature_forecast": 15.055649
+        },
+        {
+          "date": "2040-12-01",
+          "temperature_forecast": 11.460497
+        }
+      ]
+    },
+    "sarima_forecast_2040_final": {
+      "model": "sarima_forecast_2040_final",
+      "forecast_period": "2023-09-01 to 2040-12-01",
+      "variables": [
+        "date",
+        "temperature_forecast",
+        "lower_95",
+        "upper_95"
+      ],
+      "summary_statistics": {
+        "temperature_forecast": {
+          "count": 208.0,
+          "mean": 18.22537669043385,
+          "std": 5.537904571923342,
+          "min": 10.767918036932356,
+          "25%": 13.204401269831829,
+          "50%": 17.24103004779909,
+          "75%": 23.20379846786821,
+          "max": 26.801047507078668
+        },
+        "lower_95": {
+          "count": 208.0,
+          "mean": 15.655168803592288,
+          "std": 5.5410367420683,
+          "min": 8.141175572687722,
+          "25%": 10.58269780288364,
+          "50%": 14.654950734338716,
+          "75%": 20.738123107643926,
+          "max": 24.44072552971576
+        },
+        "upper_95": {
+          "count": 208.0,
+          "mean": 20.79558457727542,
+          "std": 5.537765130583723,
+          "min": 13.128057996216157,
+          "25%": 15.671048641115167,
+          "50%": 19.806078660910018,
+          "75%": 25.783377475589685,
+          "max": 29.413080567945144
+        }
+      },
+      "last_5_years": [
+        {
+          "date": "2036-01-01",
+          "temperature_forecast": 10.870022818819912,
+          "lower_95": 8.20082191703123,
+          "upper_95": 13.539223720608591
+        },
+        {
+          "date": "2036-02-01",
+          "temperature_forecast": 11.680294860586894,
+          "lower_95": 9.011090897063616,
+          "upper_95": 14.349498824110173
+        },
+        {
+          "date": "2036-03-01",
+          "temperature_forecast": 13.4407576440429,
+          "lower_95": 10.771553151335512,
+          "upper_95": 16.10996213675029
+        },
+        {
+          "date": "2036-04-01",
+          "temperature_forecast": 15.695779225078216,
+          "lower_95": 13.026574640912994,
+          "upper_95": 18.36498380924344
+        },
+        {
+          "date": "2036-05-01",
+          "temperature_forecast": 18.77581803936417,
+          "lower_95": 16.106613439423402,
+          "upper_95": 21.44502263930495
+        },
+        {
+          "date": "2036-06-01",
+          "temperature_forecast": 22.928146282411785,
+          "lower_95": 20.25894167992884,
+          "upper_95": 25.59735088489473
+        },
+        {
+          "date": "2036-07-01",
+          "temperature_forecast": 26.68769975186425,
+          "lower_95": 24.01849515000908,
+          "upper_95": 29.356904353719436
+        },
+        {
+          "date": "2036-08-01",
+          "temperature_forecast": 26.647621210822493,
+          "lower_95": 23.978416615250104,
+          "upper_95": 29.31682580639488
+        },
+        {
+          "date": "2036-09-01",
+          "temperature_forecast": 23.86956119887908,
+          "lower_95": 21.180606631773472,
+          "upper_95": 26.55851576598468
+        },
+        {
+          "date": "2036-10-01",
+          "temperature_forecast": 20.11620995731833,
+          "lower_95": 17.423856806297486,
+          "upper_95": 22.808563108339165
+        },
+        {
+          "date": "2036-11-01",
+          "temperature_forecast": 15.379066812998284,
+          "lower_95": 12.686128345973447,
+          "upper_95": 18.07200528002312
+        },
+        {
+          "date": "2036-12-01",
+          "temperature_forecast": 12.672230699455886,
+          "lower_95": 9.9792006564331,
+          "upper_95": 15.365260742478672
+        },
+        {
+          "date": "2037-01-01",
+          "temperature_forecast": 10.87852991570665,
+          "lower_95": 8.185539451052275,
+          "upper_95": 13.571520380361026
+        },
+        {
+          "date": "2037-02-01",
+          "temperature_forecast": 11.687885879582852,
+          "lower_95": 8.994892387098888,
+          "upper_95": 14.380879372066817
+        },
+        {
+          "date": "2037-03-01",
+          "temperature_forecast": 13.44635831788274,
+          "lower_95": 10.753364302074733,
+          "upper_95": 16.139352333690745
+        },
+        {
+          "date": "2037-04-01",
+          "temperature_forecast": 15.698830415155646,
+          "lower_95": 13.005836308902587,
+          "upper_95": 18.391824521408704
+        },
+        {
+          "date": "2037-05-01",
+          "temperature_forecast": 18.77538699716025,
+          "lower_95": 16.08239287530634,
+          "upper_95": 21.46838111901417
+        },
+        {
+          "date": "2037-06-01",
+          "temperature_forecast": 22.923020698248315,
+          "lower_95": 20.23002657388038,
+          "upper_95": 25.61601482261625
+        },
+        {
+          "date": "2037-07-01",
+          "temperature_forecast": 26.67832368929965,
+          "lower_95": 23.98532956555253,
+          "upper_95": 29.371317813046765
+        },
+        {
+          "date": "2037-08-01",
+          "temperature_forecast": 26.638290460280825,
+          "lower_95": 23.94529634274692,
+          "upper_95": 29.331284577814728
+        },
+        {
+          "date": "2037-09-01",
+          "temperature_forecast": 23.86337126922845,
+          "lower_95": 21.15084446580542,
+          "upper_95": 26.57589807265148
+        },
+        {
+          "date": "2037-10-01",
+          "temperature_forecast": 20.11426349395,
+          "lower_95": 17.398375213012454,
+          "upper_95": 22.83015177488755
+        },
+        {
+          "date": "2037-11-01",
+          "temperature_forecast": 15.382476072000085,
+          "lower_95": 12.666008857301438,
+          "upper_95": 18.09894328669873
+        },
+        {
+          "date": "2037-12-01",
+          "temperature_forecast": 12.67870025498745,
+          "lower_95": 9.96214246260717,
+          "upper_95": 15.395258047367731
+        },
+        {
+          "date": "2038-01-01",
+          "temperature_forecast": 10.887027394634272,
+          "lower_95": 8.17050874916593,
+          "upper_95": 13.603546040102614
+        },
+        {
+          "date": "2038-02-01",
+          "temperature_forecast": 11.695468316319628,
+          "lower_95": 8.978946676029434,
+          "upper_95": 14.411989956609824
+        },
+        {
+          "date": "2038-03-01",
+          "temperature_forecast": 13.451952659709116,
+          "lower_95": 10.735430501799865,
+          "upper_95": 16.168474817618367
+        },
+        {
+          "date": "2038-04-01",
+          "temperature_forecast": 15.70187815561662,
+          "lower_95": 12.985355908248296,
+          "upper_95": 18.418400402984943
+        },
+        {
+          "date": "2038-05-01",
+          "temperature_forecast": 18.77495644228431,
+          "lower_95": 16.058434179485204,
+          "upper_95": 21.491478705083416
+        },
+        {
+          "date": "2038-06-01",
+          "temperature_forecast": 22.91790090897112,
+          "lower_95": 20.201378643685395,
+          "upper_95": 25.63442317425684
+        },
+        {
+          "date": "2038-07-01",
+          "temperature_forecast": 26.66895822712993,
+          "lower_95": 23.95243596245826,
+          "upper_95": 29.38548049180161
+        },
+        {
+          "date": "2038-08-01",
+          "temperature_forecast": 26.62897025890516,
+          "lower_95": 23.91244800037897,
+          "upper_95": 29.345492517431342
+        },
+        {
+          "date": "2038-09-01",
+          "temperature_forecast": 23.857188337792497,
+          "lower_95": 21.121344973304076,
+          "upper_95": 26.59303170228092
+        },
+        {
+          "date": "2038-10-01",
+          "temperature_forecast": 20.11231923121549,
+          "lower_95": 17.373150530121112,
+          "upper_95": 22.85148793230987
+        },
+        {
+          "date": "2038-11-01",
+          "temperature_forecast": 15.385881476559629,
+          "lower_95": 12.646140058144338,
+          "upper_95": 18.12562289497492
+        },
+        {
+          "date": "2038-12-01",
+          "temperature_forecast": 12.685162496164722,
+          "lower_95": 9.945331472456012,
+          "upper_95": 15.424993519873432
+        },
+        {
+          "date": "2039-01-01",
+          "temperature_forecast": 10.89551526647665,
+          "lower_95": 8.155722969428888,
+          "upper_95": 13.635307563524412
+        },
+        {
+          "date": "2039-02-01",
+          "temperature_forecast": 11.703042180500155,
+          "lower_95": 8.963246920781014,
+          "upper_95": 14.4428374402193
+        },
+        {
+          "date": "2039-03-01",
+          "temperature_forecast": 13.45754067668088,
+          "lower_95": 10.717744904899495,
+          "upper_95": 16.197336448462266
+        },
+        {
+          "date": "2039-04-01",
+          "temperature_forecast": 15.704922450361204,
+          "lower_95": 12.965126590081123,
+          "upper_95": 18.444718310641285
+        },
+        {
+          "date": "2039-05-01",
+          "temperature_forecast": 18.774526374185378,
+          "lower_95": 16.03473049864017,
+          "upper_95": 21.514322249730583
+        },
+        {
+          "date": "2039-06-01",
+          "temperature_forecast": 22.912786908028604,
+          "lower_95": 20.17299103002347,
+          "upper_95": 25.652582786033737
+        },
+        {
+          "date": "2039-07-01",
+          "temperature_forecast": 26.65960335337052,
+          "lower_95": 23.91980747597285,
+          "upper_95": 29.3993992307682
+        },
+        {
+          "date": "2039-08-01",
+          "temperature_forecast": 26.619660594768806,
+          "lower_95": 23.87986472345064,
+          "upper_95": 29.35945646608697
+        },
+        {
+          "date": "2039-09-01",
+          "temperature_forecast": 23.851012396659183,
+          "lower_95": 21.09210154608845,
+          "upper_95": 26.609923247229915
+        },
+        {
+          "date": "2039-10-01",
+          "temperature_forecast": 20.110377166626805,
+          "lower_95": 17.348176197214542,
+          "upper_95": 22.872578136039067
+        },
+        {
+          "date": "2039-11-01",
+          "temperature_forecast": 15.389283031034672,
+          "lower_95": 12.626515402200267,
+          "upper_95": 18.15205065986908
+        },
+        {
+          "date": "2039-12-01",
+          "temperature_forecast": 12.691617431257171,
+          "lower_95": 9.928761144724676,
+          "upper_95": 15.454473717789666
+        },
+        {
+          "date": "2040-01-01",
+          "temperature_forecast": 10.903993542095376,
+          "lower_95": 8.141175572687722,
+          "upper_95": 13.666811511503028
+        },
+        {
+          "date": "2040-02-01",
+          "temperature_forecast": 11.710607481816409,
+          "lower_95": 8.94778658106811,
+          "upper_95": 14.473428382564704
+        },
+        {
+          "date": "2040-03-01",
+          "temperature_forecast": 13.46312237594879,
+          "lower_95": 10.700300968553387,
+          "upper_95": 16.225943783344192
+        },
+        {
+          "date": "2040-04-01",
+          "temperature_forecast": 15.70796330328506,
+          "lower_95": 12.945141808326849,
+          "upper_95": 18.47078479824327
+        },
+        {
+          "date": "2040-05-01",
+          "temperature_forecast": 18.774096792313117,
+          "lower_95": 16.011275282251205,
+          "upper_95": 21.53691830237502
+        },
+        {
+          "date": "2040-06-01",
+          "temperature_forecast": 22.907678688876597,
+          "lower_95": 20.14485717638077,
+          "upper_95": 25.670500201372413
+        },
+        {
+          "date": "2040-07-01",
+          "temperature_forecast": 26.65025905605036,
+          "lower_95": 23.88743754415557,
+          "upper_95": 29.413080567945144
+        },
+        {
+          "date": "2040-08-01",
+          "temperature_forecast": 26.610361455958586,
+          "lower_95": 23.84753995007901,
+          "upper_95": 29.37318296183815
+        },
+        {
+          "date": "2040-09-01",
+          "temperature_forecast": 23.844843437925405,
+          "lower_95": 21.06310786328474,
+          "upper_95": 26.626579012566072
+        },
+        {
+          "date": "2040-10-01",
+          "temperature_forecast": 20.108437297698764,
+          "lower_95": 17.323445938607563,
+          "upper_95": 22.893428656789965
+        },
+        {
+          "date": "2040-11-01",
+          "temperature_forecast": 15.392680739778054,
+          "lower_95": 12.607128627442108,
+          "upper_95": 18.178232852114
+        },
+        {
+          "date": "2040-12-01",
+          "temperature_forecast": 12.698065068524915,
+          "lower_95": 9.912425222359584,
+          "upper_95": 15.483704914690248
+        }
+      ]
+    }
+  },
+  "summary": {
+    "num_trend_variables": 0,
+    "num_forecast_models": 3,
+    "forecast_models": [
+      "linear_forecast_2040_final",
+      "lstm_forecast_2040_final",
+      "sarima_forecast_2040_final"
+    ]
+  }
+}
