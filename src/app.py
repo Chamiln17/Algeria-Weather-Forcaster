@@ -1,120 +1,207 @@
 import streamlit as st
-import pandas as pd
+import os
 from pathlib import Path
 import sys
+
+# Load environment variables
+from dotenv import load_dotenv
+load_dotenv()
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.rag import init_rag_system
 
-st.set_page_config(page_title="Algeria Climate Analysis", layout="wide")
-
-st.title("🇩🇿 Algeria Climate Change Analysis & Reporting")
-
-# Sidebar
-st.sidebar.header("Configuration")
-groq_api_key = st.sidebar.text_input(
-    "Groq API Key", 
-    type="password",
-    help="Get your free API key from https://console.groq.com/keys"
+# Page config
+st.set_page_config(
+    page_title="Algeria Climate AI",
+    layout="centered",
+    initial_sidebar_state="collapsed"
 )
 
-if not groq_api_key:
-    st.warning("⚠️ Please enter your Groq API Key in the sidebar to use AI features.")
-    st.info("💡 Get a free API key (14,400 requests/day) at https://console.groq.com/keys")
-
-# Tabs
-tab1, tab2, tab3 = st.tabs(["📊 Dashboard", "🤖 AI Report", "📁 Data Explorer"])
-
-# Tab 1: Dashboard
-with tab1:
-    st.header("Climate Trends Dashboard")
+# Custom CSS for ChatGPT-like dark theme
+st.markdown("""
+<style>
+    .stApp {
+        background-color: #212121;
+    }
     
-    results_dir = Path("Results")
-    if results_dir.exists():
-        images = list(results_dir.glob("*.png"))
-        if images:
-            selected_img = st.selectbox("Select Visualization", [img.name for img in images])
-            st.image(str(results_dir / selected_img), caption=selected_img, width=800)
-        else:
-            st.info("No visualizations found in Results/ directory.")
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    .main .block-container {
+        max-width: 800px;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    
+    .main-title {
+        color: #ffffff;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+    
+    .stChatInput > div {
+        background-color: #303030;
+        border-radius: 24px;
+    }
+    
+    section[data-testid="stSidebar"] {
+        background-color: #171717;
+    }
+    
+    p, span, label {
+        color: #ececec;
+    }
+    
+    .welcome-text {
+        color: #ececec;
+        text-align: center;
+        opacity: 0.8;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-# Tab 2: AI Report Generator
-with tab2:
-    st.header("AI Climate Report Generator")
-    st.markdown("**Powered by:** ChromaDB (local) + e5-small embeddings + Groq Llama 3.1 8B")
-    
-    if groq_api_key:
-        # Initialize RAG system
-        if 'rag_system' not in st.session_state:
-            with st.spinner("🔄 Initializing RAG system..."):
-                try:
-                    st.session_state.rag_system = init_rag_system(groq_api_key)
-                    st.success(f"✅ RAG Ready! ({st.session_state.rag_system.collection.count()} documents loaded)")
-                except FileNotFoundError as e:
-                    st.error(f"❌ {str(e)}")
-                    st.info("Run: `python src/generate_stats_db.py` first")
-                    st.stop()
-                except Exception as e:
-                    st.error(f"❌ Failed to initialize: {e}")
-                    st.stop()
-        
-        # Reinitialize button
-        col1, col2 = st.columns([3, 1])
-        with col2:
-            if st.button("🔄 Reinitialize DB"):
-                with st.spinner("Reinitializing..."):
-                    st.session_state.rag_system = init_rag_system(groq_api_key, reset_db=True)
-                    st.success("✅ Database reinitialized!")
-        
-        # Query interface
-        query = st.text_area(
-            "Ask a question about Algeria's climate:",
-            "Summarize the key temperature trends and future risks for Algeria based on the analysis.",
-            height=100
-        )
-        
-        if st.button("🚀 Generate Report", type="primary"):
-            if 'rag_system' in st.session_state:
-                with st.spinner("🤖 Analyzing data..."):
-                    try:
-                        response = st.session_state.rag_system.query(query)
-                        st.markdown("### 📝 Analysis Report")
-                        st.markdown(response)
-                        
-                        # Show quota info
-                        st.info("💡 Groq free tier: 14,400 requests/day remaining")
-                    except Exception as e:
-                        st.error(f"❌ Error: {e}")
-            else:
-                st.error("RAG system not initialized")
-    else:
-        st.info("👆 Enter your Groq API key in the sidebar to enable AI reporting")
+# Get API key from environment
+groq_api_key = os.getenv("GROQ_API_KEY", "")
 
-# Tab 3: Data Explorer
-with tab3:
-    st.header("Data Explorer")
+# Initialize session state
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+if "rag_system" not in st.session_state:
+    st.session_state.rag_system = None
+
+if "pending_query" not in st.session_state:
+    st.session_state.pending_query = None
+
+# Initialize RAG system if API key exists (only once)
+if groq_api_key and st.session_state.rag_system is None:
+    try:
+        with st.spinner("Loading AI system..."):
+            st.session_state.rag_system = init_rag_system(groq_api_key)
+    except Exception as e:
+        st.error(f"Failed to initialize: {e}")
+
+# Function to process a query
+def process_query(query: str):
+    """Add user message and get AI response"""
+    # Add user message
+    st.session_state.messages.append({"role": "user", "content": query})
     
-    files = list(Path("Predictions").glob("*.csv")) + list(Path("Preprocessed_dataset").glob("*.csv"))
-    
-    if files:
-        selected_file = st.selectbox("Select File", [f.name for f in files])
-        file_path = next(f for f in files if f.name == selected_file)
-        
+    # Get AI response
+    if st.session_state.rag_system:
         try:
-            df = pd.read_csv(file_path)
-            st.dataframe(df.head(100), use_container_width=True)
-            st.write(f"**Shape:** {df.shape[0]} rows × {df.shape[1]} columns")
+            response = st.session_state.rag_system.query(query)
+            st.session_state.messages.append({"role": "assistant", "content": response})
         except Exception as e:
-            st.error(f"Error reading file: {e}")
+            error_msg = f"Error: {str(e)}"
+            st.session_state.messages.append({"role": "assistant", "content": error_msg})
     else:
-        st.info("No data files found")
+        st.session_state.messages.append({
+            "role": "assistant", 
+            "content": "Please set GROQ_API_KEY in .env file to enable AI responses."
+        })
 
-# Footer
-st.sidebar.markdown("---")
-st.sidebar.markdown("### 📊 System Info")
-if 'rag_system' in st.session_state:
-    st.sidebar.success(f"✅ {st.session_state.rag_system.collection.count()} docs indexed")
+# Check if there's a pending query from suggestion buttons
+if st.session_state.pending_query:
+    process_query(st.session_state.pending_query)
+    st.session_state.pending_query = None
+
+# Main chat interface
+if not st.session_state.messages:
+    # Welcome screen
+    st.markdown('<h1 class="main-title">🇩🇿 What can I help you understand about Algeria\'s climate?</h1>', unsafe_allow_html=True)
+    
+    # Suggestion chips
+    suggestions = [
+        "What are the temperature trends?",
+        "Is there evidence of drought?",
+        "What do forecasts predict for 2040?",
+        "Summarize the climate analysis"
+    ]
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        if st.button(suggestions[0], key="s1", use_container_width=True):
+            st.session_state.pending_query = suggestions[0]
+            st.rerun()
+        if st.button(suggestions[2], key="s3", use_container_width=True):
+            st.session_state.pending_query = suggestions[2]
+            st.rerun()
+    
+    with col2:
+        if st.button(suggestions[1], key="s2", use_container_width=True):
+            st.session_state.pending_query = suggestions[1]
+            st.rerun()
+        if st.button(suggestions[3], key="s4", use_container_width=True):
+            st.session_state.pending_query = suggestions[3]
+            st.rerun()
+    
+    if not groq_api_key:
+        st.markdown('<p class="welcome-text">⚠️ Set GROQ_API_KEY in .env file to enable AI features</p>', unsafe_allow_html=True)
+    elif st.session_state.rag_system:
+        doc_count = st.session_state.rag_system.collection.count()
+        st.markdown(f'<p class="welcome-text">✅ Ready ({doc_count} documents indexed)</p>', unsafe_allow_html=True)
+
 else:
-    st.sidebar.info("⏳ RAG not initialized")
+    # Chat history
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+# Chat input
+if prompt := st.chat_input("Ask about Algeria's climate..."):
+    # Display user message immediately
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    
+    # Add to history and get response
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
+    # Generate response
+    with st.chat_message("assistant"):
+        if st.session_state.rag_system:
+            with st.spinner("Analyzing..."):
+                try:
+                    response = st.session_state.rag_system.query(prompt)
+                    st.markdown(response)
+                    st.session_state.messages.append({"role": "assistant", "content": response})
+                except Exception as e:
+                    error_msg = f"Error: {str(e)}"
+                    st.error(error_msg)
+                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
+        else:
+            msg = "Please set your GROQ_API_KEY in the .env file."
+            st.warning(msg)
+            st.session_state.messages.append({"role": "assistant", "content": msg})
+
+# Minimal sidebar
+with st.sidebar:
+    st.markdown("### ⚙️ Settings")
+    
+    if groq_api_key and st.session_state.rag_system:
+        st.success(f"✅ Connected ({st.session_state.rag_system.collection.count()} docs)")
+    elif groq_api_key:
+        st.warning("⏳ Initializing...")
+    else:
+        st.error("❌ No API key")
+    
+    if st.button("🗑️ Clear Chat", use_container_width=True):
+        st.session_state.messages = []
+        st.rerun()
+    
+    if st.button("🔄 Reinitialize DB", use_container_width=True):
+        if groq_api_key:
+            st.session_state.rag_system = init_rag_system(groq_api_key, reset_db=True)
+            st.success("✅ Reinitialized!")
+            st.rerun()
+    
+    st.markdown("---")
+    st.caption("Powered by Groq + ChromaDB")
