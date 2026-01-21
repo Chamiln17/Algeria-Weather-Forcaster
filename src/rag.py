@@ -1,10 +1,11 @@
 """
 RAG System using ChromaDB + e5-small + Groq
+With streaming support
 """
 import json
 import logging
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Generator
 import chromadb
 from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
@@ -43,7 +44,6 @@ class ClimateRAG:
             settings=Settings(anonymized_telemetry=False)
         )
         
-        # Get or create collection
         if reset:
             try:
                 self.chroma_client.delete_collection("climate_data")
@@ -65,11 +65,9 @@ class ClimateRAG:
                 f"{STATS_DB_PATH} not found. Run 'python src/generate_stats_db.py' first."
             )
         
-        # Load data
         with open(STATS_DB_PATH, 'r') as f:
             stats_db = json.load(f)
         
-        # Prepare documents
         documents = []
         metadatas = []
         ids = []
@@ -92,7 +90,6 @@ class ClimateRAG:
             doc_text += f"Forecast Period: {forecast_data.get('forecast_period', 'N/A')}\n"
             doc_text += f"Variables: {', '.join(forecast_data.get('variables', []))}\n"
             
-            # Add summary statistics
             summary_stats = forecast_data.get('summary_statistics', {})
             for var, stats in summary_stats.items():
                 if isinstance(stats, dict):
@@ -106,7 +103,6 @@ class ClimateRAG:
             metadatas.append({'type': 'forecast', 'model': model_name})
             ids.append(f"forecast_{model_name}")
         
-        # Embed and add to ChromaDB
         if documents:
             logger.info(f"Embedding {len(documents)} documents...")
             self.initialize_embeddings()
@@ -128,24 +124,22 @@ class ClimateRAG:
         else:
             logger.warning("No documents to embed")
     
-    def query(self, question: str, n_results: int = 5) -> str:
-        """Query the RAG system"""
-        # Initialize embeddings if needed
+    def _get_context(self, question: str, n_results: int = 5) -> str:
+        """Retrieve relevant context for a question"""
         self.initialize_embeddings()
-        
-        # Embed query
         query_embedding = self.embedding_model.encode([question])[0]
         
-        # Search ChromaDB
         results = self.collection.query(
             query_embeddings=[query_embedding.tolist()],
             n_results=n_results
         )
         
-        # Build context from results
-        context = "\n\n".join(results['documents'][0])
+        return "\n\n".join(results['documents'][0])
+    
+    def query(self, question: str, n_results: int = 5) -> str:
+        """Query the RAG system (non-streaming)"""
+        context = self._get_context(question, n_results)
         
-        # Generate response with Groq
         prompt = f"""You are a climate data analyst for Algeria. Use the following data to answer the question.
 
 CLIMATE DATA:
@@ -171,13 +165,46 @@ Provide a detailed, data-driven answer based on the information above. Include s
         except Exception as e:
             logger.error(f"Groq API error: {e}")
             return f"Error generating response: {str(e)}"
+    
+    def query_stream(self, question: str, n_results: int = 5) -> Generator[str, None, None]:
+        """Query the RAG system with streaming response"""
+        context = self._get_context(question, n_results)
+        
+        prompt = f"""You are a climate data analyst for Algeria. Use the following data to answer the question.
+
+CLIMATE DATA:
+{context}
+
+QUESTION: {question}
+
+Provide a detailed, data-driven answer based on the information above. Include specific numbers and trends when available."""
+        
+        try:
+            stream = self.groq_client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[
+                    {"role": "system", "content": "You are a climate data analyst specializing in Algeria's climate trends."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.2,
+                max_tokens=1024,
+                stream=True
+            )
+            
+            for chunk in stream:
+                if chunk.choices[0].delta.content:
+                    yield chunk.choices[0].delta.content
+                    
+        except Exception as e:
+            logger.error(f"Groq API error: {e}")
+            yield f"Error generating response: {str(e)}"
+
 
 def init_rag_system(groq_api_key: str, reset_db: bool = False) -> ClimateRAG:
     """Initialize the RAG system"""
     rag = ClimateRAG(groq_api_key)
     rag.initialize_chroma(reset=reset_db)
     
-    # Load data if collection is empty
     if rag.collection.count() == 0:
         logger.info("Collection is empty, loading data...")
         rag.load_and_embed_data()

@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 from pathlib import Path
+from datetime import datetime
 import sys
 
 # Load environment variables
@@ -16,10 +17,10 @@ from src.rag import init_rag_system
 st.set_page_config(
     page_title="Algeria Climate AI",
     layout="centered",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
-# Custom CSS for ChatGPT-like dark theme
+# Custom CSS for dark theme + feedback buttons
 st.markdown("""
 <style>
     .stApp {
@@ -32,7 +33,7 @@ st.markdown("""
     
     .main .block-container {
         max-width: 800px;
-        padding-top: 5rem;
+        padding-top: 3rem;
         padding-bottom: 5rem;
     }
     
@@ -64,6 +65,19 @@ st.markdown("""
         font-size: 0.9rem;
         margin-top: 1rem;
     }
+    
+    .feedback-btn {
+        background: transparent;
+        border: 1px solid #424242;
+        border-radius: 8px;
+        padding: 4px 12px;
+        margin: 2px;
+        cursor: pointer;
+    }
+    
+    .feedback-btn:hover {
+        background: #303030;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -80,7 +94,10 @@ if "rag_system" not in st.session_state:
 if "pending_query" not in st.session_state:
     st.session_state.pending_query = None
 
-# Initialize RAG system if API key exists (only once)
+if "feedback" not in st.session_state:
+    st.session_state.feedback = {}  # {message_idx: "up" or "down"}
+
+# Initialize RAG system
 if groq_api_key and st.session_state.rag_system is None:
     try:
         with st.spinner("Loading AI system..."):
@@ -88,29 +105,38 @@ if groq_api_key and st.session_state.rag_system is None:
     except Exception as e:
         st.error(f"Failed to initialize: {e}")
 
-# Function to process a query
-def process_query(query: str):
-    """Add user message and get AI response"""
-    # Add user message
-    st.session_state.messages.append({"role": "user", "content": query})
+def export_chat() -> str:
+    """Export chat history as text"""
+    export_lines = [
+        "=" * 60,
+        "Algeria Climate AI - Chat Export",
+        f"Exported: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        "=" * 60,
+        ""
+    ]
     
-    # Get AI response
-    if st.session_state.rag_system:
-        try:
-            response = st.session_state.rag_system.query(query)
-            st.session_state.messages.append({"role": "assistant", "content": response})
-        except Exception as e:
-            error_msg = f"Error: {str(e)}"
-            st.session_state.messages.append({"role": "assistant", "content": error_msg})
-    else:
-        st.session_state.messages.append({
-            "role": "assistant", 
-            "content": "Please set GROQ_API_KEY in .env file to enable AI responses."
-        })
+    for i, msg in enumerate(st.session_state.messages):
+        role = "You" if msg["role"] == "user" else "AI"
+        export_lines.append(f"[{role}]")
+        export_lines.append(msg["content"])
+        
+        # Add feedback if exists
+        if i in st.session_state.feedback:
+            fb = "👍" if st.session_state.feedback[i] == "up" else "👎"
+            export_lines.append(f"Feedback: {fb}")
+        
+        export_lines.append("")
+    
+    return "\n".join(export_lines)
 
-# Check if there's a pending query from suggestion buttons
+# Process pending query with streaming
+def process_streaming_query(query: str):
+    """Process query with streaming response"""
+    st.session_state.messages.append({"role": "user", "content": query})
+
+# Check for pending query
 if st.session_state.pending_query:
-    process_query(st.session_state.pending_query)
+    process_streaming_query(st.session_state.pending_query)
     st.session_state.pending_query = None
 
 # Main chat interface
@@ -118,7 +144,6 @@ if not st.session_state.messages:
     # Welcome screen
     st.markdown('<h1 class="main-title">🇩🇿 What can I help you understand about Algeria\'s climate?</h1>', unsafe_allow_html=True)
     
-    # Suggestion chips
     suggestions = [
         "What are the temperature trends?",
         "Is there evidence of drought?",
@@ -145,44 +170,63 @@ if not st.session_state.messages:
             st.rerun()
     
     if not groq_api_key:
-        st.markdown('<p class="welcome-text">⚠️ Set GROQ_API_KEY in .env file to enable AI features</p>', unsafe_allow_html=True)
+        st.markdown('<p class="welcome-text">⚠️ Set GROQ_API_KEY in .env file</p>', unsafe_allow_html=True)
     elif st.session_state.rag_system:
         doc_count = st.session_state.rag_system.collection.count()
         st.markdown(f'<p class="welcome-text">✅ Ready ({doc_count} documents indexed)</p>', unsafe_allow_html=True)
 
 else:
-    # Chat history
-    for message in st.session_state.messages:
+    # Chat history with feedback buttons
+    for i, message in enumerate(st.session_state.messages):
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
+            
+            # Add feedback buttons for assistant messages
+            if message["role"] == "assistant":
+                col1, col2, col3 = st.columns([1, 1, 10])
+                
+                current_feedback = st.session_state.feedback.get(i)
+                
+                with col1:
+                    if st.button("👍", key=f"up_{i}", 
+                                 type="primary" if current_feedback == "up" else "secondary"):
+                        st.session_state.feedback[i] = "up"
+                        st.rerun()
+                
+                with col2:
+                    if st.button("👎", key=f"down_{i}",
+                                 type="primary" if current_feedback == "down" else "secondary"):
+                        st.session_state.feedback[i] = "down"
+                        st.rerun()
+    
+    # Check if last message needs AI response (streaming)
+    if st.session_state.messages and st.session_state.messages[-1]["role"] == "user":
+        with st.chat_message("assistant"):
+            if st.session_state.rag_system:
+                # Stream the response
+                response_placeholder = st.empty()
+                full_response = ""
+                
+                for chunk in st.session_state.rag_system.query_stream(
+                    st.session_state.messages[-1]["content"]
+                ):
+                    full_response += chunk
+                    response_placeholder.markdown(full_response + "▌")
+                
+                response_placeholder.markdown(full_response)
+                st.session_state.messages.append({"role": "assistant", "content": full_response})
+                st.rerun()
+            else:
+                msg = "Please set GROQ_API_KEY in .env file."
+                st.warning(msg)
+                st.session_state.messages.append({"role": "assistant", "content": msg})
 
 # Chat input
 if prompt := st.chat_input("Ask about Algeria's climate..."):
-    # Display user message immediately
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    
-    # Add to history and get response
     st.session_state.messages.append({"role": "user", "content": prompt})
-    
-    # Generate response
-    with st.chat_message("assistant"):
-        if st.session_state.rag_system:
-            with st.spinner("Analyzing..."):
-                try:
-                    response = st.session_state.rag_system.query(prompt)
-                    st.markdown(response)
-                    st.session_state.messages.append({"role": "assistant", "content": response})
-                except Exception as e:
-                    error_msg = f"Error: {str(e)}"
-                    st.error(error_msg)
-                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
-        else:
-            msg = "Please set your GROQ_API_KEY in the .env file."
-            st.warning(msg)
-            st.session_state.messages.append({"role": "assistant", "content": msg})
+    st.rerun()
 
-# Minimal sidebar
+# Sidebar
 with st.sidebar:
     st.markdown("### ⚙️ Settings")
     
@@ -193,15 +237,38 @@ with st.sidebar:
     else:
         st.error("❌ No API key")
     
+    st.markdown("---")
+    
+    # Chat controls
     if st.button("🗑️ Clear Chat", use_container_width=True):
         st.session_state.messages = []
+        st.session_state.feedback = {}
         st.rerun()
     
-    if st.button("🔄 Reinitialize DB", use_container_width=True):
+    if st.button("🔄 Reload DB", use_container_width=True):
         if groq_api_key:
             st.session_state.rag_system = init_rag_system(groq_api_key, reset_db=True)
-            st.success("✅ Reinitialized!")
+            st.success("✅ Reloaded!")
             st.rerun()
+    
+    st.markdown("---")
+    
+    # Export chat
+    if st.session_state.messages:
+        export_text = export_chat()
+        st.download_button(
+            "📥 Export Chat",
+            data=export_text,
+            file_name=f"climate_chat_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
+            mime="text/plain",
+            use_container_width=True
+        )
+        
+        # Show feedback stats
+        if st.session_state.feedback:
+            ups = sum(1 for v in st.session_state.feedback.values() if v == "up")
+            downs = sum(1 for v in st.session_state.feedback.values() if v == "down")
+            st.caption(f"Feedback: 👍 {ups} | 👎 {downs}")
     
     st.markdown("---")
     st.caption("Powered by Groq + ChromaDB")
