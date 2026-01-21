@@ -25,25 +25,44 @@ def load_trends() -> dict:
         return json.load(f)
 
 def load_forecasts() -> dict:
-    """Load all forecast CSVs and summarize"""
+    """Load RL Agent forecast from RL Agent directory"""
     forecasts = {}
     
-    for csv_file in PREDICTIONS_DIR.glob('*_forecast_*.csv'):
-        try:
-            df = pd.read_csv(csv_file)
-            model_name = csv_file.stem
-            
-            # Extract key statistics
-            forecasts[model_name] = {
-                'model': model_name,
-                'forecast_period': f"{df['date'].min()} to {df['date'].max()}",
-                'variables': list(df.columns),
-                'summary_statistics': df.describe().to_dict(),
-                'last_5_years': df.tail(60).to_dict('records')  # Last 5 years (60 months)
-            }
-            logger.info(f"Loaded forecast: {model_name}")
-        except Exception as e:
-            logger.error(f"Error loading {csv_file}: {e}")
+    # Load RL Agent forecast
+    rl_forecast_path = Path('RL Agent/final_rl_forecast_2040.csv')
+    
+    if not rl_forecast_path.exists():
+        logger.warning(f"RL Agent forecast not found: {rl_forecast_path}")
+        return forecasts
+    
+    try:
+        df = pd.read_csv(rl_forecast_path)
+        
+        # Focus on the RL_Best_Forecast column which is the agent's selection
+        model_name = 'RL_Agent_Forecast'
+        
+        # Extract key statistics for RL_Best_Forecast
+        rl_forecast_stats = df['RL_Best_Forecast'].describe().to_dict()
+        
+        # Get model selection statistics
+        model_usage = df['Model_Used'].value_counts().to_dict()
+        
+        forecasts[model_name] = {
+            'model': 'RL Agent (Adaptive Model Selection)',
+            'forecast_period': f"{df['Date'].min()} to {df['Date'].max()}",
+            'variables': ['RL_Best_Forecast', 'Model_Used'],
+            'summary_statistics': {
+                'RL_Best_Forecast': rl_forecast_stats,
+                'Model_Selection_Count': model_usage
+            },
+            'last_5_years': df.tail(60)[['Date', 'RL_Best_Forecast', 'Model_Used']].to_dict('records'),
+            'full_forecast': df[['Date', 'RL_Best_Forecast', 'Model_Used']].to_dict('records')
+        }
+        logger.info(f"✅ Loaded RL Agent forecast with {len(df)} predictions")
+        logger.info(f"   Model usage: {model_usage}")
+        
+    except Exception as e:
+        logger.error(f"Error loading RL Agent forecast: {e}")
     
     return forecasts
 

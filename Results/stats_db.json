@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-19T14:29:11.267894",
+    "generated_at": "2026-01-21T22:33:43.452167",
     "description": "Climate change analysis statistics for Algeria",
     "data_sources": [
       "trends.json",
@@ -9,942 +9,1359 @@
   },
   "trends": {},
   "forecasts": {
-    "linear_forecast_2040_final": {
-      "model": "linear_forecast_2040_final",
-      "forecast_period": "2023-09-01 to 2040-12-01",
+    "RL_Agent_Forecast": {
+      "model": "RL Agent (Adaptive Model Selection)",
+      "forecast_period": "2024-01-01 to 2040-12-01",
       "variables": [
-        "date",
-        "temperature_forecast"
+        "RL_Best_Forecast",
+        "Model_Used"
       ],
       "summary_statistics": {
-        "temperature_forecast": {
-          "count": 208.0,
-          "mean": 19.03556428057996,
-          "std": 5.595268651080043,
-          "min": 11.301714645108364,
-          "25%": 13.669059470018187,
-          "50%": 18.130594019970623,
-          "75%": 24.287705165333485,
-          "max": 28.08628180147999
+        "RL_Best_Forecast": {
+          "count": 204.0,
+          "mean": 18.20712472667552,
+          "std": 5.809799833327244,
+          "min": 10.784634911562115,
+          "25%": 12.722372872930936,
+          "50%": 17.28884252870624,
+          "75%": 23.58526523721522,
+          "max": 27.44185391703049
+        },
+        "Model_Selection_Count": {
+          "SARIMA": 204
         }
       },
       "last_5_years": [
         {
-          "date": "2036-01-01",
-          "temperature_forecast": 12.05168693320819
+          "Date": "2036-01-01",
+          "RL_Best_Forecast": 10.989332856508517,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-02-01",
-          "temperature_forecast": 12.493690133011736
+          "Date": "2036-02-01",
+          "RL_Best_Forecast": 11.114923538484575,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-03-01",
-          "temperature_forecast": 14.410044704469192
+          "Date": "2036-03-01",
+          "RL_Best_Forecast": 13.194330250539318,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-04-01",
-          "temperature_forecast": 16.823998761165186
+          "Date": "2036-04-01",
+          "RL_Best_Forecast": 15.868760787514258,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-05-01",
-          "temperature_forecast": 19.937170804175945
+          "Date": "2036-05-01",
+          "RL_Best_Forecast": 18.962365127499755,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-06-01",
-          "temperature_forecast": 24.21945330661973
+          "Date": "2036-06-01",
+          "RL_Best_Forecast": 23.39261765908857,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-07-01",
-          "temperature_forecast": 27.65022065754837
+          "Date": "2036-07-01",
+          "RL_Best_Forecast": 26.933316654777748,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-08-01",
-          "temperature_forecast": 27.83629103878005
+          "Date": "2036-08-01",
+          "RL_Best_Forecast": 27.270398732714185,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-09-01",
-          "temperature_forecast": 24.929944576199645
+          "Date": "2036-09-01",
+          "RL_Best_Forecast": 24.172239402521843,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-10-01",
-          "temperature_forecast": 21.434660398012245
+          "Date": "2036-10-01",
+          "RL_Best_Forecast": 20.70210045138056,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-11-01",
-          "temperature_forecast": 16.405658861913935
+          "Date": "2036-11-01",
+          "RL_Best_Forecast": 15.283739134601662,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-12-01",
-          "temperature_forecast": 13.422064391867853
+          "Date": "2036-12-01",
+          "RL_Best_Forecast": 11.968562749124375,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-01-01",
-          "temperature_forecast": 12.114184623883176
+          "Date": "2037-01-01",
+          "RL_Best_Forecast": 11.006565387517607,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-02-01",
-          "temperature_forecast": 12.556187823686722
+          "Date": "2037-02-01",
+          "RL_Best_Forecast": 11.132353010049554,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-03-01",
-          "temperature_forecast": 14.472542395144178
+          "Date": "2037-03-01",
+          "RL_Best_Forecast": 13.215020469695972,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-04-01",
-          "temperature_forecast": 16.88649645184017
+          "Date": "2037-04-01",
+          "RL_Best_Forecast": 15.89364481968594,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-05-01",
-          "temperature_forecast": 19.999668494850926
+          "Date": "2037-05-01",
+          "RL_Best_Forecast": 18.992100285159648,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-06-01",
-          "temperature_forecast": 24.281950997294715
+          "Date": "2037-06-01",
+          "RL_Best_Forecast": 23.429299959502767,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-07-01",
-          "temperature_forecast": 27.71271834822336
+          "Date": "2037-07-01",
+          "RL_Best_Forecast": 26.97555117624428,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-08-01",
-          "temperature_forecast": 27.898788729455035
+          "Date": "2037-08-01",
+          "RL_Best_Forecast": 27.313161837438365,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-09-01",
-          "temperature_forecast": 24.992442266874637
+          "Date": "2037-09-01",
+          "RL_Best_Forecast": 24.21014423901212,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-10-01",
-          "temperature_forecast": 21.49715808868723
+          "Date": "2037-10-01",
+          "RL_Best_Forecast": 20.734563713039837,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-11-01",
-          "temperature_forecast": 16.46815655258892
+          "Date": "2037-11-01",
+          "RL_Best_Forecast": 15.307705785899866,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-12-01",
-          "temperature_forecast": 13.484562082542835
+          "Date": "2037-12-01",
+          "RL_Best_Forecast": 11.987330824621004,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-01-01",
-          "temperature_forecast": 12.17668231455816
+          "Date": "2038-01-01",
+          "RL_Best_Forecast": 11.023824941106582,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-02-01",
-          "temperature_forecast": 12.618685514361708
+          "Date": "2038-02-01",
+          "RL_Best_Forecast": 11.149809813019736,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-03-01",
-          "temperature_forecast": 14.535040085819164
+          "Date": "2038-03-01",
+          "RL_Best_Forecast": 13.235743133483057,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-04-01",
-          "temperature_forecast": 16.948994142515158
+          "Date": "2038-04-01",
+          "RL_Best_Forecast": 15.918567872866593,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-05-01",
-          "temperature_forecast": 20.06216618552591
+          "Date": "2038-05-01",
+          "RL_Best_Forecast": 19.02188207094821,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-06-01",
-          "temperature_forecast": 24.344448687969702
+          "Date": "2038-06-01",
+          "RL_Best_Forecast": 23.466039781960166,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-07-01",
-          "temperature_forecast": 27.775216038898343
+          "Date": "2038-07-01",
+          "RL_Best_Forecast": 27.017851926271756,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-08-01",
-          "temperature_forecast": 27.961286420130023
+          "Date": "2038-08-01",
+          "RL_Best_Forecast": 27.3559919996025,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-09-01",
-          "temperature_forecast": 25.054939957549617
+          "Date": "2038-09-01",
+          "RL_Best_Forecast": 24.248108514622007,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-10-01",
-          "temperature_forecast": 21.559655779362217
+          "Date": "2038-10-01",
+          "RL_Best_Forecast": 20.767077880806923,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-11-01",
-          "temperature_forecast": 16.530654243263903
+          "Date": "2038-11-01",
+          "RL_Best_Forecast": 15.3317100196489,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-12-01",
-          "temperature_forecast": 13.547059773217825
+          "Date": "2038-12-01",
+          "RL_Best_Forecast": 12.006128330606924,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-01-01",
-          "temperature_forecast": 12.239180005233148
+          "Date": "2039-01-01",
+          "RL_Best_Forecast": 11.041111559649934,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-02-01",
-          "temperature_forecast": 12.681183205036692
+          "Date": "2039-02-01",
+          "RL_Best_Forecast": 11.16729399025389,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-03-01",
-          "temperature_forecast": 14.59753777649415
+          "Date": "2039-03-01",
+          "RL_Best_Forecast": 13.256498292777463,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-04-01",
-          "temperature_forecast": 17.011491833190142
+          "Date": "2039-04-01",
+          "RL_Best_Forecast": 15.94353000824563,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-05-01",
-          "temperature_forecast": 20.1246638762009
+          "Date": "2039-05-01",
+          "RL_Best_Forecast": 19.05171055798368,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-06-01",
-          "temperature_forecast": 24.406946378644687
+          "Date": "2039-06-01",
+          "RL_Best_Forecast": 23.50283721666192,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-07-01",
-          "temperature_forecast": 27.83771372957333
+          "Date": "2039-07-01",
+          "RL_Best_Forecast": 27.06021900871413,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-08-01",
-          "temperature_forecast": 28.023784110805007
+          "Date": "2039-08-01",
+          "RL_Best_Forecast": 27.398889324360333,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-09-01",
-          "temperature_forecast": 25.1174376482246
+          "Date": "2039-09-01",
+          "RL_Best_Forecast": 24.286132322558856,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-10-01",
-          "temperature_forecast": 21.6221534700372
+          "Date": "2039-10-01",
+          "RL_Best_Forecast": 20.799643034508428,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-11-01",
-          "temperature_forecast": 16.59315193393889
+          "Date": "2039-11-01",
+          "RL_Best_Forecast": 15.355751894782337,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-12-01",
-          "temperature_forecast": 13.609557463892807
+          "Date": "2039-12-01",
+          "RL_Best_Forecast": 12.024955313232514,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-01-01",
-          "temperature_forecast": 12.301677695908133
+          "Date": "2040-01-01",
+          "RL_Best_Forecast": 11.05842528558861,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-02-01",
-          "temperature_forecast": 12.74368089571168
+          "Date": "2040-02-01",
+          "RL_Best_Forecast": 11.184805584677996,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-03-01",
-          "temperature_forecast": 14.660035467169134
+          "Date": "2040-03-01",
+          "RL_Best_Forecast": 13.277285998535866,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-04-01",
-          "temperature_forecast": 17.073989523865126
+          "Date": "2040-04-01",
+          "RL_Best_Forecast": 15.968531287108409,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-05-01",
-          "temperature_forecast": 20.187161566875883
+          "Date": "2040-05-01",
+          "RL_Best_Forecast": 19.08158581949896,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-06-01",
-          "temperature_forecast": 24.46944406931967
+          "Date": "2040-06-01",
+          "RL_Best_Forecast": 23.539692353950603,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-07-01",
-          "temperature_forecast": 27.900211420248315
+          "Date": "2040-07-01",
+          "RL_Best_Forecast": 27.102652527588237,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-08-01",
-          "temperature_forecast": 28.08628180147999
+          "Date": "2040-08-01",
+          "RL_Best_Forecast": 27.44185391703049,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-09-01",
-          "temperature_forecast": 25.17993533889959
+          "Date": "2040-09-01",
+          "RL_Best_Forecast": 24.32421575617617,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-10-01",
-          "temperature_forecast": 21.684651160712185
+          "Date": "2040-10-01",
+          "RL_Best_Forecast": 20.83225925409612,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-11-01",
-          "temperature_forecast": 16.655649624613876
+          "Date": "2040-11-01",
+          "RL_Best_Forecast": 15.379831470326176,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-12-01",
-          "temperature_forecast": 13.672055154567794
+          "Date": "2040-12-01",
+          "RL_Best_Forecast": 12.043811818720512,
+          "Model_Used": "SARIMA"
         }
-      ]
-    },
-    "lstm_forecast_2040_final": {
-      "model": "lstm_forecast_2040_final",
-      "forecast_period": "2023-09-01 to 2040-12-01",
-      "variables": [
-        "date",
-        "temperature_forecast"
       ],
-      "summary_statistics": {
-        "temperature_forecast": {
-          "count": 208.0,
-          "mean": 17.64799898076923,
-          "std": 5.713333114253277,
-          "min": 10.490295,
-          "25%": 12.024167,
-          "50%": 16.5568835,
-          "75%": 23.047414,
-          "max": 26.555788
-        }
-      },
-      "last_5_years": [
+      "full_forecast": [
         {
-          "date": "2036-01-01",
-          "temperature_forecast": 10.5026
+          "Date": "2024-01-01",
+          "RL_Best_Forecast": 10.784634911562115,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-02-01",
-          "temperature_forecast": 11.081813
+          "Date": "2024-02-01",
+          "RL_Best_Forecast": 10.907886219998344,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-03-01",
-          "temperature_forecast": 12.222946
+          "Date": "2024-03-01",
+          "RL_Best_Forecast": 12.948559891001077,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-04-01",
-          "temperature_forecast": 14.310108
+          "Date": "2024-04-01",
+          "RL_Best_Forecast": 15.573173897530634,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-05-01",
-          "temperature_forecast": 18.61785
+          "Date": "2024-05-01",
+          "RL_Best_Forecast": 18.609153770304072,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-06-01",
-          "temperature_forecast": 22.703749
+          "Date": "2024-06-01",
+          "RL_Best_Forecast": 22.956884132380768,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-07-01",
-          "temperature_forecast": 25.66088
+          "Date": "2024-07-01",
+          "RL_Best_Forecast": 26.43163064327811,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-08-01",
-          "temperature_forecast": 26.280668
+          "Date": "2024-08-01",
+          "RL_Best_Forecast": 26.762433904335232,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-09-01",
-          "temperature_forecast": 24.029406
+          "Date": "2024-09-01",
+          "RL_Best_Forecast": 23.72198388700908,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-10-01",
-          "temperature_forecast": 19.657356
+          "Date": "2024-10-01",
+          "RL_Best_Forecast": 20.31648310100958,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-11-01",
-          "temperature_forecast": 15.082229
+          "Date": "2024-11-01",
+          "RL_Best_Forecast": 14.999049423879416,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-12-01",
-          "temperature_forecast": 11.478546
+          "Date": "2024-12-01",
+          "RL_Best_Forecast": 11.74562472088394,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-01-01",
-          "temperature_forecast": 10.503129
+          "Date": "2025-01-01",
+          "RL_Best_Forecast": 10.801546452777757,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-02-01",
-          "temperature_forecast": 11.083031
+          "Date": "2025-02-01",
+          "RL_Best_Forecast": 10.924991033364554,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-03-01",
-          "temperature_forecast": 12.224921
+          "Date": "2025-03-01",
+          "RL_Best_Forecast": 12.968864714119848,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-04-01",
-          "temperature_forecast": 14.315333
+          "Date": "2025-04-01",
+          "RL_Best_Forecast": 15.597594415646087,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-05-01",
-          "temperature_forecast": 18.624533
+          "Date": "2025-05-01",
+          "RL_Best_Forecast": 18.638335052151383,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-06-01",
-          "temperature_forecast": 22.709606
+          "Date": "2025-06-01",
+          "RL_Best_Forecast": 22.99288315278072,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-07-01",
-          "temperature_forecast": 25.664045
+          "Date": "2025-07-01",
+          "RL_Best_Forecast": 26.47307846368982,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-08-01",
-          "temperature_forecast": 26.279493
+          "Date": "2025-08-01",
+          "RL_Best_Forecast": 26.80440046210148,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-09-01",
-          "temperature_forecast": 24.024134
+          "Date": "2025-09-01",
+          "RL_Best_Forecast": 23.75918267134547,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-10-01",
-          "temperature_forecast": 19.649996
+          "Date": "2025-10-01",
+          "RL_Best_Forecast": 20.348341670552,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-11-01",
-          "temperature_forecast": 15.075548
+          "Date": "2025-11-01",
+          "RL_Best_Forecast": 15.02256964914503,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-12-01",
-          "temperature_forecast": 11.474015
+          "Date": "2025-12-01",
+          "RL_Best_Forecast": 11.764043204049994,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-01-01",
-          "temperature_forecast": 10.5036545
+          "Date": "2026-01-01",
+          "RL_Best_Forecast": 10.81848451322456,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-02-01",
-          "temperature_forecast": 11.084241
+          "Date": "2026-02-01",
+          "RL_Best_Forecast": 10.942122669034774,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-03-01",
-          "temperature_forecast": 12.226884
+          "Date": "2026-03-01",
+          "RL_Best_Forecast": 12.989201377523978,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-04-01",
-          "temperature_forecast": 14.320523
+          "Date": "2026-04-01",
+          "RL_Best_Forecast": 15.62205322792746,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-05-01",
-          "temperature_forecast": 18.63118
+          "Date": "2026-05-01",
+          "RL_Best_Forecast": 18.66756209358673,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-06-01",
-          "temperature_forecast": 22.715445
+          "Date": "2026-06-01",
+          "RL_Best_Forecast": 23.028938623762656,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-07-01",
-          "temperature_forecast": 25.667217
+          "Date": "2026-07-01",
+          "RL_Best_Forecast": 26.51459127902523,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-08-01",
-          "temperature_forecast": 26.278341
+          "Date": "2026-08-01",
+          "RL_Best_Forecast": 26.84643282823093,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-09-01",
-          "temperature_forecast": 24.018894
+          "Date": "2026-09-01",
+          "RL_Best_Forecast": 23.79643978763093,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-10-01",
-          "temperature_forecast": 19.642664
+          "Date": "2026-10-01",
+          "RL_Best_Forecast": 20.38025019797581,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-11-01",
-          "temperature_forecast": 15.068892
+          "Date": "2026-11-01",
+          "RL_Best_Forecast": 15.04612675681438,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-12-01",
-          "temperature_forecast": 11.469494
+          "Date": "2026-12-01",
+          "RL_Best_Forecast": 11.782490569504578,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-01-01",
-          "temperature_forecast": 10.504175
+          "Date": "2027-01-01",
+          "RL_Best_Forecast": 10.835449134487725,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-02-01",
-          "temperature_forecast": 11.085445
+          "Date": "2027-02-01",
+          "RL_Best_Forecast": 10.959281169069444,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-03-01",
-          "temperature_forecast": 12.228841
+          "Date": "2027-03-01",
+          "RL_Best_Forecast": 13.009569931142677,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-04-01",
-          "temperature_forecast": 14.32568
+          "Date": "2027-04-01",
+          "RL_Best_Forecast": 15.646550394424374,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-05-01",
-          "temperature_forecast": 18.637796
+          "Date": "2027-05-01",
+          "RL_Best_Forecast": 18.696834966366385,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-06-01",
-          "temperature_forecast": 22.721264
+          "Date": "2027-06-01",
+          "RL_Best_Forecast": 23.06505063384754,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-07-01",
-          "temperature_forecast": 25.670383
+          "Date": "2027-07-01",
+          "RL_Best_Forecast": 26.55616919120381,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-08-01",
-          "temperature_forecast": 26.277197
+          "Date": "2027-08-01",
+          "RL_Best_Forecast": 26.88853110591864,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-09-01",
-          "temperature_forecast": 24.013676
+          "Date": "2027-09-01",
+          "RL_Best_Forecast": 23.83375532733664,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-10-01",
-          "temperature_forecast": 19.635365
+          "Date": "2027-10-01",
+          "RL_Best_Forecast": 20.412208761620704,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-11-01",
-          "temperature_forecast": 15.062257
+          "Date": "2027-11-01",
+          "RL_Best_Forecast": 15.0697208047233,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-12-01",
-          "temperature_forecast": 11.464985
+          "Date": "2027-12-01",
+          "RL_Best_Forecast": 11.800966862538422,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-01-01",
-          "temperature_forecast": 10.504695
+          "Date": "2028-01-01",
+          "RL_Best_Forecast": 10.852440358217642,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-02-01",
-          "temperature_forecast": 11.086645
+          "Date": "2028-02-01",
+          "RL_Best_Forecast": 10.97646657559496,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-03-01",
-          "temperature_forecast": 12.230788
+          "Date": "2028-03-01",
+          "RL_Best_Forecast": 13.029970424983444,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-04-01",
-          "temperature_forecast": 14.330814
+          "Date": "2028-04-01",
+          "RL_Best_Forecast": 15.671085975280633,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-05-01",
-          "temperature_forecast": 18.644382
+          "Date": "2028-05-01",
+          "RL_Best_Forecast": 18.726153742359138,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-06-01",
-          "temperature_forecast": 22.727058
+          "Date": "2028-06-01",
+          "RL_Best_Forecast": 23.101219271695165,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-07-01",
-          "temperature_forecast": 25.673534
+          "Date": "2028-07-01",
+          "RL_Best_Forecast": 26.59781230230487,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-08-01",
-          "temperature_forecast": 26.276066
+          "Date": "2028-08-01",
+          "RL_Best_Forecast": 26.93069539852146,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-09-01",
-          "temperature_forecast": 24.008482
+          "Date": "2028-09-01",
+          "RL_Best_Forecast": 23.8711293820772,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-10-01",
-          "temperature_forecast": 19.628092
+          "Date": "2028-10-01",
+          "RL_Best_Forecast": 20.44421743994919,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-11-01",
-          "temperature_forecast": 15.055649
+          "Date": "2028-11-01",
+          "RL_Best_Forecast": 15.093351850798305,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-12-01",
-          "temperature_forecast": 11.460497
-        }
-      ]
-    },
-    "sarima_forecast_2040_final": {
-      "model": "sarima_forecast_2040_final",
-      "forecast_period": "2023-09-01 to 2040-12-01",
-      "variables": [
-        "date",
-        "temperature_forecast",
-        "lower_95",
-        "upper_95"
-      ],
-      "summary_statistics": {
-        "temperature_forecast": {
-          "count": 208.0,
-          "mean": 18.22537669043385,
-          "std": 5.537904571923342,
-          "min": 10.767918036932356,
-          "25%": 13.204401269831829,
-          "50%": 17.24103004779909,
-          "75%": 23.20379846786821,
-          "max": 26.801047507078668
+          "Date": "2028-12-01",
+          "RL_Best_Forecast": 11.81947212851328,
+          "Model_Used": "SARIMA"
         },
-        "lower_95": {
-          "count": 208.0,
-          "mean": 15.655168803592288,
-          "std": 5.5410367420683,
-          "min": 8.141175572687722,
-          "25%": 10.58269780288364,
-          "50%": 14.654950734338716,
-          "75%": 20.738123107643926,
-          "max": 24.44072552971576
+        {
+          "Date": "2029-01-01",
+          "RL_Best_Forecast": 10.869458226130025,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-02-01",
+          "RL_Best_Forecast": 10.99367893080378,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-03-01",
+          "RL_Best_Forecast": 13.0504029091322,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-04-01",
+          "RL_Best_Forecast": 15.695660030734343,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-05-01",
+          "RL_Best_Forecast": 18.755518493546468,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-06-01",
+          "RL_Best_Forecast": 23.13744462610433,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-07-01",
+          "RL_Best_Forecast": 26.63952071456776,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-08-01",
+          "RL_Best_Forecast": 26.972925809558333,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-09-01",
+          "RL_Best_Forecast": 23.90856204361088,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-10-01",
+          "RL_Best_Forecast": 20.476276311546822,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-11-01",
+          "RL_Best_Forecast": 15.117019953056756,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-12-01",
+          "RL_Best_Forecast": 11.838006412862036,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-01-01",
+          "RL_Best_Forecast": 10.886502780006,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-02-01",
+          "RL_Best_Forecast": 11.01091827695452,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-03-01",
+          "RL_Best_Forecast": 13.070867433753415,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-04-01",
+          "RL_Best_Forecast": 15.72027262111808,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-05-01",
+          "RL_Best_Forecast": 18.784929292022756,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-06-01",
+          "RL_Best_Forecast": 23.173726786013088,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-07-01",
+          "RL_Best_Forecast": 26.681294530392183,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-08-01",
+          "RL_Best_Forecast": 27.015222442710527,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-09-01",
+          "RL_Best_Forecast": 23.946053403839837,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-10-01",
+          "RL_Best_Forecast": 20.5083854551224,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-11-01",
+          "RL_Best_Forecast": 15.140725169606984,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-12-01",
+          "RL_Best_Forecast": 11.856569761088824,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-01-01",
+          "RL_Best_Forecast": 10.903574061692211,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-02-01",
+          "RL_Best_Forecast": 11.028184656372066,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-03-01",
+          "RL_Best_Forecast": 13.09136404909021,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-04-01",
+          "RL_Best_Forecast": 15.744923806859015,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-05-01",
+          "RL_Best_Forecast": 18.814386209995405,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-06-01",
+          "RL_Best_Forecast": 23.210065840498967,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-07-01",
+          "RL_Best_Forecast": 26.723133852338407,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-08-01",
+          "RL_Best_Forecast": 27.057585401821893,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-09-01",
+          "RL_Best_Forecast": 23.983603554810333,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-10-01",
+          "RL_Best_Forecast": 20.540544949508128,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-11-01",
+          "RL_Best_Forecast": 15.164467558648449,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-12-01",
+          "RL_Best_Forecast": 11.875162218769129,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-01-01",
+          "RL_Best_Forecast": 10.920672113100922,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-02-01",
+          "RL_Best_Forecast": 11.045478111447672,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-03-01",
+          "RL_Best_Forecast": 13.1118928054645,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-04-01",
+          "RL_Best_Forecast": 15.76961364847909,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-05-01",
+          "RL_Best_Forecast": 18.84388931978507,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-06-01",
+          "RL_Best_Forecast": 23.246461878779176,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-07-01",
+          "RL_Best_Forecast": 26.765038783127515,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-08-01",
+          "RL_Best_Forecast": 27.100014790899124,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-09-01",
+          "RL_Best_Forecast": 24.021212588712988,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-10-01",
+          "RL_Best_Forecast": 20.57275487365984,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-11-01",
+          "RL_Best_Forecast": 15.188247178471862,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-12-01",
+          "RL_Best_Forecast": 11.893783831549898,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-01-01",
+          "RL_Best_Forecast": 10.93779697621012,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-02-01",
+          "RL_Best_Forecast": 11.062798684639064,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-03-01",
+          "RL_Best_Forecast": 13.132453753277105,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-04-01",
+          "RL_Best_Forecast": 15.79434220659514,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-05-01",
+          "RL_Best_Forecast": 18.8734386938258,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-06-01",
+          "RL_Best_Forecast": 23.28291499021082,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-07-01",
+          "RL_Best_Forecast": 26.807009425641688,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-08-01",
+          "RL_Best_Forecast": 27.142510714112007,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-09-01",
+          "RL_Best_Forecast": 24.05888059788297,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-10-01",
+          "RL_Best_Forecast": 20.605015306657165,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-11-01",
+          "RL_Best_Forecast": 15.212064087459355,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-12-01",
+          "RL_Best_Forecast": 11.912434645149672,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-01-01",
+          "RL_Best_Forecast": 10.954948693063615,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-02-01",
+          "RL_Best_Forecast": 11.080146418470555,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-03-01",
+          "RL_Best_Forecast": 13.153046943007883,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-04-01",
+          "RL_Best_Forecast": 15.81910954191906,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-05-01",
+          "RL_Best_Forecast": 18.903034404665235,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-06-01",
+          "RL_Best_Forecast": 23.319425264291123,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-07-01",
+          "RL_Best_Forecast": 26.849045882924425,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-08-01",
+          "RL_Best_Forecast": 27.185073275793677,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-09-01",
+          "RL_Best_Forecast": 24.09660767480024,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-10-01",
+          "RL_Best_Forecast": 20.637326327703764,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-11-01",
+          "RL_Best_Forecast": 15.235918344084602,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-12-01",
+          "RL_Best_Forecast": 11.93111470535867,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-01-01",
+          "RL_Best_Forecast": 10.972127305771156,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-02-01",
+          "RL_Best_Forecast": 11.097521355533132,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-03-01",
+          "RL_Best_Forecast": 13.173672425215855,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-04-01",
+          "RL_Best_Forecast": 15.84391571525795,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-05-01",
+          "RL_Best_Forecast": 18.932676524964773,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-06-01",
+          "RL_Best_Forecast": 23.355992790657663,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-07-01",
+          "RL_Best_Forecast": 26.8911482581808,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-08-01",
+          "RL_Best_Forecast": 27.227702580440862,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-09-01",
+          "RL_Best_Forecast": 24.134393912089788,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-10-01",
+          "RL_Best_Forecast": 20.66968801612748,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-11-01",
+          "RL_Best_Forecast": 15.25981000691297,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-12-01",
+          "RL_Best_Forecast": 11.949824058038924,
+          "Model_Used": "SARIMA"
         },
-        "upper_95": {
-          "count": 208.0,
-          "mean": 20.79558457727542,
-          "std": 5.537765130583723,
-          "min": 13.128057996216157,
-          "25%": 15.671048641115167,
-          "50%": 19.806078660910018,
-          "75%": 25.783377475589685,
-          "max": 29.413080567945144
-        }
-      },
-      "last_5_years": [
         {
-          "date": "2036-01-01",
-          "temperature_forecast": 10.870022818819912,
-          "lower_95": 8.20082191703123,
-          "upper_95": 13.539223720608591
+          "Date": "2036-01-01",
+          "RL_Best_Forecast": 10.989332856508517,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-02-01",
-          "temperature_forecast": 11.680294860586894,
-          "lower_95": 9.011090897063616,
-          "upper_95": 14.349498824110173
+          "Date": "2036-02-01",
+          "RL_Best_Forecast": 11.114923538484575,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-03-01",
-          "temperature_forecast": 13.4407576440429,
-          "lower_95": 10.771553151335512,
-          "upper_95": 16.10996213675029
+          "Date": "2036-03-01",
+          "RL_Best_Forecast": 13.194330250539318,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-04-01",
-          "temperature_forecast": 15.695779225078216,
-          "lower_95": 13.026574640912994,
-          "upper_95": 18.36498380924344
+          "Date": "2036-04-01",
+          "RL_Best_Forecast": 15.868760787514258,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-05-01",
-          "temperature_forecast": 18.77581803936417,
-          "lower_95": 16.106613439423402,
-          "upper_95": 21.44502263930495
+          "Date": "2036-05-01",
+          "RL_Best_Forecast": 18.962365127499755,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-06-01",
-          "temperature_forecast": 22.928146282411785,
-          "lower_95": 20.25894167992884,
-          "upper_95": 25.59735088489473
+          "Date": "2036-06-01",
+          "RL_Best_Forecast": 23.39261765908857,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-07-01",
-          "temperature_forecast": 26.68769975186425,
-          "lower_95": 24.01849515000908,
-          "upper_95": 29.356904353719436
+          "Date": "2036-07-01",
+          "RL_Best_Forecast": 26.933316654777748,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-08-01",
-          "temperature_forecast": 26.647621210822493,
-          "lower_95": 23.978416615250104,
-          "upper_95": 29.31682580639488
+          "Date": "2036-08-01",
+          "RL_Best_Forecast": 27.270398732714185,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-09-01",
-          "temperature_forecast": 23.86956119887908,
-          "lower_95": 21.180606631773472,
-          "upper_95": 26.55851576598468
+          "Date": "2036-09-01",
+          "RL_Best_Forecast": 24.172239402521843,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-10-01",
-          "temperature_forecast": 20.11620995731833,
-          "lower_95": 17.423856806297486,
-          "upper_95": 22.808563108339165
+          "Date": "2036-10-01",
+          "RL_Best_Forecast": 20.70210045138056,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-11-01",
-          "temperature_forecast": 15.379066812998284,
-          "lower_95": 12.686128345973447,
-          "upper_95": 18.07200528002312
+          "Date": "2036-11-01",
+          "RL_Best_Forecast": 15.283739134601662,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2036-12-01",
-          "temperature_forecast": 12.672230699455886,
-          "lower_95": 9.9792006564331,
-          "upper_95": 15.365260742478672
+          "Date": "2036-12-01",
+          "RL_Best_Forecast": 11.968562749124375,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-01-01",
-          "temperature_forecast": 10.87852991570665,
-          "lower_95": 8.185539451052275,
-          "upper_95": 13.571520380361026
+          "Date": "2037-01-01",
+          "RL_Best_Forecast": 11.006565387517607,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-02-01",
-          "temperature_forecast": 11.687885879582852,
-          "lower_95": 8.994892387098888,
-          "upper_95": 14.380879372066817
+          "Date": "2037-02-01",
+          "RL_Best_Forecast": 11.132353010049554,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-03-01",
-          "temperature_forecast": 13.44635831788274,
-          "lower_95": 10.753364302074733,
-          "upper_95": 16.139352333690745
+          "Date": "2037-03-01",
+          "RL_Best_Forecast": 13.215020469695972,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-04-01",
-          "temperature_forecast": 15.698830415155646,
-          "lower_95": 13.005836308902587,
-          "upper_95": 18.391824521408704
+          "Date": "2037-04-01",
+          "RL_Best_Forecast": 15.89364481968594,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-05-01",
-          "temperature_forecast": 18.77538699716025,
-          "lower_95": 16.08239287530634,
-          "upper_95": 21.46838111901417
+          "Date": "2037-05-01",
+          "RL_Best_Forecast": 18.992100285159648,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-06-01",
-          "temperature_forecast": 22.923020698248315,
-          "lower_95": 20.23002657388038,
-          "upper_95": 25.61601482261625
+          "Date": "2037-06-01",
+          "RL_Best_Forecast": 23.429299959502767,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-07-01",
-          "temperature_forecast": 26.67832368929965,
-          "lower_95": 23.98532956555253,
-          "upper_95": 29.371317813046765
+          "Date": "2037-07-01",
+          "RL_Best_Forecast": 26.97555117624428,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-08-01",
-          "temperature_forecast": 26.638290460280825,
-          "lower_95": 23.94529634274692,
-          "upper_95": 29.331284577814728
+          "Date": "2037-08-01",
+          "RL_Best_Forecast": 27.313161837438365,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-09-01",
-          "temperature_forecast": 23.86337126922845,
-          "lower_95": 21.15084446580542,
-          "upper_95": 26.57589807265148
+          "Date": "2037-09-01",
+          "RL_Best_Forecast": 24.21014423901212,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-10-01",
-          "temperature_forecast": 20.11426349395,
-          "lower_95": 17.398375213012454,
-          "upper_95": 22.83015177488755
+          "Date": "2037-10-01",
+          "RL_Best_Forecast": 20.734563713039837,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-11-01",
-          "temperature_forecast": 15.382476072000085,
-          "lower_95": 12.666008857301438,
-          "upper_95": 18.09894328669873
+          "Date": "2037-11-01",
+          "RL_Best_Forecast": 15.307705785899866,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2037-12-01",
-          "temperature_forecast": 12.67870025498745,
-          "lower_95": 9.96214246260717,
-          "upper_95": 15.395258047367731
+          "Date": "2037-12-01",
+          "RL_Best_Forecast": 11.987330824621004,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-01-01",
-          "temperature_forecast": 10.887027394634272,
-          "lower_95": 8.17050874916593,
-          "upper_95": 13.603546040102614
+          "Date": "2038-01-01",
+          "RL_Best_Forecast": 11.023824941106582,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-02-01",
-          "temperature_forecast": 11.695468316319628,
-          "lower_95": 8.978946676029434,
-          "upper_95": 14.411989956609824
+          "Date": "2038-02-01",
+          "RL_Best_Forecast": 11.149809813019736,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-03-01",
-          "temperature_forecast": 13.451952659709116,
-          "lower_95": 10.735430501799865,
-          "upper_95": 16.168474817618367
+          "Date": "2038-03-01",
+          "RL_Best_Forecast": 13.235743133483057,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-04-01",
-          "temperature_forecast": 15.70187815561662,
-          "lower_95": 12.985355908248296,
-          "upper_95": 18.418400402984943
+          "Date": "2038-04-01",
+          "RL_Best_Forecast": 15.918567872866593,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-05-01",
-          "temperature_forecast": 18.77495644228431,
-          "lower_95": 16.058434179485204,
-          "upper_95": 21.491478705083416
+          "Date": "2038-05-01",
+          "RL_Best_Forecast": 19.02188207094821,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-06-01",
-          "temperature_forecast": 22.91790090897112,
-          "lower_95": 20.201378643685395,
-          "upper_95": 25.63442317425684
+          "Date": "2038-06-01",
+          "RL_Best_Forecast": 23.466039781960166,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-07-01",
-          "temperature_forecast": 26.66895822712993,
-          "lower_95": 23.95243596245826,
-          "upper_95": 29.38548049180161
+          "Date": "2038-07-01",
+          "RL_Best_Forecast": 27.017851926271756,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-08-01",
-          "temperature_forecast": 26.62897025890516,
-          "lower_95": 23.91244800037897,
-          "upper_95": 29.345492517431342
+          "Date": "2038-08-01",
+          "RL_Best_Forecast": 27.3559919996025,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-09-01",
-          "temperature_forecast": 23.857188337792497,
-          "lower_95": 21.121344973304076,
-          "upper_95": 26.59303170228092
+          "Date": "2038-09-01",
+          "RL_Best_Forecast": 24.248108514622007,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-10-01",
-          "temperature_forecast": 20.11231923121549,
-          "lower_95": 17.373150530121112,
-          "upper_95": 22.85148793230987
+          "Date": "2038-10-01",
+          "RL_Best_Forecast": 20.767077880806923,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-11-01",
-          "temperature_forecast": 15.385881476559629,
-          "lower_95": 12.646140058144338,
-          "upper_95": 18.12562289497492
+          "Date": "2038-11-01",
+          "RL_Best_Forecast": 15.3317100196489,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2038-12-01",
-          "temperature_forecast": 12.685162496164722,
-          "lower_95": 9.945331472456012,
-          "upper_95": 15.424993519873432
+          "Date": "2038-12-01",
+          "RL_Best_Forecast": 12.006128330606924,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-01-01",
-          "temperature_forecast": 10.89551526647665,
-          "lower_95": 8.155722969428888,
-          "upper_95": 13.635307563524412
+          "Date": "2039-01-01",
+          "RL_Best_Forecast": 11.041111559649934,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-02-01",
-          "temperature_forecast": 11.703042180500155,
-          "lower_95": 8.963246920781014,
-          "upper_95": 14.4428374402193
+          "Date": "2039-02-01",
+          "RL_Best_Forecast": 11.16729399025389,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-03-01",
-          "temperature_forecast": 13.45754067668088,
-          "lower_95": 10.717744904899495,
-          "upper_95": 16.197336448462266
+          "Date": "2039-03-01",
+          "RL_Best_Forecast": 13.256498292777463,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-04-01",
-          "temperature_forecast": 15.704922450361204,
-          "lower_95": 12.965126590081123,
-          "upper_95": 18.444718310641285
+          "Date": "2039-04-01",
+          "RL_Best_Forecast": 15.94353000824563,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-05-01",
-          "temperature_forecast": 18.774526374185378,
-          "lower_95": 16.03473049864017,
-          "upper_95": 21.514322249730583
+          "Date": "2039-05-01",
+          "RL_Best_Forecast": 19.05171055798368,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-06-01",
-          "temperature_forecast": 22.912786908028604,
-          "lower_95": 20.17299103002347,
-          "upper_95": 25.652582786033737
+          "Date": "2039-06-01",
+          "RL_Best_Forecast": 23.50283721666192,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-07-01",
-          "temperature_forecast": 26.65960335337052,
-          "lower_95": 23.91980747597285,
-          "upper_95": 29.3993992307682
+          "Date": "2039-07-01",
+          "RL_Best_Forecast": 27.06021900871413,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-08-01",
-          "temperature_forecast": 26.619660594768806,
-          "lower_95": 23.87986472345064,
-          "upper_95": 29.35945646608697
+          "Date": "2039-08-01",
+          "RL_Best_Forecast": 27.398889324360333,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-09-01",
-          "temperature_forecast": 23.851012396659183,
-          "lower_95": 21.09210154608845,
-          "upper_95": 26.609923247229915
+          "Date": "2039-09-01",
+          "RL_Best_Forecast": 24.286132322558856,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-10-01",
-          "temperature_forecast": 20.110377166626805,
-          "lower_95": 17.348176197214542,
-          "upper_95": 22.872578136039067
+          "Date": "2039-10-01",
+          "RL_Best_Forecast": 20.799643034508428,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-11-01",
-          "temperature_forecast": 15.389283031034672,
-          "lower_95": 12.626515402200267,
-          "upper_95": 18.15205065986908
+          "Date": "2039-11-01",
+          "RL_Best_Forecast": 15.355751894782337,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2039-12-01",
-          "temperature_forecast": 12.691617431257171,
-          "lower_95": 9.928761144724676,
-          "upper_95": 15.454473717789666
+          "Date": "2039-12-01",
+          "RL_Best_Forecast": 12.024955313232514,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-01-01",
-          "temperature_forecast": 10.903993542095376,
-          "lower_95": 8.141175572687722,
-          "upper_95": 13.666811511503028
+          "Date": "2040-01-01",
+          "RL_Best_Forecast": 11.05842528558861,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-02-01",
-          "temperature_forecast": 11.710607481816409,
-          "lower_95": 8.94778658106811,
-          "upper_95": 14.473428382564704
+          "Date": "2040-02-01",
+          "RL_Best_Forecast": 11.184805584677996,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-03-01",
-          "temperature_forecast": 13.46312237594879,
-          "lower_95": 10.700300968553387,
-          "upper_95": 16.225943783344192
+          "Date": "2040-03-01",
+          "RL_Best_Forecast": 13.277285998535866,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-04-01",
-          "temperature_forecast": 15.70796330328506,
-          "lower_95": 12.945141808326849,
-          "upper_95": 18.47078479824327
+          "Date": "2040-04-01",
+          "RL_Best_Forecast": 15.968531287108409,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-05-01",
-          "temperature_forecast": 18.774096792313117,
-          "lower_95": 16.011275282251205,
-          "upper_95": 21.53691830237502
+          "Date": "2040-05-01",
+          "RL_Best_Forecast": 19.08158581949896,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-06-01",
-          "temperature_forecast": 22.907678688876597,
-          "lower_95": 20.14485717638077,
-          "upper_95": 25.670500201372413
+          "Date": "2040-06-01",
+          "RL_Best_Forecast": 23.539692353950603,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-07-01",
-          "temperature_forecast": 26.65025905605036,
-          "lower_95": 23.88743754415557,
-          "upper_95": 29.413080567945144
+          "Date": "2040-07-01",
+          "RL_Best_Forecast": 27.102652527588237,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-08-01",
-          "temperature_forecast": 26.610361455958586,
-          "lower_95": 23.84753995007901,
-          "upper_95": 29.37318296183815
+          "Date": "2040-08-01",
+          "RL_Best_Forecast": 27.44185391703049,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-09-01",
-          "temperature_forecast": 23.844843437925405,
-          "lower_95": 21.06310786328474,
-          "upper_95": 26.626579012566072
+          "Date": "2040-09-01",
+          "RL_Best_Forecast": 24.32421575617617,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-10-01",
-          "temperature_forecast": 20.108437297698764,
-          "lower_95": 17.323445938607563,
-          "upper_95": 22.893428656789965
+          "Date": "2040-10-01",
+          "RL_Best_Forecast": 20.83225925409612,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-11-01",
-          "temperature_forecast": 15.392680739778054,
-          "lower_95": 12.607128627442108,
-          "upper_95": 18.178232852114
+          "Date": "2040-11-01",
+          "RL_Best_Forecast": 15.379831470326176,
+          "Model_Used": "SARIMA"
         },
         {
-          "date": "2040-12-01",
-          "temperature_forecast": 12.698065068524915,
-          "lower_95": 9.912425222359584,
-          "upper_95": 15.483704914690248
+          "Date": "2040-12-01",
+          "RL_Best_Forecast": 12.043811818720512,
+          "Model_Used": "SARIMA"
         }
       ]
     }
   },
   "summary": {
     "num_trend_variables": 0,
-    "num_forecast_models": 3,
+    "num_forecast_models": 1,
     "forecast_models": [
-      "linear_forecast_2040_final",
-      "lstm_forecast_2040_final",
-      "sarima_forecast_2040_final"
+      "RL_Agent_Forecast"
     ]
   }
 }
