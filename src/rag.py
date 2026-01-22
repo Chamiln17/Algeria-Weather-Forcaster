@@ -124,6 +124,30 @@ class ClimateRAG:
         else:
             logger.warning("No documents to embed")
     
+    def _create_balanced_prompt(self, question: str, context: str) -> str:
+        """Create a balanced, user-friendly prompt for the showcase"""
+        return f"""You are an intelligent Climate Assistant for Algeria.
+
+ROLE:
+- Explain climate trends and forecasts clearly
+- Use the provided data to answer the question
+- Be honest if you don't know the answer
+
+CLIMATE DATA:
+{context}
+
+USER QUESTION:
+{question}
+
+INSTRUCTIONS:
+1. Answer directly and naturally
+2. Mention specific numbers (e.g., "The forecast for 2040 is 18.2°C")
+3. Explain *why* (e.g., "This trend is driven by...")
+4. Mention uncertainty simply (e.g., "There is some uncertainty...")
+5. If the data isn't there, just say "I don't have that information."
+
+Keep it professional but accessible."""
+
     def _get_context(self, question: str, n_results: int = 5) -> str:
         """Retrieve relevant context for a question"""
         self.initialize_embeddings()
@@ -139,15 +163,7 @@ class ClimateRAG:
     def query(self, question: str, n_results: int = 5) -> str:
         """Query the RAG system (non-streaming)"""
         context = self._get_context(question, n_results)
-        
-        prompt = f"""You are a climate data analyst for Algeria. Use the following data to answer the question.
-
-CLIMATE DATA:
-{context}
-
-QUESTION: {question}
-
-Provide a detailed, data-driven answer based on the information above. Include specific numbers and trends when available."""
+        prompt = self._create_balanced_prompt(question, context)
         
         try:
             response = self.groq_client.chat.completions.create(
@@ -169,15 +185,7 @@ Provide a detailed, data-driven answer based on the information above. Include s
     def query_stream(self, question: str, n_results: int = 5) -> Generator[str, None, None]:
         """Query the RAG system with streaming response"""
         context = self._get_context(question, n_results)
-        
-        prompt = f"""You are a climate data analyst for Algeria. Use the following data to answer the question.
-
-CLIMATE DATA:
-{context}
-
-QUESTION: {question}
-
-Provide a detailed, data-driven answer based on the information above. Include specific numbers and trends when available."""
+        prompt = self._create_balanced_prompt(question, context)
         
         try:
             stream = self.groq_client.chat.completions.create(
@@ -205,8 +213,8 @@ def init_rag_system(groq_api_key: str, reset_db: bool = False) -> ClimateRAG:
     rag = ClimateRAG(groq_api_key)
     rag.initialize_chroma(reset=reset_db)
     
-    if rag.collection.count() == 0:
-        logger.info("Collection is empty, loading data...")
+    if rag.collection.count() < 2:
+        logger.info(f"Collection count low ({rag.collection.count()}), reloading data...")
         rag.load_and_embed_data()
     
     return rag
