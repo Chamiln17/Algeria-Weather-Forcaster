@@ -102,6 +102,32 @@ class ClimateRAG:
             documents.append(doc_text)
             metadatas.append({'type': 'forecast', 'model': model_name})
             ids.append(f"forecast_{model_name}")
+            
+            # Add monthly forecast data grouped by year
+            full_forecast = forecast_data.get('full_forecast', [])
+            if full_forecast:
+                # Group forecasts by year for better retrieval
+                year_forecasts = {}
+                for entry in full_forecast:
+                    date = entry.get('Date', '')
+                    year = date[:4] if date else None
+                    if year:
+                        if year not in year_forecasts:
+                            year_forecasts[year] = []
+                        year_forecasts[year].append(entry)
+                
+                # Create a document for each year
+                for year, entries in year_forecasts.items():
+                    doc_text = f"Monthly Temperature Forecasts for {year} (Algeria):\n"
+                    for entry in entries:
+                        date = entry.get('Date', 'N/A')
+                        temp = entry.get('RL_Best_Forecast', 'N/A')
+                        model = entry.get('Model_Used', 'N/A')
+                        doc_text += f"  {date}: {temp:.2f}°C (Model: {model})\n" if isinstance(temp, float) else f"  {date}: {temp}°C (Model: {model})\n"
+                    
+                    documents.append(doc_text)
+                    metadatas.append({'type': 'monthly_forecast', 'model': model_name, 'year': year})
+                    ids.append(f"monthly_{model_name}_{year}")
         
         if documents:
             logger.info(f"Embedding {len(documents)} documents...")
@@ -126,12 +152,7 @@ class ClimateRAG:
     
     def _create_balanced_prompt(self, question: str, context: str) -> str:
         """Create a balanced, user-friendly prompt for the showcase"""
-        return f"""You are an intelligent Climate Assistant for Algeria.
-
-ROLE:
-- Explain climate trends and forecasts clearly
-- Use the provided data to answer the question
-- Be honest if you don't know the answer
+        return f"""You are a Climate Data Assistant for Algeria.
 
 CLIMATE DATA:
 {context}
@@ -140,13 +161,20 @@ USER QUESTION:
 {question}
 
 INSTRUCTIONS:
-1. Answer directly and naturally
-2. Mention specific numbers (e.g., "The forecast for 2040 is 18.2°C")
-3. Explain *why* (e.g., "This trend is driven by...")
-4. Mention uncertainty simply (e.g., "There is some uncertainty...")
-5. If the data isn't there, just say "I don't have that information."
+1. Look carefully at the CLIMATE DATA section - it contains forecasts with specific dates (e.g., "2026-02-01", "2040-07-01")
+2. If the data contains information matching the user's question, provide a DIRECT answer with specific values
+3. Only say "data not available" if the specific information truly does NOT exist in the data above
+4. Do NOT pad responses with unrelated global statistics
 
-Keep it professional but accessible."""
+RESPONSE FORMAT:
+
+### Answer
+Provide a direct, concise answer using values from the data.
+
+### Data Points (if applicable)
+- **Metric**: value (unit)
+
+Be concise and direct. Focus only on what the user asked."""
 
     def _get_context(self, question: str, n_results: int = 5) -> str:
         """Retrieve relevant context for a question"""
@@ -189,7 +217,7 @@ Keep it professional but accessible."""
         
         try:
             stream = self.groq_client.chat.completions.create(
-                model="llama-3.1-8b-instant",
+                model="moonshotai/kimi-k2-instruct-0905",
                 messages=[
                     {"role": "system", "content": "You are a climate data analyst specializing in Algeria's climate trends."},
                     {"role": "user", "content": prompt}
