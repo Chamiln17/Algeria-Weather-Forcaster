@@ -106,6 +106,21 @@ class ClimateRAG:
             # Add monthly forecast data grouped by year
             full_forecast = forecast_data.get('full_forecast', [])
             if full_forecast:
+                # Extract variable info for clear labeling
+                variable_name = forecast_data.get('variable', 'Unknown')
+                unit = forecast_data.get('unit', '')
+                
+                # Determine readable label
+                if 'temperature' in variable_name.lower():
+                    var_label = 'Temperature'
+                    unit_suffix = f' {unit}' if unit else ' °C'
+                elif 'et0' in variable_name.lower() or 'evapotranspiration' in variable_name.lower():
+                    var_label = 'ET0'
+                    unit_suffix = f' {unit}' if unit else ' mm'
+                else:
+                    var_label = variable_name
+                    unit_suffix = f' {unit}' if unit else ''
+                
                 # Group forecasts by year for better retrieval
                 year_forecasts = {}
                 for entry in full_forecast:
@@ -118,15 +133,18 @@ class ClimateRAG:
                 
                 # Create a document for each year
                 for year, entries in year_forecasts.items():
-                    doc_text = f"Monthly Temperature Forecasts for {year} (Algeria):\n"
+                    doc_text = f"Monthly {var_label} Forecasts for {year} (Algeria):\n"
                     for entry in entries:
                         date = entry.get('Date', 'N/A')
-                        temp = entry.get('RL_Best_Forecast', 'N/A')
+                        value = entry.get('RL_Best_Forecast', 'N/A')
                         model = entry.get('Model_Used', 'N/A')
-                        doc_text += f"  {date}: {temp:.2f}°C (Model: {model})\n" if isinstance(temp, float) else f"  {date}: {temp}°C (Model: {model})\n"
+                        if isinstance(value, (int, float)):
+                            doc_text += f"  {date}: {var_label} = {value:.2f}{unit_suffix} (Model: {model})\n"
+                        else:
+                            doc_text += f"  {date}: {var_label} = {value}{unit_suffix} (Model: {model})\n"
                     
                     documents.append(doc_text)
-                    metadatas.append({'type': 'monthly_forecast', 'model': model_name, 'year': year})
+                    metadatas.append({'type': 'monthly_forecast', 'model': model_name, 'year': year, 'variable': var_label})
                     ids.append(f"monthly_{model_name}_{year}")
         
         if documents:
@@ -161,22 +179,24 @@ USER QUESTION:
 {question}
 
 INSTRUCTIONS:
-1. Look carefully at the CLIMATE DATA section - it contains forecasts with specific dates (e.g., "2026-02-01", "2040-07-01")
-2. If the data contains information matching the user's question, provide a DIRECT answer with specific values
-3. Only say "data not available" if the specific information truly does NOT exist in the data above
+1. Examine the CLIMATE DATA carefully - it contains monthly forecasts organized by year (2024-2040)
+2. Provide DIRECT answers with specific values from the data
+3. Only say "data not available" if the information truly does NOT exist above
 4. Do NOT pad responses with unrelated global statistics
+5. For trend questions spanning multiple years, include data from beginning, middle, AND end of the range
+6. ALWAYS include units: Temperature in °C, ET0 in mm/month
 
 RESPONSE FORMAT:
 
 ### Answer
-Provide a direct, concise answer using values from the data.
+Direct, concise answer using exact values from the data.
 
-### Data Points (if applicable)
+### Data Points
 - **Metric**: value (unit)
 
-Be concise and direct. Focus only on what the user asked."""
+For trend questions, show representative samples across the full time range asked."""
 
-    def _get_context(self, question: str, n_results: int = 5) -> str:
+    def _get_context(self, question: str, n_results: int = 10) -> str:
         """Retrieve relevant context for a question"""
         self.initialize_embeddings()
         query_embedding = self.embedding_model.encode([question])[0]
@@ -188,7 +208,7 @@ Be concise and direct. Focus only on what the user asked."""
         
         return "\n\n".join(results['documents'][0])
     
-    def query(self, question: str, n_results: int = 5) -> str:
+    def query(self, question: str, n_results: int = 10) -> str:
         """Query the RAG system (non-streaming)"""
         context = self._get_context(question, n_results)
         prompt = self._create_balanced_prompt(question, context)
@@ -210,7 +230,7 @@ Be concise and direct. Focus only on what the user asked."""
             logger.error(f"Groq API error: {e}")
             return f"Error generating response: {str(e)}"
     
-    def query_stream(self, question: str, n_results: int = 5) -> Generator[str, None, None]:
+    def query_stream(self, question: str, n_results: int = 10) -> Generator[str, None, None]:
         """Query the RAG system with streaming response"""
         context = self._get_context(question, n_results)
         prompt = self._create_balanced_prompt(question, context)
