@@ -1,150 +1,182 @@
 import pandas as pd
 import numpy as np
 import pickle
+import os
 from agent import RLAgent
 
-def prepare_training_data():
-    # 1. Load Data
-    try:
-        actuals = pd.read_csv('../Dataset/Algiers_Weather_Data.csv')
-    except FileNotFoundError:
-        actuals = pd.read_csv('Dataset/Algiers_Weather_Data.csv')
-        
-    sarima = pd.read_csv('../Predictions/sarima_forecast_2040.csv')
-    lstm = pd.read_csv('../Predictions/lstm_forecast_2040.csv')
-
-    # Load Linear if available
-    try:
-        linear = pd.read_csv('../Predictions/linear_forecast_2040_final.csv')
-        has_linear = True
-    except FileNotFoundError:
-        has_linear = False
-
-    # 2. Process Dates
-    # Actuals: 2002-2023
-    actuals['time'] = pd.to_datetime(actuals['time'])
-    monthly_actuals = actuals.set_index('time').resample('MS')['temperature_2m_mean (°C)'].mean().reset_index()
-    monthly_actuals.columns = ['Date', 'Actual']
-
-    # Forecasts
-    sarima.rename(columns={'Unnamed: 0': 'Date'}, inplace=True)
-    sarima['Date'] = pd.to_datetime(sarima['Date'])
-    
-    lstm['Date'] = pd.to_datetime(lstm['Date']) # Assuming Date column exists
-
-    # 3. Merge for TRAINING Period (May 2019 - Dec 2019)
-    # We only have SARIMA from May 2019, so that's our limit.
-    df = pd.merge(monthly_actuals, sarima[['Date', 'Forecast']], on='Date', how='inner')
-    df = df.rename(columns={'Forecast': 'SARIMA'})
-    
-    df = pd.merge(df, lstm[['Date', 'Forecast']], on='Date', how='inner')
-    df = df.rename(columns={'Forecast': 'LSTM'})
-    
-    # Note: We do NOT merge Linear here because Linear forecast (starts 2023) 
-    # does not overlap with Pre-Training Period (2019).
-    # We will initialize the Linear Q-values later based on SARIMA/LSTM performance.
-
-    # Filter for Pre-Training Range
-    train_df = df[(df['Date'] >= '2019-05-01') & (df['Date'] < '2020-01-01')].copy()
-    
-    print(f"Training Data Points: {len(train_df)} months (Repeated 1000x)")
-    return train_df
-
 def pretrain():
-    train_df = prepare_training_data()
+    """
+    Pre-train RL agent using ACTUAL historical performance (2019-2023)
+    This is the proper way - learning from real errors, not assumptions
+    """
+    print("="*70)
+    print("TRAINING RL AGENT ON HISTORICAL PERFORMANCE")
+    print("="*70)
     
-    n_actions = 2
-    # Check if linear file exists (even if not in training data)
-    import os
-    if os.path.exists("../Predictions/linear_forecast_2040_final.csv"):
-        n_actions = 3
-        print(f"Linear forecast found. Agent will have {n_actions} actions.")
+    # Load historical backcasts (Temperature - primary training variable)
+    backcast_file = 'historical_backcasts_temperature_2019_2023_real.csv'
     
-    # Create a "Blank" Agent
-    # We use aggressive learning here because we want it to MEMORIZE 2019
-    agent = RLAgent(n_actions=n_actions, lr=0.5, gamma=0.9, epsilon_start=1.0, epsilon_end=0.01, epsilon_decay=0.995)
+    if not os.path.exists(backcast_file):
+        # Fallback to old proxy file if real one doesn't exist
+        backcast_file_old = 'historical_backcasts_2019_2023.csv'
+        if os.path.exists(backcast_file_old):
+            print(f"\n⚠️  WARNING: Using old proxy backcasts!")
+            print(f"   For proper training, run 'backcast_generator.ipynb' in Colab")
+            print(f"   and place real backcast files here\n")
+            backcast_file = backcast_file_old
+        else:
+            print(f"\n❌ ERROR: No backcast file found!")
+            print(f"   Expected: {backcast_file}")
+            print(f"   Run 'backcast_generator.ipynb' in Google Colab first.")
+            print(f"   Should generate: historical_backcasts_temperature_2019_2023_real.csv")
+            print(f"                    historical_backcasts_et0_2019_2023_real.csv")
+            return
+    
+    train_df = pd.read_csv(backcast_file)
+    train_df['Date'] = pd.to_datetime(train_df['Date'])
+    
+    print(f"\n📊 Training Data: {len(train_df)} months")
+    print(f"   Period: {train_df['Date'].min().date()} to {train_df['Date'].max().date()}")
+    print(f"   Variable: Temperature (°C)")
+    print(f"   Models: SARIMA, LSTM, Ridge, Prophet")
 
-    # TRAINING LOOP (1000 Episodes)
-    # The agent lives through 2019 over and over again.
+    
+    print(f"\n📊 Training Data: {len(train_df)} months")
+    print(f"   Period: {train_df['Date'].min().date()} to {train_df['Date'].max().date()}")
+    print(f"   Models: SARIMA, LSTM, Ridge, Prophet")
+    
+    # Show actual performance on this data
+    print("\n📈 Historical Model Performance (MAE):")
+    for model in ['SARIMA', 'LSTM', 'Ridge', 'Prophet']:
+        mae = (train_df['Actual'] - train_df[model]).abs().mean()
+        print(f"   {model:8}: {mae:.3f}°C")
+    
+    # Create agent
+    n_actions = 4  # SARIMA, LSTM, Ridge, Prophet
+    model_names = ['SARIMA', 'LSTM', 'Ridge', 'Prophet']
+    
+    print(f"\n🤖 Initializing RL Agent...")
+    print(f"   Actions: {n_actions}")
+    print(f"   States: 12 (months)")
+    
+    agent = RLAgent(
+        n_actions=n_actions,
+        lr=0.5,              # High learning rate for fast convergence
+        gamma=0.9,           # Consider future rewards
+        epsilon_start=1.0,   # Start with full exploration
+        epsilon_end=0.01,    # End with minimal exploration
+        epsilon_decay=0.995  # Gradual decay
+    )
+    
+    # TRAINING LOOP
     n_episodes = 1000
+    print(f"\n🔄 Training for {n_episodes} episodes...")
+    print("   (Replaying 2019-2023 to learn model preferences)\n")
+    
+    episode_rewards = []
     
     for e in range(n_episodes):
+        total_reward = 0
+        
+        # Reset to first month
         state = train_df.iloc[0]['Date'].month - 1
         
-        for i in range(len(train_df) - 1):
-            # 1. Action
-            # Force action to be 0 or 1 since we only have data for those
-            if np.random.uniform(0, 1) < agent.epsilon:
-                action = np.random.choice([0, 1])
-            else:
-                action = np.argmax(agent.q_table[state, :2]) # Only consider 0 and 1
-            
-            # 2. Observation
+        # Loop through all months in training data
+        for i in range(len(train_df)):
             row = train_df.iloc[i]
             
+            # Agent selects which model to use
+            action = agent.decision_policy(state)
+            
+            # Get prediction from selected model
             if action == 0:
-                chosen_pred = row['SARIMA']
+                prediction = row['SARIMA']
+                model_used = 'SARIMA'
             elif action == 1:
-                chosen_pred = row['LSTM']
-            else:
-                 chosen_pred = row['SARIMA'] # Fallback
+                prediction = row['LSTM']
+                model_used = 'LSTM'
+            elif action == 2:
+                prediction = row['Ridge']
+                model_used = 'Ridge'
+            elif action == 3:
+                prediction = row['Prophet']
+                model_used = 'Prophet'
             
             actual = row['Actual']
             
-            # 3. Reward (Negative Absolute Error)
-            error = abs(actual - chosen_pred)
+            # Calculate reward (negative error - higher is better)
+            error = abs(actual - prediction)
             reward = -error
+            total_reward += reward
             
-            # 4. Next State
-            next_state = train_df.iloc[i+1]['Date'].month - 1
-            
-            # 5. Learn
-            # Decay epsilon manually inside agent manually called or just manual update?
-            # Agent decays in decision_policy. We skipped it. Call it to decay.
-            agent.epsilon = max(agent.epsilon_end, agent.epsilon * agent.epsilon_decay)
-            
-            agent.update(state, action, reward, next_state)
-            state = next_state
-
-    # Initialize Linear Q-values (Column 2) to average of SARIMA/LSTM
-    if n_actions > 2:
-        print("Initializing Linear Q-values to average of SARIMA/LSTM...")
-        for s in range(12):
-            agent.q_table[s, 2] = np.mean(agent.q_table[s, :2])
-
-    # Save the "Smart" Agent
-    print("Training Complete. Saving Q-Table...")
+            # Get next state (next month)
+            if i < len(train_df) - 1:
+                next_state = train_df.iloc[i + 1]['Date'].month - 1
+                agent.update(state, action, reward, next_state)
+                state = next_state
+        
+        episode_rewards.append(total_reward)
+        
+        # Print progress
+        if (e + 1) % 100 == 0:
+            avg_reward = np.mean(episode_rewards[-100:])
+            print(f"   Episode {e+1:4d}/{n_episodes} | Avg Reward: {avg_reward:7.2f} | ε: {agent.epsilon:.4f}")
+    
+    # Save trained model
+    print("\n💾 Saving trained Q-table...")
     agent.save_model("pretrained_q_table.pkl")
+    print("✅ Saved to: pretrained_q_table.pkl")
     
-    # Peek at what it learned
-    print("\n--- What did it learn? (Q-Table) ---")
+    # Display learned preferences
+    print("\n" + "="*80)
+    print("📊 LEARNED MODEL PREFERENCES BY MONTH")
+    print("="*80)
+    
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    header = "Month | SARIMA Value | LSTM Value "
-    if n_actions > 2:
-        header += "| Linear Value "
-    header += "| Preference"
-    print(header)
     
+    # Header
+    header = "Month  "
+    for model in model_names:
+        header += f"| {model:8} "
+    header += "| Best Model"
+    print(header)
+    print("-" * len(header))
+    
+    # Each month's learned values
     for m in range(12):
-        s_val = agent.q_table[m, 0]
-        l_val = agent.q_table[m, 1]
+        row_str = f"{months[m]:6} "
         
-        vals = [s_val, l_val]
-        if n_actions > 2:
-            lin_val = agent.q_table[m, 2]
-            vals.append(lin_val)
-            
+        vals = agent.q_table[m, :n_actions]
+        for val in vals:
+            row_str += f"| {val:8.2f} "
+        
         best_idx = np.argmax(vals)
-        if best_idx == 0: pref = "SARIMA"
-        elif best_idx == 1: pref = "LSTM"
-        else: pref = "Linear"
-        
-        row_str = f"{months[m]}   | {s_val:6.2f}       | {l_val:6.2f}     "
-        if n_actions > 2:
-            row_str += f"| {lin_val:6.2f}       "
-        row_str += f"| {pref}"
+        best_model = model_names[best_idx]
+        row_str += f"| {best_model}"
         
         print(row_str)
+    
+    print("="*80)
+    
+    # Training summary
+    print("\n📈 Training Summary:")
+    print(f"   Episodes: {n_episodes}")
+    print(f"   Final ε: {agent.epsilon:.4f}")
+    print(f"   Avg Reward (last 100): {np.mean(episode_rewards[-100:]):.2f}")
+    
+    # Model selection distribution
+    best_models = [model_names[np.argmax(agent.q_table[m, :n_actions])] for m in range(12)]
+    
+    print(f"\n📊 Model Selection Distribution:")
+    from collections import Counter
+    model_counts = Counter(best_models)
+    for model, count in model_counts.most_common():
+        percentage = (count / 12) * 100
+        print(f"   {model}: {count}/12 months ({percentage:.1f}%)")
+    
+    print("\n✅ Training complete!")
+    print("   Agent learned from ACTUAL 2019-2023 performance")
+    print("   Now run: python rl_forecast_unified.py")
 
 if __name__ == "__main__":
     pretrain()
