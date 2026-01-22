@@ -12,6 +12,7 @@ load_dotenv()
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.rag import init_rag_system
+from src.report_generator import ClimateReportGenerator
 
 # Page config
 st.set_page_config(
@@ -20,16 +21,12 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for dark theme + feedback buttons
+# Custom CSS
 st.markdown("""
 <style>
     .stApp {
         background-color: #212121;
     }
-    
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
     
     .main .block-container {
         max-width: 800px;
@@ -105,31 +102,55 @@ if groq_api_key and st.session_state.rag_system is None:
     except Exception as e:
         st.error(f"Failed to initialize: {e}")
 
-def export_chat() -> str:
-    """Export chat history as text"""
-    export_lines = [
-        "=" * 60,
-        "Algeria Climate AI - Chat Export",
-        f"Exported: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        "=" * 60,
-        ""
-    ]
+# --- SIDEBAR (Moved to top for consistent rendering) ---
+with st.sidebar:
+    st.markdown("### ⚙️ Settings")
     
-    for i, msg in enumerate(st.session_state.messages):
-        role = "You" if msg["role"] == "user" else "AI"
-        export_lines.append(f"[{role}]")
-        export_lines.append(msg["content"])
-        
-        # Add feedback if exists
-        if i in st.session_state.feedback:
-            fb = "👍" if st.session_state.feedback[i] == "up" else "👎"
-            export_lines.append(f"Feedback: {fb}")
-        
-        export_lines.append("")
+    if groq_api_key and st.session_state.rag_system:
+        st.success(f"✅ Connected ({st.session_state.rag_system.collection.count()} docs)")
+    elif groq_api_key:
+        st.warning("⏳ Initializing...")
+    else:
+        st.error("❌ No API key")
     
-    return "\n".join(export_lines)
+    st.markdown("---")
+    
+    # Chat controls
+    if st.button("🗑️ Clear Chat", use_container_width=True):
+        st.session_state.messages = []
+        st.session_state.feedback = {}
+        st.rerun()
+    
+    if st.button("🔄 Reload DB", use_container_width=True):
+        if groq_api_key:
+            st.session_state.rag_system = init_rag_system(groq_api_key, reset_db=True)
+            st.success("✅ Reloaded!")
+            st.rerun()
+            
+    st.markdown("---")
+    st.markdown("### 📄 Reports")
+    
+    report_path = "climate_report.pdf"
+    if st.button("📊 Generate PDF Report", use_container_width=True):
+        with st.spinner("Generating detailed report (this may take a moment)..."):
+            try:
+                generator = ClimateReportGenerator()
+                generator.generate_report(report_path)
+                st.success("Report generated!")
+            except Exception as e:
+                st.error(f"Failed to generate: {e}")
+    
+    if os.path.exists(report_path):
+        with open(report_path, "rb") as f:
+            st.download_button(
+                "⬇️ Download Report",
+                data=f,
+                file_name="Algeria_Climate_Report.pdf",
+                mime="application/pdf",
+                use_container_width=True
+            )
 
-# Process pending query with streaming
+# --- QUERY PROCESSING ---
 def process_streaming_query(query: str):
     """Process query with streaming response"""
     st.session_state.messages.append({"role": "user", "content": query})
@@ -139,7 +160,7 @@ if st.session_state.pending_query:
     process_streaming_query(st.session_state.pending_query)
     st.session_state.pending_query = None
 
-# Main chat interface
+# --- MAIN CHAT INTERFACE ---
 if not st.session_state.messages:
     # Welcome screen
     st.markdown('<h1 class="main-title">🇩🇿 What can I help you understand about Algeria\'s climate?</h1>', unsafe_allow_html=True)
@@ -225,50 +246,3 @@ else:
 if prompt := st.chat_input("Ask about Algeria's climate..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.rerun()
-
-# Sidebar
-with st.sidebar:
-    st.markdown("### ⚙️ Settings")
-    
-    if groq_api_key and st.session_state.rag_system:
-        st.success(f"✅ Connected ({st.session_state.rag_system.collection.count()} docs)")
-    elif groq_api_key:
-        st.warning("⏳ Initializing...")
-    else:
-        st.error("❌ No API key")
-    
-    st.markdown("---")
-    
-    # Chat controls
-    if st.button("🗑️ Clear Chat", use_container_width=True):
-        st.session_state.messages = []
-        st.session_state.feedback = {}
-        st.rerun()
-    
-    if st.button("🔄 Reload DB", use_container_width=True):
-        if groq_api_key:
-            st.session_state.rag_system = init_rag_system(groq_api_key, reset_db=True)
-            st.success("✅ Reloaded!")
-            st.rerun()
-    
-    st.markdown("---")
-    
-    # Export chat
-    if st.session_state.messages:
-        export_text = export_chat()
-        st.download_button(
-            "📥 Export Chat",
-            data=export_text,
-            file_name=f"climate_chat_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
-            mime="text/plain",
-            use_container_width=True
-        )
-        
-        # Show feedback stats
-        if st.session_state.feedback:
-            ups = sum(1 for v in st.session_state.feedback.values() if v == "up")
-            downs = sum(1 for v in st.session_state.feedback.values() if v == "down")
-            st.caption(f"Feedback: 👍 {ups} | 👎 {downs}")
-    
-    st.markdown("---")
-    st.caption("Powered by Groq + ChromaDB")
