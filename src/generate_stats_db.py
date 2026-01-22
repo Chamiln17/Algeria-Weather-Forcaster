@@ -25,44 +25,74 @@ def load_trends() -> dict:
         return json.load(f)
 
 def load_forecasts() -> dict:
-    """Load RL Agent forecast from RL Agent directory"""
+    """Load RL Agent forecasts for both temperature and ET0"""
     forecasts = {}
     
-    # Load RL Agent forecast
-    rl_forecast_path = Path('RL Agent/final_rl_forecast_2040.csv')
+    # Load RL Agent forecasts - NEW: separate files for temperature and ET0
+    rl_temp_path = Path('RL Agent/final_rl_temperature_forecast_2040.csv')
+    rl_et0_path = Path('RL Agent/final_rl_et0_forecast_2040.csv')
     
-    if not rl_forecast_path.exists():
-        logger.warning(f"RL Agent forecast not found: {rl_forecast_path}")
-        return forecasts
+    # Temperature RL Forecast
+    if rl_temp_path.exists():
+        try:
+            df = pd.read_csv(rl_temp_path)
+            
+            # Extract statistics
+            rl_stats = df['RL_Best_Forecast'].describe().to_dict()
+            model_usage = df['Model_Used'].value_counts().to_dict()
+            
+            forecasts['RL_Agent_Temperature'] = {
+                'model': 'RL Agent - Temperature (Dual-Variable Trained)',
+                'variable': 'temperature_2m_mean',
+                'unit': '°C',
+                'forecast_period': f"{df['Date'].min()} to {df['Date'].max()}",
+                'available_models': ['SARIMA', 'LSTM', 'Ridge', 'Prophet'],
+                'training_method': 'Dual-variable Q-learning (Temperature + ET0 combined rewards)',
+                'summary_statistics': {
+                    'RL_Best_Forecast': rl_stats,
+                    'Model_Selection': model_usage,
+                    'Total_Predictions': len(df)
+                },
+                'last_5_years': df.tail(60)[['Date', 'RL_Best_Forecast', 'Model_Used', 'SARIMA', 'LSTM', 'Ridge', 'Prophet']].to_dict('records'),
+                'full_forecast': df[['Date', 'RL_Best_Forecast', 'Model_Used']].to_dict('records')
+            }
+            logger.info(f"✅ Loaded Temperature RL forecast: {len(df)} predictions")
+            logger.info(f"   Model usage: {model_usage}")
+        except Exception as e:
+            logger.error(f"Error loading temperature RL forecast: {e}")
+    else:
+        logger.warning(f"Temperature RL forecast not found: {rl_temp_path}")
     
-    try:
-        df = pd.read_csv(rl_forecast_path)
-        
-        # Focus on the RL_Best_Forecast column which is the agent's selection
-        model_name = 'RL_Agent_Forecast'
-        
-        # Extract key statistics for RL_Best_Forecast
-        rl_forecast_stats = df['RL_Best_Forecast'].describe().to_dict()
-        
-        # Get model selection statistics
-        model_usage = df['Model_Used'].value_counts().to_dict()
-        
-        forecasts[model_name] = {
-            'model': 'RL Agent (Adaptive Model Selection)',
-            'forecast_period': f"{df['Date'].min()} to {df['Date'].max()}",
-            'variables': ['RL_Best_Forecast', 'Model_Used'],
-            'summary_statistics': {
-                'RL_Best_Forecast': rl_forecast_stats,
-                'Model_Selection_Count': model_usage
-            },
-            'last_5_years': df.tail(60)[['Date', 'RL_Best_Forecast', 'Model_Used']].to_dict('records'),
-            'full_forecast': df[['Date', 'RL_Best_Forecast', 'Model_Used']].to_dict('records')
-        }
-        logger.info(f"✅ Loaded RL Agent forecast with {len(df)} predictions")
-        logger.info(f"   Model usage: {model_usage}")
-        
-    except Exception as e:
-        logger.error(f"Error loading RL Agent forecast: {e}")
+    # ET0 RL Forecast
+    if rl_et0_path.exists():
+        try:
+            df = pd.read_csv(rl_et0_path)
+            
+            # Extract statistics
+            rl_stats = df['RL_Best_Forecast'].describe().to_dict()
+            model_usage = df['Model_Used'].value_counts().to_dict()
+            
+            forecasts['RL_Agent_ET0'] = {
+                'model': 'RL Agent - ET0 (Dual-Variable Trained)',
+                'variable': 'et0_fao_evapotranspiration',
+                'unit': 'mm',
+                'forecast_period': f"{df['Date'].min()} to {df['Date'].max()}",
+                'available_models': ['SARIMA', 'LSTM', 'Ridge', 'Prophet'],
+                'training_method': 'Dual-variable Q-learning (Temperature + ET0 combined rewards)',
+                'summary_statistics': {
+                    'RL_Best_Forecast': rl_stats,
+                    'Model_Selection': model_usage,
+                    'Total_Predictions': len(df)
+                },
+                'last_5_years': df.tail(60)[['Date', 'RL_Best_Forecast', 'Model_Used', 'SARIMA', 'LSTM', 'Ridge', 'Prophet']].to_dict('records'),
+                'full_forecast': df[['Date', 'RL_Best_Forecast', 'Model_Used']].to_dict('records')
+            }
+            logger.info(f"✅ Loaded ET0 RL forecast: {len(df)} predictions")
+            logger.info(f"   Model usage: {model_usage}")
+        except Exception as e:
+            logger.error(f"Error loading ET0 RL forecast: {e}")
+    else:
+        logger.warning(f"ET0 RL forecast not found: {rl_et0_path}")
     
     return forecasts
 

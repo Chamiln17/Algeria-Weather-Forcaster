@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-21T22:33:43.452167",
+    "generated_at": "2026-01-22T01:22:25.269534",
     "description": "Climate change analysis statistics for Algeria",
     "data_sources": [
       "trends.json",
@@ -9,1359 +9,3201 @@
   },
   "trends": {},
   "forecasts": {
-    "RL_Agent_Forecast": {
-      "model": "RL Agent (Adaptive Model Selection)",
+    "RL_Agent_Temperature": {
+      "model": "RL Agent - Temperature (Dual-Variable Trained)",
+      "variable": "temperature_2m_mean",
+      "unit": "\u00b0C",
       "forecast_period": "2024-01-01 to 2040-12-01",
-      "variables": [
-        "RL_Best_Forecast",
-        "Model_Used"
+      "available_models": [
+        "SARIMA",
+        "LSTM",
+        "Ridge",
+        "Prophet"
       ],
+      "training_method": "Dual-variable Q-learning (Temperature + ET0 combined rewards)",
       "summary_statistics": {
         "RL_Best_Forecast": {
           "count": 204.0,
-          "mean": 18.20712472667552,
-          "std": 5.809799833327244,
-          "min": 10.784634911562115,
-          "25%": 12.722372872930936,
-          "50%": 17.28884252870624,
-          "75%": 23.58526523721522,
-          "max": 27.44185391703049
+          "mean": 18.70004451791716,
+          "std": 5.050511252340728,
+          "min": 11.124804,
+          "25%": 14.258113138446767,
+          "50%": 17.4609155,
+          "75%": 23.74411225,
+          "max": 27.328646
         },
-        "Model_Selection_Count": {
-          "SARIMA": 204
-        }
+        "Model_Selection": {
+          "LSTM": 136,
+          "SARIMA": 68
+        },
+        "Total_Predictions": 204
       },
       "last_5_years": [
         {
           "Date": "2036-01-01",
-          "RL_Best_Forecast": 10.989332856508517,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.428343,
+          "Model_Used": "LSTM",
+          "SARIMA": 12.045312390382849,
+          "LSTM": 12.428343,
+          "Ridge": 11.2433887578669,
+          "Prophet": 11.939245964090984
         },
         {
           "Date": "2036-02-01",
-          "RL_Best_Forecast": 11.114923538484575,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.487848993235668,
+          "Model_Used": "SARIMA",
+          "SARIMA": 12.487848993235668,
+          "LSTM": 11.131607,
+          "Ridge": 15.80833753482134,
+          "Prophet": 11.555520674150568
         },
         {
           "Date": "2036-03-01",
-          "RL_Best_Forecast": 13.194330250539318,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.405434114323768,
+          "Model_Used": "SARIMA",
+          "SARIMA": 14.405434114323768,
+          "LSTM": 11.007976,
+          "Ridge": 19.61569242305425,
+          "Prophet": 14.670150905386912
         },
         {
           "Date": "2036-04-01",
-          "RL_Best_Forecast": 15.868760787514258,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.820917108119932,
+          "Model_Used": "SARIMA",
+          "SARIMA": 16.820917108119932,
+          "LSTM": 12.385488,
+          "Ridge": 22.665453422565616,
+          "Prophet": 16.684884740202527
         },
         {
           "Date": "2036-05-01",
-          "RL_Best_Forecast": 18.962365127499755,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.924224,
+          "Model_Used": "LSTM",
+          "SARIMA": 19.936042694150512,
+          "LSTM": 15.924224,
+          "Ridge": 24.95762053335546,
+          "Prophet": 20.35918908224748
         },
         {
           "Date": "2036-06-01",
-          "RL_Best_Forecast": 23.39261765908857,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 20.710323,
+          "Model_Used": "LSTM",
+          "SARIMA": 24.22096898486492,
+          "LSTM": 20.710323,
+          "Ridge": 26.492193755423767,
+          "Prophet": 24.74885117950388
         },
         {
           "Date": "2036-07-01",
-          "RL_Best_Forecast": 26.933316654777748,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.504519,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.653966413014803,
+          "LSTM": 24.504519,
+          "Ridge": 27.269173088770543,
+          "Prophet": 27.6832812507798
         },
         {
           "Date": "2036-08-01",
-          "RL_Best_Forecast": 27.270398732714185,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.313745,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.840134287051388,
+          "LSTM": 26.313745,
+          "Ridge": 27.288558533395783,
+          "Prophet": 28.161331909655686
         },
         {
           "Date": "2036-09-01",
-          "RL_Best_Forecast": 24.172239402521843,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.662254,
+          "Model_Used": "LSTM",
+          "SARIMA": 24.92893157441629,
+          "LSTM": 25.662254,
+          "Ridge": 26.55035008929949,
+          "Prophet": 24.883490075130464
         },
         {
           "Date": "2036-10-01",
-          "RL_Best_Forecast": 20.70210045138056,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.433425860561336,
+          "Model_Used": "SARIMA",
+          "SARIMA": 21.433425860561336,
+          "LSTM": 22.839556,
+          "Ridge": 25.05454775648167,
+          "Prophet": 21.858650761603634
         },
         {
           "Date": "2036-11-01",
-          "RL_Best_Forecast": 15.283739134601662,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.878004,
+          "Model_Used": "LSTM",
+          "SARIMA": 16.401934994262508,
+          "LSTM": 18.878004,
+          "Ridge": 22.80115153494232,
+          "Prophet": 16.04831823241032
         },
         {
           "Date": "2036-12-01",
-          "RL_Best_Forecast": 11.968562749124375,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.148255,
+          "Model_Used": "LSTM",
+          "SARIMA": 13.416679978146854,
+          "LSTM": 15.148255,
+          "Ridge": 19.790161424681425,
+          "Prophet": 13.295477473911106
         },
         {
           "Date": "2037-01-01",
-          "RL_Best_Forecast": 11.006565387517607,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.522241,
+          "Model_Used": "LSTM",
+          "SARIMA": 12.107574807940583,
+          "LSTM": 12.522241,
+          "Ridge": 11.544876063920078,
+          "Prophet": 11.560172024386125
         },
         {
           "Date": "2037-02-01",
-          "RL_Best_Forecast": 11.132353010049554,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.55012317677732,
+          "Model_Used": "SARIMA",
+          "SARIMA": 12.55012317677732,
+          "LSTM": 11.166392,
+          "Ridge": 16.118482713656718,
+          "Prophet": 11.917984013413353
         },
         {
           "Date": "2037-03-01",
-          "RL_Best_Forecast": 13.215020469695972,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.467759281841758,
+          "Model_Used": "SARIMA",
+          "SARIMA": 14.467759281841758,
+          "LSTM": 10.994197,
+          "Ridge": 19.934495474671827,
+          "Prophet": 14.422143924534089
         },
         {
           "Date": "2037-04-01",
-          "RL_Best_Forecast": 15.89364481968594,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.88330649752119,
+          "Model_Used": "SARIMA",
+          "SARIMA": 16.88330649752119,
+          "LSTM": 12.270181,
+          "Ridge": 22.9929143469654,
+          "Prophet": 17.013043855120877
         },
         {
           "Date": "2037-05-01",
-          "RL_Best_Forecast": 18.992100285159648,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.679428,
+          "Model_Used": "LSTM",
+          "SARIMA": 19.99851490724883,
+          "LSTM": 15.679428,
+          "Ridge": 25.29373933053744,
+          "Prophet": 20.103735228499225
         },
         {
           "Date": "2037-06-01",
-          "RL_Best_Forecast": 23.429299959502767,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 20.411093,
+          "Model_Used": "LSTM",
+          "SARIMA": 24.283555123847524,
+          "LSTM": 20.411093,
+          "Ridge": 26.83697042538796,
+          "Prophet": 24.779803812815032
         },
         {
           "Date": "2037-07-01",
-          "RL_Best_Forecast": 26.97555117624428,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.269392,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.71664382714223,
+          "LSTM": 24.269392,
+          "Ridge": 27.622607631516928,
+          "Prophet": 27.7973215451622
         },
         {
           "Date": "2037-08-01",
-          "RL_Best_Forecast": 27.313161837438365,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.18836,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.90281665093483,
+          "LSTM": 26.18836,
+          "Ridge": 27.650650948924373,
+          "Prophet": 28.38652908435057
         },
         {
           "Date": "2037-09-01",
-          "RL_Best_Forecast": 24.21014423901212,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.686792,
+          "Model_Used": "LSTM",
+          "SARIMA": 24.991536536421407,
+          "LSTM": 25.686792,
+          "Ridge": 26.92110037761028,
+          "Prophet": 25.490149111959088
         },
         {
           "Date": "2037-10-01",
-          "RL_Best_Forecast": 20.734563713039837,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.495937885476653,
+          "Model_Used": "SARIMA",
+          "SARIMA": 21.495937885476653,
+          "LSTM": 22.992659,
+          "Ridge": 25.43395591757466,
+          "Prophet": 21.93074956369396
         },
         {
           "Date": "2037-11-01",
-          "RL_Best_Forecast": 15.307705785899866,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.104006,
+          "Model_Used": "LSTM",
+          "SARIMA": 16.464313243937056,
+          "LSTM": 19.104006,
+          "Ridge": 23.189217568817508,
+          "Prophet": 16.709857542757756
         },
         {
           "Date": "2037-12-01",
-          "RL_Best_Forecast": 11.987330824621004,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.310305,
+          "Model_Used": "LSTM",
+          "SARIMA": 13.47897885707044,
+          "LSTM": 15.310305,
+          "Ridge": 20.18688533133881,
+          "Prophet": 13.59304488500353
         },
         {
           "Date": "2038-01-01",
-          "RL_Best_Forecast": 11.023824941106582,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.6468525,
+          "Model_Used": "LSTM",
+          "SARIMA": 12.169838880906257,
+          "LSTM": 12.6468525,
+          "Ridge": 11.85803921827062,
+          "Prophet": 12.272214434189555
         },
         {
           "Date": "2038-02-01",
-          "RL_Best_Forecast": 11.149809813019736,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.612399016039738,
+          "Model_Used": "SARIMA",
+          "SARIMA": 12.612399016039738,
+          "LSTM": 11.226812,
+          "Ridge": 16.440303740789467,
+          "Prophet": 12.697300724812663
         },
         {
           "Date": "2038-03-01",
-          "RL_Best_Forecast": 13.235743133483057,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.530086106436054,
+          "Model_Used": "SARIMA",
+          "SARIMA": 14.530086106436054,
+          "LSTM": 10.999406,
+          "Ridge": 20.26497437458677,
+          "Prophet": 13.64467922445398
         },
         {
           "Date": "2038-04-01",
-          "RL_Best_Forecast": 15.918567872866593,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.945697545706256,
+          "Model_Used": "SARIMA",
+          "SARIMA": 16.945697545706256,
+          "LSTM": 12.1750965,
+          "Ridge": 23.332051119662545,
+          "Prophet": 16.65889562125798
         },
         {
           "Date": "2038-05-01",
-          "RL_Best_Forecast": 19.02188207094821,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.468584,
+          "Model_Used": "LSTM",
+          "SARIMA": 20.060988781333045,
+          "LSTM": 15.468584,
+          "Ridge": 25.641533976016788,
+          "Prophet": 19.314000672377286
         },
         {
           "Date": "2038-06-01",
-          "RL_Best_Forecast": 23.466039781960166,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 20.172575,
+          "Model_Used": "LSTM",
+          "SARIMA": 24.34614292684504,
+          "LSTM": 20.172575,
+          "Ridge": 27.19342294364949,
+          "Prophet": 24.13131985726868
         },
         {
           "Date": "2038-07-01",
-          "RL_Best_Forecast": 27.017851926271756,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.114996,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.77932290771136,
+          "LSTM": 24.114996,
+          "Ridge": 27.98771802256068,
+          "Prophet": 27.38127699780377
         },
         {
           "Date": "2038-08-01",
-          "RL_Best_Forecast": 27.3559919996025,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.144894,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.96550068139157,
+          "LSTM": 26.144894,
+          "Ridge": 28.02441921275032,
+          "Prophet": 27.923896802206148
         },
         {
           "Date": "2038-09-01",
-          "RL_Best_Forecast": 24.248108514622007,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.767637,
+          "Model_Used": "LSTM",
+          "SARIMA": 25.05414316294189,
+          "LSTM": 25.767637,
+          "Ridge": 27.30352651421843,
+          "Prophet": 25.35522630193429
         },
         {
           "Date": "2038-10-01",
-          "RL_Best_Forecast": 20.767077880806923,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.558451572436365,
+          "Model_Used": "SARIMA",
+          "SARIMA": 21.558451572436365,
+          "LSTM": 23.161516,
+          "Ridge": 25.82503992696501,
+          "Prophet": 21.3202896923937
         },
         {
           "Date": "2038-11-01",
-          "RL_Best_Forecast": 15.3317100196489,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.312372,
+          "Model_Used": "LSTM",
+          "SARIMA": 16.526693152099238,
+          "LSTM": 19.312372,
+          "Ridge": 23.588959450990057,
+          "Prophet": 16.637560465632117
         },
         {
           "Date": "2038-12-01",
-          "RL_Best_Forecast": 12.006128330606924,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.448311,
+          "Model_Used": "LSTM",
+          "SARIMA": 13.54127939237138,
+          "LSTM": 15.448311,
+          "Ridge": 20.59528508629357,
+          "Prophet": 13.208943378101816
         },
         {
           "Date": "2039-01-01",
-          "RL_Best_Forecast": 11.041111559649934,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.745306,
+          "Model_Used": "LSTM",
+          "SARIMA": 12.232104609323878,
+          "LSTM": 12.745306,
+          "Ridge": 12.18287822091852,
+          "Prophet": 12.243319248439493
         },
         {
           "Date": "2039-02-01",
-          "RL_Best_Forecast": 11.16729399025389,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.67467651106694,
+          "Model_Used": "SARIMA",
+          "SARIMA": 12.67467651106694,
+          "LSTM": 11.267155,
+          "Ridge": 16.77380061621957,
+          "Prophet": 12.790494513530083
         },
         {
           "Date": "2039-03-01",
-          "RL_Best_Forecast": 13.256498292777463,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.592414588150708,
+          "Model_Used": "SARIMA",
+          "SARIMA": 14.592414588150708,
+          "LSTM": 10.991629,
+          "Ridge": 20.60712912279908,
+          "Prophet": 12.794311835334176
         },
         {
           "Date": "2039-04-01",
-          "RL_Best_Forecast": 15.94353000824563,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.00809025271923,
+          "Model_Used": "SARIMA",
+          "SARIMA": 17.00809025271923,
+          "LSTM": 12.068914,
+          "Ridge": 23.68286374065705,
+          "Prophet": 15.989066580871024
         },
         {
           "Date": "2039-05-01",
-          "RL_Best_Forecast": 19.05171055798368,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.232037,
+          "Model_Used": "LSTM",
+          "SARIMA": 20.123464316447308,
+          "LSTM": 15.232037,
+          "Ridge": 26.001004469793497,
+          "Prophet": 18.44663882046937
         },
         {
           "Date": "2039-06-01",
-          "RL_Best_Forecast": 23.50283721666192,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.888472,
+          "Model_Used": "LSTM",
+          "SARIMA": 24.408732393901698,
+          "LSTM": 19.888472,
+          "Ridge": 27.561551310208408,
+          "Prophet": 23.170360066545783
         },
         {
           "Date": "2039-07-01",
-          "RL_Best_Forecast": 27.06021900871413,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.90452,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.84200365476648,
+          "LSTM": 23.90452,
+          "Ridge": 28.364504261901786,
+          "Prophet": 26.89154039239355
         },
         {
           "Date": "2039-08-01",
-          "RL_Best_Forecast": 27.398889324360333,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.03915,
+          "Model_Used": "LSTM",
+          "SARIMA": 28.028186378465914,
+          "LSTM": 26.03915,
+          "Ridge": 28.40986332487364,
+          "Prophet": 27.140272281065737
         },
         {
           "Date": "2039-09-01",
-          "RL_Best_Forecast": 24.286132322558856,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.80458,
+          "Model_Used": "LSTM",
+          "SARIMA": 25.116751454022005,
+          "LSTM": 25.80458,
+          "Ridge": 27.697628499123944,
+          "Prophet": 24.684358716090955
         },
         {
           "Date": "2039-10-01",
-          "RL_Best_Forecast": 20.799643034508428,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.620966921484666,
+          "Model_Used": "SARIMA",
+          "SARIMA": 21.620966921484666,
+          "LSTM": 23.315653,
+          "Ridge": 26.227799784652724,
+          "Prophet": 20.394472589692512
         },
         {
           "Date": "2039-11-01",
-          "RL_Best_Forecast": 15.355751894782337,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.529268,
+          "Model_Used": "LSTM",
+          "SARIMA": 16.589074718793146,
+          "LSTM": 19.529268,
+          "Ridge": 24.00037718145997,
+          "Prophet": 16.037045186197552
         },
         {
           "Date": "2039-12-01",
-          "RL_Best_Forecast": 12.024955313232514,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.599546,
+          "Model_Used": "LSTM",
+          "SARIMA": 13.603581584093714,
+          "LSTM": 15.599546,
+          "Ridge": 21.01536068954568,
+          "Prophet": 12.51010269586899
         },
         {
           "Date": "2040-01-01",
-          "RL_Best_Forecast": 11.05842528558861,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.865368,
+          "Model_Used": "LSTM",
+          "SARIMA": 12.29437199323746,
+          "LSTM": 12.865368,
+          "Ridge": 12.519393071863792,
+          "Prophet": 11.678995824423264
         },
         {
           "Date": "2040-02-01",
-          "RL_Best_Forecast": 11.184805584677996,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.736955661902948,
+          "Model_Used": "SARIMA",
+          "SARIMA": 12.736955661902948,
+          "LSTM": 11.323766,
+          "Ridge": 17.118973339947036,
+          "Prophet": 12.195924412203292
         },
         {
           "Date": "2040-03-01",
-          "RL_Best_Forecast": 13.277285998535866,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.654744727029788,
+          "Model_Used": "SARIMA",
+          "SARIMA": 14.654744727029788,
+          "LSTM": 10.99528,
+          "Ridge": 20.960959719308743,
+          "Prophet": 13.076700166586086
         },
         {
           "Date": "2040-04-01",
-          "RL_Best_Forecast": 15.968531287108409,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.070484618604223,
+          "Model_Used": "SARIMA",
+          "SARIMA": 17.070484618604223,
+          "LSTM": 11.977583,
+          "Ridge": 24.04535220994892,
+          "Prophet": 15.665791817951336
         },
         {
           "Date": "2040-05-01",
-          "RL_Best_Forecast": 19.08158581949896,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.025183,
+          "Model_Used": "LSTM",
+          "SARIMA": 20.18594151263579,
+          "LSTM": 15.025183,
+          "Ridge": 26.372150811867563,
+          "Prophet": 18.79523973966735
         },
         {
           "Date": "2040-06-01",
-          "RL_Best_Forecast": 23.539692353950603,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.64945,
+          "Model_Used": "LSTM",
+          "SARIMA": 24.471323525061752,
+          "LSTM": 19.64945,
+          "Ridge": 27.94135552506468,
+          "Prophet": 23.771850461972143
         },
         {
           "Date": "2040-07-01",
-          "RL_Best_Forecast": 27.102652527588237,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.745937,
+          "Model_Used": "LSTM",
+          "SARIMA": 27.90468606835191,
+          "LSTM": 23.745937,
+          "Ridge": 28.75296634954025,
+          "Prophet": 26.15740677820165
         },
         {
           "Date": "2040-08-01",
-          "RL_Best_Forecast": 27.44185391703049,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.979113,
+          "Model_Used": "LSTM",
+          "SARIMA": 28.090873742202177,
+          "LSTM": 25.979113,
+          "Ridge": 28.806983285294304,
+          "Prophet": 27.20198003761074
         },
         {
           "Date": "2040-09-01",
-          "RL_Best_Forecast": 24.32421575617617,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.866793,
+          "Model_Used": "LSTM",
+          "SARIMA": 25.179361409706,
+          "LSTM": 25.866793,
+          "Ridge": 28.103406332326816,
+          "Prophet": 24.690865159407057
         },
         {
           "Date": "2040-10-01",
-          "RL_Best_Forecast": 20.83225925409612,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.68348393266573,
+          "Model_Used": "SARIMA",
+          "SARIMA": 21.68348393266573,
+          "LSTM": 23.469988,
+          "Ridge": 26.642235490637795,
+          "Prophet": 20.86593708210329
         },
         {
           "Date": "2040-11-01",
-          "RL_Best_Forecast": 15.379831470326176,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.728743,
+          "Model_Used": "LSTM",
+          "SARIMA": 16.651457944062876,
+          "LSTM": 19.728743,
+          "Ridge": 24.423470760227247,
+          "Prophet": 15.80921632842792
         },
         {
           "Date": "2040-12-01",
-          "RL_Best_Forecast": 12.043811818720512,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.734697,
+          "Model_Used": "LSTM",
+          "SARIMA": 13.66588543228148,
+          "LSTM": 15.734697,
+          "Ridge": 21.44711214109516,
+          "Prophet": 12.257551936460622
         }
       ],
       "full_forecast": [
         {
           "Date": "2024-01-01",
-          "RL_Best_Forecast": 10.784634911562115,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.124804,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2024-02-01",
-          "RL_Best_Forecast": 10.907886219998344,
+          "RL_Best_Forecast": 11.740434391408634,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2024-03-01",
-          "RL_Best_Forecast": 12.948559891001077,
+          "RL_Best_Forecast": 13.657577680381204,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2024-04-01",
-          "RL_Best_Forecast": 15.573173897530634,
+          "RL_Best_Forecast": 16.07234619839084,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2024-05-01",
-          "RL_Best_Forecast": 18.609153770304072,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.949125,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2024-06-01",
-          "RL_Best_Forecast": 22.956884132380768,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.743504,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2024-07-01",
-          "RL_Best_Forecast": 26.43163064327811,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.662956,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2024-08-01",
-          "RL_Best_Forecast": 26.762433904335232,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 27.328646,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2024-09-01",
-          "RL_Best_Forecast": 23.72198388700908,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.297926,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2024-10-01",
-          "RL_Best_Forecast": 20.31648310100958,
+          "RL_Best_Forecast": 20.68341114931748,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2024-11-01",
-          "RL_Best_Forecast": 14.999049423879416,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.926386,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2024-12-01",
-          "RL_Best_Forecast": 11.74562472088394,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 13.6470175,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-01-01",
-          "RL_Best_Forecast": 10.801546452777757,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.393247,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-02-01",
-          "RL_Best_Forecast": 10.924991033364554,
+          "RL_Best_Forecast": 11.80294223883628,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2025-03-01",
-          "RL_Best_Forecast": 12.968864714119848,
+          "RL_Best_Forecast": 13.71996662592321,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2025-04-01",
-          "RL_Best_Forecast": 15.597594415646087,
+          "RL_Best_Forecast": 16.134743291779266,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2025-05-01",
-          "RL_Best_Forecast": 18.638335052151383,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.354504,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-06-01",
-          "RL_Best_Forecast": 22.99288315278072,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.51786,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-07-01",
-          "RL_Best_Forecast": 26.47307846368982,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 27.031862,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-08-01",
-          "RL_Best_Forecast": 26.80440046210148,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.724466,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-09-01",
-          "RL_Best_Forecast": 23.75918267134547,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.364746,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-10-01",
-          "RL_Best_Forecast": 20.348341670552,
+          "RL_Best_Forecast": 20.745903268785625,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2025-11-01",
-          "RL_Best_Forecast": 15.02256964914503,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.025614,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2025-12-01",
-          "RL_Best_Forecast": 11.764043204049994,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 13.080463,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-01-01",
-          "RL_Best_Forecast": 10.81848451322456,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.368383,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-02-01",
-          "RL_Best_Forecast": 10.942122669034774,
+          "RL_Best_Forecast": 11.86519821277718,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2026-03-01",
-          "RL_Best_Forecast": 12.989201377523978,
+          "RL_Best_Forecast": 13.782273568648757,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2026-04-01",
-          "RL_Best_Forecast": 15.62205322792746,
+          "RL_Best_Forecast": 16.197114437515086,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2026-05-01",
-          "RL_Best_Forecast": 18.66756209358673,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.343145,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-06-01",
-          "RL_Best_Forecast": 23.028938623762656,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.249388,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-07-01",
-          "RL_Best_Forecast": 26.51459127902523,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.348463,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-08-01",
-          "RL_Best_Forecast": 26.84643282823093,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 27.136484,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-09-01",
-          "RL_Best_Forecast": 23.79643978763093,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.256361,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-10-01",
-          "RL_Best_Forecast": 20.38025019797581,
+          "RL_Best_Forecast": 20.808397014128865,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2026-11-01",
-          "RL_Best_Forecast": 15.04612675681438,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.968275,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2026-12-01",
-          "RL_Best_Forecast": 11.782490569504578,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 13.5788145,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-01-01",
-          "RL_Best_Forecast": 10.835449134487725,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.4800005,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-02-01",
-          "RL_Best_Forecast": 10.959281169069444,
+          "RL_Best_Forecast": 11.927455841532137,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2027-03-01",
-          "RL_Best_Forecast": 13.009569931142677,
+          "RL_Best_Forecast": 13.844582167826616,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2027-04-01",
-          "RL_Best_Forecast": 15.646550394424374,
+          "RL_Best_Forecast": 16.259487241503653,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2027-05-01",
-          "RL_Best_Forecast": 18.696834966366385,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.046312,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-06-01",
-          "RL_Best_Forecast": 23.06505063384754,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.104696,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-07-01",
-          "RL_Best_Forecast": 26.55616919120381,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.208067,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-08-01",
-          "RL_Best_Forecast": 26.88853110591864,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.655254,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-09-01",
-          "RL_Best_Forecast": 23.83375532733664,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.662579,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-10-01",
-          "RL_Best_Forecast": 20.412208761620704,
+          "RL_Best_Forecast": 20.87089242103043,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2027-11-01",
-          "RL_Best_Forecast": 15.0697208047233,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.673645,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2027-12-01",
-          "RL_Best_Forecast": 11.800966862538422,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 13.500509,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-01-01",
-          "RL_Best_Forecast": 10.852440358217642,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.539376,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-02-01",
-          "RL_Best_Forecast": 10.97646657559496,
+          "RL_Best_Forecast": 11.9897151255677,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2028-03-01",
-          "RL_Best_Forecast": 13.029970424983444,
+          "RL_Best_Forecast": 13.90689242364027,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2028-04-01",
-          "RL_Best_Forecast": 15.671085975280633,
+          "RL_Best_Forecast": 16.321861703835065,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2028-05-01",
-          "RL_Best_Forecast": 18.726153742359138,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.825352,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-06-01",
-          "RL_Best_Forecast": 23.101219271695165,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 22.7807,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-07-01",
-          "RL_Best_Forecast": 26.59781230230487,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.017094,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-08-01",
-          "RL_Best_Forecast": 26.93069539852146,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.973652,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-09-01",
-          "RL_Best_Forecast": 23.8711293820772,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.28136,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-10-01",
-          "RL_Best_Forecast": 20.44421743994919,
+          "RL_Best_Forecast": 20.93338948953456,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2028-11-01",
-          "RL_Best_Forecast": 15.093351850798305,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.226229,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2028-12-01",
-          "RL_Best_Forecast": 11.81947212851328,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 13.790747,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-01-01",
-          "RL_Best_Forecast": 10.869458226130025,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.616443,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-02-01",
-          "RL_Best_Forecast": 10.99367893080378,
+          "RL_Best_Forecast": 12.051976064927889,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2029-03-01",
-          "RL_Best_Forecast": 13.0504029091322,
+          "RL_Best_Forecast": 13.96920433613376,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2029-04-01",
-          "RL_Best_Forecast": 15.695660030734343,
+          "RL_Best_Forecast": 16.384237824553413,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2029-05-01",
-          "RL_Best_Forecast": 18.755518493546468,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.583534,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-06-01",
-          "RL_Best_Forecast": 23.13744462610433,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 22.551233,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-07-01",
-          "RL_Best_Forecast": 26.63952071456776,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.739433,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-08-01",
-          "RL_Best_Forecast": 26.972925809558333,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.604753,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-09-01",
-          "RL_Best_Forecast": 23.90856204361088,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.952156,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-10-01",
-          "RL_Best_Forecast": 20.476276311546822,
+          "RL_Best_Forecast": 20.995888219685423,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2029-11-01",
-          "RL_Best_Forecast": 15.117019953056756,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.225515,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2029-12-01",
-          "RL_Best_Forecast": 11.838006412862036,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 13.890845,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-01-01",
-          "RL_Best_Forecast": 10.886502780006,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.741692,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-02-01",
-          "RL_Best_Forecast": 11.01091827695452,
+          "RL_Best_Forecast": 12.114238659656708,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2030-03-01",
-          "RL_Best_Forecast": 13.070867433753415,
+          "RL_Best_Forecast": 14.031517905351135,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2030-04-01",
-          "RL_Best_Forecast": 15.72027262111808,
+          "RL_Best_Forecast": 16.44661560370279,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2030-05-01",
-          "RL_Best_Forecast": 18.784929292022756,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.338297,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-06-01",
-          "RL_Best_Forecast": 23.173726786013088,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 22.289164,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-07-01",
-          "RL_Best_Forecast": 26.681294530392183,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.660181,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-08-01",
-          "RL_Best_Forecast": 27.015222442710527,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.812109,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-09-01",
-          "RL_Best_Forecast": 23.946053403839837,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.352528,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-10-01",
-          "RL_Best_Forecast": 20.5083854551224,
+          "RL_Best_Forecast": 21.058388611527203,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2030-11-01",
-          "RL_Best_Forecast": 15.140725169606984,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.586744,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2030-12-01",
-          "RL_Best_Forecast": 11.856569761088824,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.096924,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-01-01",
-          "RL_Best_Forecast": 10.903574061692211,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.819396,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-02-01",
-          "RL_Best_Forecast": 11.028184656372066,
+          "RL_Best_Forecast": 12.176502909798172,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2031-03-01",
-          "RL_Best_Forecast": 13.09136404909021,
+          "RL_Best_Forecast": 14.093833131336446,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2031-04-01",
-          "RL_Best_Forecast": 15.744923806859015,
+          "RL_Best_Forecast": 16.50899504132728,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2031-05-01",
-          "RL_Best_Forecast": 18.814386209995405,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.09017,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-06-01",
-          "RL_Best_Forecast": 23.210065840498967,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 22.008795,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-07-01",
-          "RL_Best_Forecast": 26.723133852338407,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.364435,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-08-01",
-          "RL_Best_Forecast": 27.057585401821893,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.540045,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-09-01",
-          "RL_Best_Forecast": 23.983603554810333,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.194134,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-10-01",
-          "RL_Best_Forecast": 20.540544949508128,
+          "RL_Best_Forecast": 21.12089066510408,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2031-11-01",
-          "RL_Best_Forecast": 15.164467558648449,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.724222,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2031-12-01",
-          "RL_Best_Forecast": 11.875162218769129,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.271328,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-01-01",
-          "RL_Best_Forecast": 10.920672113100922,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 11.970139,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-02-01",
-          "RL_Best_Forecast": 11.045478111447672,
+          "RL_Best_Forecast": 12.238768815396291,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2032-03-01",
-          "RL_Best_Forecast": 13.1118928054645,
+          "RL_Best_Forecast": 14.156150014133738,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2032-04-01",
-          "RL_Best_Forecast": 15.76961364847909,
+          "RL_Best_Forecast": 16.571376137470992,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2032-05-01",
-          "RL_Best_Forecast": 18.84388931978507,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.857878,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-06-01",
-          "RL_Best_Forecast": 23.246461878779176,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.780966,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-07-01",
-          "RL_Best_Forecast": 26.765038783127515,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.284966,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-08-01",
-          "RL_Best_Forecast": 27.100014790899124,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.64937,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-09-01",
-          "RL_Best_Forecast": 24.021212588712988,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.44873,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-10-01",
-          "RL_Best_Forecast": 20.57275487365984,
+          "RL_Best_Forecast": 21.18339438046024,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2032-11-01",
-          "RL_Best_Forecast": 15.188247178471862,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 17.99784,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2032-12-01",
-          "RL_Best_Forecast": 11.893783831549898,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.447132,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-01-01",
-          "RL_Best_Forecast": 10.93779697621012,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.055249,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-02-01",
-          "RL_Best_Forecast": 11.062798684639064,
+          "RL_Best_Forecast": 12.301036376495087,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2033-03-01",
-          "RL_Best_Forecast": 13.132453753277105,
+          "RL_Best_Forecast": 14.218468553787064,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2033-04-01",
-          "RL_Best_Forecast": 15.79434220659514,
+          "RL_Best_Forecast": 16.63375889217801,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2033-05-01",
-          "RL_Best_Forecast": 18.8734386938258,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.605839,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-06-01",
-          "RL_Best_Forecast": 23.28291499021082,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.484901,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-07-01",
-          "RL_Best_Forecast": 26.807009425641688,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.006731,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-08-01",
-          "RL_Best_Forecast": 27.142510714112007,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.448313,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-09-01",
-          "RL_Best_Forecast": 24.05888059788297,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.390295,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-10-01",
-          "RL_Best_Forecast": 20.605015306657165,
+          "RL_Best_Forecast": 21.24589975763985,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2033-11-01",
-          "RL_Best_Forecast": 15.212064087459355,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.196663,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2033-12-01",
-          "RL_Best_Forecast": 11.912434645149672,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.646516,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-01-01",
-          "RL_Best_Forecast": 10.954948693063615,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.207962,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-02-01",
-          "RL_Best_Forecast": 11.080146418470555,
+          "RL_Best_Forecast": 12.36330559313857,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2034-03-01",
-          "RL_Best_Forecast": 13.153046943007883,
+          "RL_Best_Forecast": 14.280788750340475,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2034-04-01",
-          "RL_Best_Forecast": 15.81910954191906,
+          "RL_Best_Forecast": 16.696143305492445,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2034-05-01",
-          "RL_Best_Forecast": 18.903034404665235,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.387863,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-06-01",
-          "RL_Best_Forecast": 23.319425264291123,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 21.253683,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-07-01",
-          "RL_Best_Forecast": 26.849045882924425,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.897974,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-08-01",
-          "RL_Best_Forecast": 27.185073275793677,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.483356,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-09-01",
-          "RL_Best_Forecast": 24.09660767480024,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.554474,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-10-01",
-          "RL_Best_Forecast": 20.637326327703764,
+          "RL_Best_Forecast": 21.308406796687127,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2034-11-01",
-          "RL_Best_Forecast": 15.235918344084602,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.432947,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2034-12-01",
-          "RL_Best_Forecast": 11.93111470535867,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 14.8165655,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-01-01",
-          "RL_Best_Forecast": 10.972127305771156,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.295803,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-02-01",
-          "RL_Best_Forecast": 11.097521355533132,
+          "RL_Best_Forecast": 12.425576465370757,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2035-03-01",
-          "RL_Best_Forecast": 13.173672425215855,
+          "RL_Best_Forecast": 14.343110603838026,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2035-04-01",
-          "RL_Best_Forecast": 15.84391571525795,
+          "RL_Best_Forecast": 16.758529377458384,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2035-05-01",
-          "RL_Best_Forecast": 18.932676524964773,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 16.137,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-06-01",
-          "RL_Best_Forecast": 23.355992790657663,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 20.945642,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-07-01",
-          "RL_Best_Forecast": 26.8911482581808,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.640884,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-08-01",
-          "RL_Best_Forecast": 27.227702580440862,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.327736,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-09-01",
-          "RL_Best_Forecast": 24.134393912089788,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.550587,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-10-01",
-          "RL_Best_Forecast": 20.66968801612748,
+          "RL_Best_Forecast": 21.370915497646223,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2035-11-01",
-          "RL_Best_Forecast": 15.25981000691297,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.657053,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2035-12-01",
-          "RL_Best_Forecast": 11.949824058038924,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.00456,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-01-01",
-          "RL_Best_Forecast": 10.989332856508517,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.428343,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-02-01",
-          "RL_Best_Forecast": 11.114923538484575,
+          "RL_Best_Forecast": 12.487848993235668,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2036-03-01",
-          "RL_Best_Forecast": 13.194330250539318,
+          "RL_Best_Forecast": 14.405434114323768,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2036-04-01",
-          "RL_Best_Forecast": 15.868760787514258,
+          "RL_Best_Forecast": 16.820917108119932,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2036-05-01",
-          "RL_Best_Forecast": 18.962365127499755,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.924224,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-06-01",
-          "RL_Best_Forecast": 23.39261765908857,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 20.710323,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-07-01",
-          "RL_Best_Forecast": 26.933316654777748,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.504519,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-08-01",
-          "RL_Best_Forecast": 27.270398732714185,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.313745,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-09-01",
-          "RL_Best_Forecast": 24.172239402521843,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.662254,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-10-01",
-          "RL_Best_Forecast": 20.70210045138056,
+          "RL_Best_Forecast": 21.433425860561336,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2036-11-01",
-          "RL_Best_Forecast": 15.283739134601662,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 18.878004,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2036-12-01",
-          "RL_Best_Forecast": 11.968562749124375,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.148255,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-01-01",
-          "RL_Best_Forecast": 11.006565387517607,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.522241,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-02-01",
-          "RL_Best_Forecast": 11.132353010049554,
+          "RL_Best_Forecast": 12.55012317677732,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2037-03-01",
-          "RL_Best_Forecast": 13.215020469695972,
+          "RL_Best_Forecast": 14.467759281841758,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2037-04-01",
-          "RL_Best_Forecast": 15.89364481968594,
+          "RL_Best_Forecast": 16.88330649752119,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2037-05-01",
-          "RL_Best_Forecast": 18.992100285159648,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.679428,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-06-01",
-          "RL_Best_Forecast": 23.429299959502767,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 20.411093,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-07-01",
-          "RL_Best_Forecast": 26.97555117624428,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.269392,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-08-01",
-          "RL_Best_Forecast": 27.313161837438365,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.18836,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-09-01",
-          "RL_Best_Forecast": 24.21014423901212,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.686792,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-10-01",
-          "RL_Best_Forecast": 20.734563713039837,
+          "RL_Best_Forecast": 21.495937885476653,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2037-11-01",
-          "RL_Best_Forecast": 15.307705785899866,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.104006,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2037-12-01",
-          "RL_Best_Forecast": 11.987330824621004,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.310305,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-01-01",
-          "RL_Best_Forecast": 11.023824941106582,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.6468525,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-02-01",
-          "RL_Best_Forecast": 11.149809813019736,
+          "RL_Best_Forecast": 12.612399016039738,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2038-03-01",
-          "RL_Best_Forecast": 13.235743133483057,
+          "RL_Best_Forecast": 14.530086106436054,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2038-04-01",
-          "RL_Best_Forecast": 15.918567872866593,
+          "RL_Best_Forecast": 16.945697545706256,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2038-05-01",
-          "RL_Best_Forecast": 19.02188207094821,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.468584,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-06-01",
-          "RL_Best_Forecast": 23.466039781960166,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 20.172575,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-07-01",
-          "RL_Best_Forecast": 27.017851926271756,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 24.114996,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-08-01",
-          "RL_Best_Forecast": 27.3559919996025,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.144894,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-09-01",
-          "RL_Best_Forecast": 24.248108514622007,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.767637,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-10-01",
-          "RL_Best_Forecast": 20.767077880806923,
+          "RL_Best_Forecast": 21.558451572436365,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2038-11-01",
-          "RL_Best_Forecast": 15.3317100196489,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.312372,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2038-12-01",
-          "RL_Best_Forecast": 12.006128330606924,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.448311,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-01-01",
-          "RL_Best_Forecast": 11.041111559649934,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.745306,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-02-01",
-          "RL_Best_Forecast": 11.16729399025389,
+          "RL_Best_Forecast": 12.67467651106694,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2039-03-01",
-          "RL_Best_Forecast": 13.256498292777463,
+          "RL_Best_Forecast": 14.592414588150708,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2039-04-01",
-          "RL_Best_Forecast": 15.94353000824563,
+          "RL_Best_Forecast": 17.00809025271923,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2039-05-01",
-          "RL_Best_Forecast": 19.05171055798368,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.232037,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-06-01",
-          "RL_Best_Forecast": 23.50283721666192,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.888472,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-07-01",
-          "RL_Best_Forecast": 27.06021900871413,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.90452,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-08-01",
-          "RL_Best_Forecast": 27.398889324360333,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 26.03915,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-09-01",
-          "RL_Best_Forecast": 24.286132322558856,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.80458,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-10-01",
-          "RL_Best_Forecast": 20.799643034508428,
+          "RL_Best_Forecast": 21.620966921484666,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2039-11-01",
-          "RL_Best_Forecast": 15.355751894782337,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.529268,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2039-12-01",
-          "RL_Best_Forecast": 12.024955313232514,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.599546,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-01-01",
-          "RL_Best_Forecast": 11.05842528558861,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 12.865368,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-02-01",
-          "RL_Best_Forecast": 11.184805584677996,
+          "RL_Best_Forecast": 12.736955661902948,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2040-03-01",
-          "RL_Best_Forecast": 13.277285998535866,
+          "RL_Best_Forecast": 14.654744727029788,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2040-04-01",
-          "RL_Best_Forecast": 15.968531287108409,
+          "RL_Best_Forecast": 17.070484618604223,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2040-05-01",
-          "RL_Best_Forecast": 19.08158581949896,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 15.025183,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-06-01",
-          "RL_Best_Forecast": 23.539692353950603,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.64945,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-07-01",
-          "RL_Best_Forecast": 27.102652527588237,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 23.745937,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-08-01",
-          "RL_Best_Forecast": 27.44185391703049,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.979113,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-09-01",
-          "RL_Best_Forecast": 24.32421575617617,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 25.866793,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-10-01",
-          "RL_Best_Forecast": 20.83225925409612,
+          "RL_Best_Forecast": 21.68348393266573,
           "Model_Used": "SARIMA"
         },
         {
           "Date": "2040-11-01",
-          "RL_Best_Forecast": 15.379831470326176,
-          "Model_Used": "SARIMA"
+          "RL_Best_Forecast": 19.728743,
+          "Model_Used": "LSTM"
         },
         {
           "Date": "2040-12-01",
-          "RL_Best_Forecast": 12.043811818720512,
+          "RL_Best_Forecast": 15.734697,
+          "Model_Used": "LSTM"
+        }
+      ]
+    },
+    "RL_Agent_ET0": {
+      "model": "RL Agent - ET0 (Dual-Variable Trained)",
+      "variable": "et0_fao_evapotranspiration",
+      "unit": "mm",
+      "forecast_period": "2024-01-01 to 2040-12-01",
+      "available_models": [
+        "SARIMA",
+        "LSTM",
+        "Ridge",
+        "Prophet"
+      ],
+      "training_method": "Dual-variable Q-learning (Temperature + ET0 combined rewards)",
+      "summary_statistics": {
+        "RL_Best_Forecast": {
+          "count": 204.0,
+          "mean": 121.14373491583626,
+          "std": 44.834647543419855,
+          "min": 56.74725,
+          "25%": 77.13078776957866,
+          "50%": 121.48062827863143,
+          "75%": 161.133005,
+          "max": 196.9914
+        },
+        "Model_Selection": {
+          "LSTM": 136,
+          "SARIMA": 68
+        },
+        "Total_Predictions": 204
+      },
+      "last_5_years": [
+        {
+          "Date": "2036-01-01",
+          "RL_Best_Forecast": 58.309227,
+          "Model_Used": "LSTM",
+          "SARIMA": 71.6431286627586,
+          "LSTM": 58.309227,
+          "Ridge": 68.34619314818946,
+          "Prophet": 69.87221347461868
+        },
+        {
+          "Date": "2036-02-01",
+          "RL_Best_Forecast": 77.4347570507207,
+          "Model_Used": "SARIMA",
+          "SARIMA": 77.4347570507207,
+          "LSTM": 60.59343,
+          "Ridge": 108.67204681034488,
+          "Prophet": 83.41420651150194
+        },
+        {
+          "Date": "2036-03-01",
+          "RL_Best_Forecast": 104.4124918777344,
+          "Model_Used": "SARIMA",
+          "SARIMA": 104.4124918777344,
+          "LSTM": 73.836296,
+          "Ridge": 141.4078790019892,
+          "Prophet": 101.71552696188294
+        },
+        {
+          "Date": "2036-04-01",
+          "RL_Best_Forecast": 132.8337587177818,
+          "Model_Used": "SARIMA",
+          "SARIMA": 132.8337587177818,
+          "LSTM": 99.94366,
+          "Ridge": 166.55368972312223,
+          "Prophet": 127.04197451800162
+        },
+        {
+          "Date": "2036-05-01",
+          "RL_Best_Forecast": 131.56207,
+          "Model_Used": "LSTM",
+          "SARIMA": 137.7373654933143,
+          "LSTM": 131.56207,
+          "Ridge": 184.109478973744,
+          "Prophet": 154.67171206776197
+        },
+        {
+          "Date": "2036-06-01",
+          "RL_Best_Forecast": 163.88435,
+          "Model_Used": "LSTM",
+          "SARIMA": 161.85740132836435,
+          "LSTM": 163.88435,
+          "Ridge": 194.07524675385463,
+          "Prophet": 191.6235765917739
+        },
+        {
+          "Date": "2036-07-01",
+          "RL_Best_Forecast": 184.0988,
+          "Model_Used": "LSTM",
+          "SARIMA": 191.47578943732492,
+          "LSTM": 184.0988,
+          "Ridge": 196.450993063454,
+          "Prophet": 206.5701287564862
+        },
+        {
+          "Date": "2036-08-01",
+          "RL_Best_Forecast": 182.93437,
+          "Model_Used": "LSTM",
+          "SARIMA": 180.11943897633165,
+          "LSTM": 182.93437,
+          "Ridge": 191.23671790254213,
+          "Prophet": 194.94510918025705
+        },
+        {
+          "Date": "2036-09-01",
+          "RL_Best_Forecast": 159.13254,
+          "Model_Used": "LSTM",
+          "SARIMA": 139.18778776455886,
+          "LSTM": 159.13254,
+          "Ridge": 178.432421271119,
+          "Prophet": 150.61559775617525
+        },
+        {
+          "Date": "2036-10-01",
+          "RL_Best_Forecast": 117.43600081362725,
+          "Model_Used": "SARIMA",
+          "SARIMA": 117.43600081362725,
+          "LSTM": 121.507416,
+          "Ridge": 158.03810316918472,
+          "Prophet": 116.50750698411518
+        },
+        {
+          "Date": "2036-11-01",
+          "RL_Best_Forecast": 84.50552,
+          "Model_Used": "LSTM",
+          "SARIMA": 83.17698157086714,
+          "LSTM": 84.50552,
+          "Ridge": 130.05376359673917,
+          "Prophet": 79.98803606023861
+        },
+        {
+          "Date": "2036-12-01",
+          "RL_Best_Forecast": 63.86172,
+          "Model_Used": "LSTM",
+          "SARIMA": 77.3890421700029,
+          "LSTM": 63.86172,
+          "Ridge": 94.4794025537824,
+          "Prophet": 62.80557331300072
+        },
+        {
+          "Date": "2037-01-01",
+          "RL_Best_Forecast": 58.425053,
+          "Model_Used": "LSTM",
+          "SARIMA": 72.73207515847687,
+          "LSTM": 58.425053,
+          "Ridge": 70.893775541586,
+          "Prophet": 70.30698154794298
+        },
+        {
+          "Date": "2037-02-01",
+          "RL_Best_Forecast": 78.42713724741179,
+          "Model_Used": "SARIMA",
+          "SARIMA": 78.42713724741179,
+          "LSTM": 60.492264,
+          "Ridge": 111.28421718500914,
+          "Prophet": 86.27362836844301
+        },
+        {
+          "Date": "2037-03-01",
+          "RL_Best_Forecast": 104.9595894554318,
+          "Model_Used": "SARIMA",
+          "SARIMA": 104.9595894554318,
+          "LSTM": 73.32148,
+          "Ridge": 144.08463735792105,
+          "Prophet": 95.2727864091346
+        },
+        {
+          "Date": "2037-04-01",
+          "RL_Best_Forecast": 132.9124054403099,
+          "Model_Used": "SARIMA",
+          "SARIMA": 132.9124054403099,
+          "LSTM": 98.96875,
+          "Ridge": 169.29503606032176,
+          "Prophet": 120.45052714607824
+        },
+        {
+          "Date": "2037-05-01",
+          "RL_Best_Forecast": 130.54114,
+          "Model_Used": "LSTM",
+          "SARIMA": 137.72430689913824,
+          "LSTM": 130.54114,
+          "Ridge": 186.9154132922112,
+          "Prophet": 148.2779859750693
+        },
+        {
+          "Date": "2037-06-01",
+          "RL_Best_Forecast": 162.83,
+          "Model_Used": "LSTM",
+          "SARIMA": 161.44271058177782,
+          "LSTM": 162.83,
+          "Ridge": 196.94576905358943,
+          "Prophet": 182.7530225639615
+        },
+        {
+          "Date": "2037-07-01",
+          "RL_Best_Forecast": 183.51616,
+          "Model_Used": "LSTM",
+          "SARIMA": 190.5738947101397,
+          "LSTM": 183.51616,
+          "Ridge": 199.38610334445647,
+          "Prophet": 202.5958520074203
+        },
+        {
+          "Date": "2037-08-01",
+          "RL_Best_Forecast": 183.10342,
+          "Model_Used": "LSTM",
+          "SARIMA": 179.4025738534039,
+          "LSTM": 183.10342,
+          "Ridge": 194.23641616481223,
+          "Prophet": 187.8760345024957
+        },
+        {
+          "Date": "2037-09-01",
+          "RL_Best_Forecast": 160.02913,
+          "Model_Used": "LSTM",
+          "SARIMA": 139.15431666698794,
+          "LSTM": 160.02913,
+          "Ridge": 181.4967075146568,
+          "Prophet": 143.2310355270082
+        },
+        {
+          "Date": "2037-10-01",
+          "RL_Best_Forecast": 117.7631325706006,
+          "Model_Used": "SARIMA",
+          "SARIMA": 117.7631325706006,
+          "LSTM": 122.76889,
+          "Ridge": 161.16697739399015,
+          "Prophet": 108.0837061630038
+        },
+        {
+          "Date": "2037-11-01",
+          "RL_Best_Forecast": 85.67107,
+          "Model_Used": "LSTM",
+          "SARIMA": 84.07238969663132,
+          "LSTM": 85.67107,
+          "Ridge": 133.24722580281227,
+          "Prophet": 73.49221946353411
+        },
+        {
+          "Date": "2037-12-01",
+          "RL_Best_Forecast": 64.3329,
+          "Model_Used": "LSTM",
+          "SARIMA": 78.38231306612381,
+          "LSTM": 64.3329,
+          "Ridge": 97.73745274112316,
+          "Prophet": 56.47300190220087
+        },
+        {
+          "Date": "2038-01-01",
+          "RL_Best_Forecast": 58.529182,
+          "Model_Used": "LSTM",
+          "SARIMA": 73.80342601288915,
+          "LSTM": 58.529182,
+          "Ridge": 73.54034746675035,
+          "Prophet": 62.63079883651108
+        },
+        {
+          "Date": "2038-02-01",
+          "RL_Best_Forecast": 79.40397868816807,
+          "Model_Used": "SARIMA",
+          "SARIMA": 79.40397868816807,
+          "LSTM": 60.382587,
+          "Ridge": 113.9953770914411,
+          "Prophet": 78.61137171755382
+        },
+        {
+          "Date": "2038-03-01",
+          "RL_Best_Forecast": 105.49369782166842,
+          "Model_Used": "SARIMA",
+          "SARIMA": 105.49369782166842,
+          "LSTM": 72.791176,
+          "Ridge": 146.8603852456207,
+          "Prophet": 92.22400169265676
+        },
+        {
+          "Date": "2038-04-01",
+          "RL_Best_Forecast": 132.97972715996332,
+          "Model_Used": "SARIMA",
+          "SARIMA": 132.97972715996332,
+          "LSTM": 97.994026,
+          "Ridge": 172.13537192928908,
+          "Prophet": 116.68753665663765
+        },
+        {
+          "Date": "2038-05-01",
+          "RL_Best_Forecast": 129.53719,
+          "Model_Used": "LSTM",
+          "SARIMA": 137.71710663228785,
+          "LSTM": 129.53719,
+          "Ridge": 189.8203371424462,
+          "Prophet": 145.23956493037574
+        },
+        {
+          "Date": "2038-06-01",
+          "RL_Best_Forecast": 161.80586,
+          "Model_Used": "LSTM",
+          "SARIMA": 161.04161906053048,
+          "LSTM": 161.80586,
+          "Ridge": 199.91528088509205,
+          "Prophet": 176.7282722051092
+        },
+        {
+          "Date": "2038-07-01",
+          "RL_Best_Forecast": 182.95837,
+          "Model_Used": "LSTM",
+          "SARIMA": 189.6858145239595,
+          "LSTM": 182.95837,
+          "Ridge": 202.42020315722672,
+          "Prophet": 202.01051801100755
+        },
+        {
+          "Date": "2038-08-01",
+          "RL_Best_Forecast": 183.2756,
+          "Model_Used": "LSTM",
+          "SARIMA": 178.7021971040653,
+          "LSTM": 183.2756,
+          "Ridge": 197.33510395885017,
+          "Prophet": 183.5973910543434
+        },
+        {
+          "Date": "2038-09-01",
+          "RL_Best_Forecast": 160.90904,
+          "Model_Used": "LSTM",
+          "SARIMA": 139.12136390793466,
+          "LSTM": 160.90904,
+          "Ridge": 184.6599832899624,
+          "Prophet": 137.30485507075298
+        },
+        {
+          "Date": "2038-10-01",
+          "RL_Best_Forecast": 118.0862777835252,
+          "Model_Used": "SARIMA",
+          "SARIMA": 118.0862777835252,
+          "LSTM": 124.00949,
+          "Ridge": 164.39484115056337,
+          "Prophet": 102.50248626293444
+        },
+        {
+          "Date": "2038-11-01",
+          "RL_Best_Forecast": 86.83069,
+          "Model_Used": "LSTM",
+          "SARIMA": 84.9562074107461,
+          "LSTM": 86.83069,
+          "Ridge": 136.53967754065314,
+          "Prophet": 68.51286759148817
+        },
+        {
+          "Date": "2038-12-01",
+          "RL_Best_Forecast": 64.79567,
+          "Model_Used": "LSTM",
+          "SARIMA": 79.35982949139868,
+          "LSTM": 64.79567,
+          "Ridge": 101.09449246023166,
+          "Prophet": 52.95883719941541
+        },
+        {
+          "Date": "2039-01-01",
+          "RL_Best_Forecast": 58.63532,
+          "Model_Used": "LSTM",
+          "SARIMA": 74.85669718382077,
+          "LSTM": 58.63532,
+          "Ridge": 76.28590892368246,
+          "Prophet": 56.404655733522745
+        },
+        {
+          "Date": "2039-02-01",
+          "RL_Best_Forecast": 80.36406931489095,
+          "Model_Used": "SARIMA",
+          "SARIMA": 80.36406931489095,
+          "LSTM": 60.27438,
+          "Ridge": 116.8055265296409,
+          "Prophet": 70.4143497584193
+        },
+        {
+          "Date": "2039-03-01",
+          "RL_Best_Forecast": 106.02101576439571,
+          "Model_Used": "SARIMA",
+          "SARIMA": 106.02101576439571,
+          "LSTM": 72.26443,
+          "Ridge": 149.73512266508814,
+          "Prophet": 91.61926280059522
+        },
+        {
+          "Date": "2039-04-01",
+          "RL_Best_Forecast": 133.05129969477258,
+          "Model_Used": "SARIMA",
+          "SARIMA": 133.05129969477258,
+          "LSTM": 97.03854,
+          "Ridge": 175.07469733002415,
+          "Prophet": 116.10778700259958
+        },
+        {
+          "Date": "2039-05-01",
+          "RL_Best_Forecast": 128.52507,
+          "Model_Used": "LSTM",
+          "SARIMA": 137.70700211226867,
+          "LSTM": 128.52507,
+          "Ridge": 192.8242505244489,
+          "Prophet": 144.60645211255192
+        },
+        {
+          "Date": "2039-06-01",
+          "RL_Best_Forecast": 160.76894,
+          "Model_Used": "LSTM",
+          "SARIMA": 160.64360007905043,
+          "LSTM": 160.76894,
+          "Ridge": 202.98378224836244,
+          "Prophet": 173.90625629199275
+        },
+        {
+          "Date": "2039-07-01",
+          "RL_Best_Forecast": 182.3931,
+          "Model_Used": "LSTM",
+          "SARIMA": 188.81312769001408,
+          "LSTM": 182.3931,
+          "Ridge": 205.5532925017648,
+          "Prophet": 203.86176434729344
+        },
+        {
+          "Date": "2039-08-01",
+          "RL_Best_Forecast": 183.45293,
+          "Model_Used": "LSTM",
+          "SARIMA": 178.01101160705284,
+          "LSTM": 183.45293,
+          "Ridge": 200.53278128465587,
+          "Prophet": 182.46468163419743
+        },
+        {
+          "Date": "2039-09-01",
+          "RL_Best_Forecast": 161.8049,
+          "Model_Used": "LSTM",
+          "SARIMA": 139.0889793021179,
+          "LSTM": 161.8049,
+          "Ridge": 187.9222485970357,
+          "Prophet": 134.7427961250922
+        },
+        {
+          "Date": "2039-10-01",
+          "RL_Best_Forecast": 118.40327353528316,
+          "Model_Used": "SARIMA",
+          "SARIMA": 118.40327353528316,
+          "LSTM": 125.2657,
+          "Ridge": 167.7216944389044,
+          "Prophet": 100.121261039739
+        },
+        {
+          "Date": "2039-11-01",
+          "RL_Best_Forecast": 88.05827,
+          "Model_Used": "LSTM",
+          "SARIMA": 85.82356820206228,
+          "LSTM": 88.05827,
+          "Ridge": 139.9311188102618,
+          "Prophet": 66.95458940655428
+        },
+        {
+          "Date": "2039-12-01",
+          "RL_Best_Forecast": 65.2598,
+          "Model_Used": "LSTM",
+          "SARIMA": 80.32069157794415,
+          "LSTM": 65.2598,
+          "Ridge": 104.55052171110792,
+          "Prophet": 52.61761139220452
+        },
+        {
+          "Date": "2040-01-01",
+          "RL_Best_Forecast": 58.736416,
+          "Model_Used": "LSTM",
+          "SARIMA": 75.89260545393138,
+          "LSTM": 58.736416,
+          "Ridge": 79.13045991238235,
+          "Prophet": 53.53415810035122
+        },
+        {
+          "Date": "2040-02-01",
+          "RL_Best_Forecast": 81.3084757389128,
+          "Model_Used": "SARIMA",
+          "SARIMA": 81.3084757389128,
+          "LSTM": 60.157784,
+          "Ridge": 119.71466549960844,
+          "Prophet": 65.04089942227718
+        },
+        {
+          "Date": "2040-03-01",
+          "RL_Best_Forecast": 106.53844909899924,
+          "Model_Used": "SARIMA",
+          "SARIMA": 106.53844909899924,
+          "LSTM": 71.72826,
+          "Ridge": 152.7088496163233,
+          "Prophet": 92.82341515648156
+        },
+        {
+          "Date": "2040-04-01",
+          "RL_Best_Forecast": 133.1188040329164,
+          "Model_Used": "SARIMA",
+          "SARIMA": 133.1188040329164,
+          "LSTM": 96.07856,
+          "Ridge": 178.11301226252698,
+          "Prophet": 114.35928086905164
+        },
+        {
+          "Date": "2040-05-01",
+          "RL_Best_Forecast": 127.517006,
+          "Model_Used": "LSTM",
+          "SARIMA": 137.69868650953896,
+          "LSTM": 127.517006,
+          "Ridge": 195.9271534382194,
+          "Prophet": 145.98654965435853
+        },
+        {
+          "Date": "2040-06-01",
+          "RL_Best_Forecast": 159.74112,
+          "Model_Used": "LSTM",
+          "SARIMA": 160.25412411406245,
+          "LSTM": 159.74112,
+          "Ridge": 206.1512731434006,
+          "Prophet": 179.1929376552592
+        },
+        {
+          "Date": "2040-07-01",
+          "RL_Best_Forecast": 181.83403,
+          "Model_Used": "LSTM",
+          "SARIMA": 187.95460893067784,
+          "LSTM": 181.83403,
+          "Ridge": 208.78537137807052,
+          "Prophet": 198.0876824675512
+        },
+        {
+          "Date": "2040-08-01",
+          "RL_Best_Forecast": 183.62778,
+          "Model_Used": "LSTM",
+          "SARIMA": 177.3326292105233,
+          "LSTM": 183.62778,
+          "Ridge": 203.8294481422293,
+          "Prophet": 182.52526372946133
+        },
+        {
+          "Date": "2040-09-01",
+          "RL_Best_Forecast": 162.69333,
+          "Model_Used": "LSTM",
+          "SARIMA": 139.05712208403068,
+          "LSTM": 162.69333,
+          "Ridge": 191.2835034358768,
+          "Prophet": 134.58433058821927
+        },
+        {
+          "Date": "2040-10-01",
+          "RL_Best_Forecast": 118.7154169781889,
+          "Model_Used": "SARIMA",
+          "SARIMA": 118.7154169781889,
+          "LSTM": 126.51708,
+          "Ridge": 171.14753725901312,
+          "Prophet": 103.77662227344118
+        },
+        {
+          "Date": "2040-11-01",
+          "RL_Best_Forecast": 89.2869,
+          "Model_Used": "LSTM",
+          "SARIMA": 86.67745754852372,
+          "LSTM": 89.2869,
+          "Ridge": 143.42154961163826,
+          "Prophet": 63.675961717730594
+        },
+        {
+          "Date": "2040-12-01",
+          "RL_Best_Forecast": 65.72511,
+          "Model_Used": "LSTM",
+          "SARIMA": 81.265798909064,
+          "LSTM": 65.72511,
+          "Ridge": 108.10554049375202,
+          "Prophet": 49.86110186845686
+        }
+      ],
+      "full_forecast": [
+        {
+          "Date": "2024-01-01",
+          "RL_Best_Forecast": 56.907837,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2024-02-01",
+          "RL_Best_Forecast": 64.85301239135522,
           "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2024-03-01",
+          "RL_Best_Forecast": 94.15010869515986,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2024-04-01",
+          "RL_Best_Forecast": 124.24583957907396,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2024-05-01",
+          "RL_Best_Forecast": 146.92209,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2024-06-01",
+          "RL_Best_Forecast": 180.50008,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2024-07-01",
+          "RL_Best_Forecast": 196.9914,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2024-08-01",
+          "RL_Best_Forecast": 187.45361,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2024-09-01",
+          "RL_Best_Forecast": 149.04863,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2024-10-01",
+          "RL_Best_Forecast": 114.14261305078983,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2024-11-01",
+          "RL_Best_Forecast": 73.14935,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2024-12-01",
+          "RL_Best_Forecast": 58.378624,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-01-01",
+          "RL_Best_Forecast": 56.74725,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-02-01",
+          "RL_Best_Forecast": 64.94789747143061,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2025-03-01",
+          "RL_Best_Forecast": 99.37070411765995,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2025-04-01",
+          "RL_Best_Forecast": 136.0484365289147,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2025-05-01",
+          "RL_Best_Forecast": 139.33727,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-06-01",
+          "RL_Best_Forecast": 172.5525,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-07-01",
+          "RL_Best_Forecast": 194.34329,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-08-01",
+          "RL_Best_Forecast": 181.90477,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-09-01",
+          "RL_Best_Forecast": 148.92558,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-10-01",
+          "RL_Best_Forecast": 112.84673130603464,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2025-11-01",
+          "RL_Best_Forecast": 73.58981,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2025-12-01",
+          "RL_Best_Forecast": 59.26874,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-01-01",
+          "RL_Best_Forecast": 56.965202,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-02-01",
+          "RL_Best_Forecast": 66.74200146209223,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2026-03-01",
+          "RL_Best_Forecast": 97.58397455979096,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2026-04-01",
+          "RL_Best_Forecast": 129.85564400186104,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2026-05-01",
+          "RL_Best_Forecast": 143.42145,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-06-01",
+          "RL_Best_Forecast": 176.41241,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-07-01",
+          "RL_Best_Forecast": 192.65372,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-08-01",
+          "RL_Best_Forecast": 183.60611,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-09-01",
+          "RL_Best_Forecast": 150.98438,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-10-01",
+          "RL_Best_Forecast": 114.15094583473451,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2026-11-01",
+          "RL_Best_Forecast": 74.31272,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2026-12-01",
+          "RL_Best_Forecast": 59.106197,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-01-01",
+          "RL_Best_Forecast": 57.200386,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-02-01",
+          "RL_Best_Forecast": 67.59458781618459,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2027-03-01",
+          "RL_Best_Forecast": 99.53663443719502,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2027-04-01",
+          "RL_Best_Forecast": 133.30687577231097,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2027-05-01",
+          "RL_Best_Forecast": 140.40477,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-06-01",
+          "RL_Best_Forecast": 173.16098,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-07-01",
+          "RL_Best_Forecast": 190.43948,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-08-01",
+          "RL_Best_Forecast": 181.74074,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-09-01",
+          "RL_Best_Forecast": 151.17601,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-10-01",
+          "RL_Best_Forecast": 114.05127193656072,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2027-11-01",
+          "RL_Best_Forecast": 75.61918,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2027-12-01",
+          "RL_Best_Forecast": 59.893,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-01-01",
+          "RL_Best_Forecast": 57.19929,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-02-01",
+          "RL_Best_Forecast": 68.92170689159396,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2028-03-01",
+          "RL_Best_Forecast": 99.46829388774093,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2028-04-01",
+          "RL_Best_Forecast": 131.5863358832956,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2028-05-01",
+          "RL_Best_Forecast": 140.5962,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-06-01",
+          "RL_Best_Forecast": 173.20782,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-07-01",
+          "RL_Best_Forecast": 189.9178,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-08-01",
+          "RL_Best_Forecast": 182.51927,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-09-01",
+          "RL_Best_Forecast": 152.41254,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-10-01",
+          "RL_Best_Forecast": 114.69417423219429,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2028-11-01",
+          "RL_Best_Forecast": 76.234695,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2028-12-01",
+          "RL_Best_Forecast": 60.074654,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-01-01",
+          "RL_Best_Forecast": 57.425987,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-02-01",
+          "RL_Best_Forecast": 69.96480028653978,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-03-01",
+          "RL_Best_Forecast": 100.46702752783828,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-04-01",
+          "RL_Best_Forecast": 132.6359208264788,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-05-01",
+          "RL_Best_Forecast": 138.86542,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-06-01",
+          "RL_Best_Forecast": 171.31316,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-07-01",
+          "RL_Best_Forecast": 188.49,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-08-01",
+          "RL_Best_Forecast": 181.9316,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-09-01",
+          "RL_Best_Forecast": 153.09543,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-10-01",
+          "RL_Best_Forecast": 114.92922733514516,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2029-11-01",
+          "RL_Best_Forecast": 77.366455,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2029-12-01",
+          "RL_Best_Forecast": 60.630898,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-01-01",
+          "RL_Best_Forecast": 57.502396,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-02-01",
+          "RL_Best_Forecast": 71.13097867054846,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-03-01",
+          "RL_Best_Forecast": 100.87777399683254,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-04-01",
+          "RL_Best_Forecast": 132.19849172123676,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-05-01",
+          "RL_Best_Forecast": 138.02931,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-06-01",
+          "RL_Best_Forecast": 170.52765,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-07-01",
+          "RL_Best_Forecast": 188.01862,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-08-01",
+          "RL_Best_Forecast": 182.28653,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-09-01",
+          "RL_Best_Forecast": 154.00763,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-10-01",
+          "RL_Best_Forecast": 115.37326821453344,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2030-11-01",
+          "RL_Best_Forecast": 78.09145,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2030-12-01",
+          "RL_Best_Forecast": 60.991337,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-01-01",
+          "RL_Best_Forecast": 57.68457,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-02-01",
+          "RL_Best_Forecast": 72.20249920255357,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-03-01",
+          "RL_Best_Forecast": 101.5879783220438,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-04-01",
+          "RL_Best_Forecast": 132.55608071414903,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-05-01",
+          "RL_Best_Forecast": 136.67308,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-06-01",
+          "RL_Best_Forecast": 169.1218,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-07-01",
+          "RL_Best_Forecast": 187.05557,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-08-01",
+          "RL_Best_Forecast": 182.1798,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-09-01",
+          "RL_Best_Forecast": 154.8577,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-10-01",
+          "RL_Best_Forecast": 115.69580771736732,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2031-11-01",
+          "RL_Best_Forecast": 79.05964,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2031-12-01",
+          "RL_Best_Forecast": 61.469566,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-01-01",
+          "RL_Best_Forecast": 57.795925,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-02-01",
+          "RL_Best_Forecast": 73.29655749478216,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-03-01",
+          "RL_Best_Forecast": 102.1221958415376,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-04-01",
+          "RL_Best_Forecast": 132.4854617539628,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-05-01",
+          "RL_Best_Forecast": 135.68813,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-06-01",
+          "RL_Best_Forecast": 168.16342,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-07-01",
+          "RL_Best_Forecast": 186.53842,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-08-01",
+          "RL_Best_Forecast": 182.38344,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-09-01",
+          "RL_Best_Forecast": 155.68329,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-10-01",
+          "RL_Best_Forecast": 116.0741587771039,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2032-11-01",
+          "RL_Best_Forecast": 79.96677,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2032-12-01",
+          "RL_Best_Forecast": 61.912125,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-01-01",
+          "RL_Best_Forecast": 57.94693,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-02-01",
+          "RL_Best_Forecast": 74.3508008072442,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-03-01",
+          "RL_Best_Forecast": 102.73554101518836,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-04-01",
+          "RL_Best_Forecast": 132.6423670201674,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-05-01",
+          "RL_Best_Forecast": 134.58534,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-06-01",
+          "RL_Best_Forecast": 166.9875,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-07-01",
+          "RL_Best_Forecast": 185.81876,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-08-01",
+          "RL_Best_Forecast": 182.46028,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-09-01",
+          "RL_Best_Forecast": 156.5555,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-10-01",
+          "RL_Best_Forecast": 116.41342944939036,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2033-11-01",
+          "RL_Best_Forecast": 81.113464,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2033-12-01",
+          "RL_Best_Forecast": 62.40978,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-01-01",
+          "RL_Best_Forecast": 58.065235,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-02-01",
+          "RL_Best_Forecast": 75.39911371624207,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-03-01",
+          "RL_Best_Forecast": 103.29151507595954,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-04-01",
+          "RL_Best_Forecast": 132.67533124884852,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-05-01",
+          "RL_Best_Forecast": 133.59663,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-06-01",
+          "RL_Best_Forecast": 165.98883,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-07-01",
+          "RL_Best_Forecast": 185.27586,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-08-01",
+          "RL_Best_Forecast": 182.62619,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-09-01",
+          "RL_Best_Forecast": 157.38521,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-10-01",
+          "RL_Best_Forecast": 116.76463793351944,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2034-11-01",
+          "RL_Best_Forecast": 82.20043,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2034-12-01",
+          "RL_Best_Forecast": 62.88893,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-01-01",
+          "RL_Best_Forecast": 58.197956,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-02-01",
+          "RL_Best_Forecast": 76.42378607831465,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-03-01",
+          "RL_Best_Forecast": 103.86353543121513,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-04-01",
+          "RL_Best_Forecast": 132.77278679547032,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-05-01",
+          "RL_Best_Forecast": 132.55954,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-06-01",
+          "RL_Best_Forecast": 164.90083,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-07-01",
+          "RL_Best_Forecast": 184.65361,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-08-01",
+          "RL_Best_Forecast": 182.76839,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-09-01",
+          "RL_Best_Forecast": 158.27188,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-10-01",
+          "RL_Best_Forecast": 117.1005862151054,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2035-11-01",
+          "RL_Best_Forecast": 83.36706,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2035-12-01",
+          "RL_Best_Forecast": 63.378532,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-01-01",
+          "RL_Best_Forecast": 58.309227,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-02-01",
+          "RL_Best_Forecast": 77.4347570507207,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2036-03-01",
+          "RL_Best_Forecast": 104.4124918777344,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2036-04-01",
+          "RL_Best_Forecast": 132.8337587177818,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2036-05-01",
+          "RL_Best_Forecast": 131.56207,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-06-01",
+          "RL_Best_Forecast": 163.88435,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-07-01",
+          "RL_Best_Forecast": 184.0988,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-08-01",
+          "RL_Best_Forecast": 182.93437,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-09-01",
+          "RL_Best_Forecast": 159.13254,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-10-01",
+          "RL_Best_Forecast": 117.43600081362725,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2036-11-01",
+          "RL_Best_Forecast": 84.50552,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2036-12-01",
+          "RL_Best_Forecast": 63.86172,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-01-01",
+          "RL_Best_Forecast": 58.425053,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-02-01",
+          "RL_Best_Forecast": 78.42713724741179,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2037-03-01",
+          "RL_Best_Forecast": 104.9595894554318,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2037-04-01",
+          "RL_Best_Forecast": 132.9124054403099,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2037-05-01",
+          "RL_Best_Forecast": 130.54114,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-06-01",
+          "RL_Best_Forecast": 162.83,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-07-01",
+          "RL_Best_Forecast": 183.51616,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-08-01",
+          "RL_Best_Forecast": 183.10342,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-09-01",
+          "RL_Best_Forecast": 160.02913,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-10-01",
+          "RL_Best_Forecast": 117.7631325706006,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2037-11-01",
+          "RL_Best_Forecast": 85.67107,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2037-12-01",
+          "RL_Best_Forecast": 64.3329,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-01-01",
+          "RL_Best_Forecast": 58.529182,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-02-01",
+          "RL_Best_Forecast": 79.40397868816807,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2038-03-01",
+          "RL_Best_Forecast": 105.49369782166842,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2038-04-01",
+          "RL_Best_Forecast": 132.97972715996332,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2038-05-01",
+          "RL_Best_Forecast": 129.53719,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-06-01",
+          "RL_Best_Forecast": 161.80586,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-07-01",
+          "RL_Best_Forecast": 182.95837,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-08-01",
+          "RL_Best_Forecast": 183.2756,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-09-01",
+          "RL_Best_Forecast": 160.90904,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-10-01",
+          "RL_Best_Forecast": 118.0862777835252,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2038-11-01",
+          "RL_Best_Forecast": 86.83069,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2038-12-01",
+          "RL_Best_Forecast": 64.79567,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-01-01",
+          "RL_Best_Forecast": 58.63532,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-02-01",
+          "RL_Best_Forecast": 80.36406931489095,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2039-03-01",
+          "RL_Best_Forecast": 106.02101576439571,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2039-04-01",
+          "RL_Best_Forecast": 133.05129969477258,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2039-05-01",
+          "RL_Best_Forecast": 128.52507,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-06-01",
+          "RL_Best_Forecast": 160.76894,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-07-01",
+          "RL_Best_Forecast": 182.3931,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-08-01",
+          "RL_Best_Forecast": 183.45293,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-09-01",
+          "RL_Best_Forecast": 161.8049,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-10-01",
+          "RL_Best_Forecast": 118.40327353528316,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2039-11-01",
+          "RL_Best_Forecast": 88.05827,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2039-12-01",
+          "RL_Best_Forecast": 65.2598,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-01-01",
+          "RL_Best_Forecast": 58.736416,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-02-01",
+          "RL_Best_Forecast": 81.3084757389128,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2040-03-01",
+          "RL_Best_Forecast": 106.53844909899924,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2040-04-01",
+          "RL_Best_Forecast": 133.1188040329164,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2040-05-01",
+          "RL_Best_Forecast": 127.517006,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-06-01",
+          "RL_Best_Forecast": 159.74112,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-07-01",
+          "RL_Best_Forecast": 181.83403,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-08-01",
+          "RL_Best_Forecast": 183.62778,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-09-01",
+          "RL_Best_Forecast": 162.69333,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-10-01",
+          "RL_Best_Forecast": 118.7154169781889,
+          "Model_Used": "SARIMA"
+        },
+        {
+          "Date": "2040-11-01",
+          "RL_Best_Forecast": 89.2869,
+          "Model_Used": "LSTM"
+        },
+        {
+          "Date": "2040-12-01",
+          "RL_Best_Forecast": 65.72511,
+          "Model_Used": "LSTM"
         }
       ]
     }
   },
   "summary": {
     "num_trend_variables": 0,
-    "num_forecast_models": 1,
+    "num_forecast_models": 2,
     "forecast_models": [
-      "RL_Agent_Forecast"
+      "RL_Agent_Temperature",
+      "RL_Agent_ET0"
     ]
   }
 }
